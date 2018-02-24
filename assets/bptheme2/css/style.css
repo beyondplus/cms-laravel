@@ -1,0 +1,221 @@
+* {
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin: 0px;
+  padding: 0px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  text-decoration: none; }
+
+ul {
+  list-style-type: none; }
+
+h1 {
+  display: block;
+  font-size: 1em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold; }
+
+.textright {
+  text-align: right;
+  padding-right: 30px; }
+
+.homeimage {
+  padding-top: 40px; }
+
+.input {
+  line-height: 21px;
+  height: 21px;
+  width: 159px;
+  background-color: white;
+  text-align: right;
+  float: left;
+  margin-bottom: 9px;
+  padding-right: 9px;
+  margin-right: 3px; }
+
+.nav_box {
+  border-bottom: 4px solid;
+  border-bottom-color: rgba(225, 225, 225, 0.98); }
+
+.navs {
+  width: 100% auto; }
+
+.navs ul li a:hover {
+  color: #fecc66;
+  background: none !important; }
+
+.navs ul li a {
+  line-height: 35px;
+  height: 35px;
+  font-family: Verdana, Geneva, sans-serif !important;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 25px;
+  display: inline;
+  color: #3f3f3f !important; }
+
+.main_bg {
+  background: #ededed;
+  min-height: 500px; }
+
+.main_adv {
+  background-color: rgba(250, 250, 250, 0.98); }
+
+.count {
+  background-color: #ffffff;
+  border: 1px solid #333333;
+  color: #373737;
+  line-height: 16px;
+  padding: 2px 10px;
+  text-shadow: 1px 0 0 #333333;
+  height: 21px;
+  margin: 0px 10px; }
+
+.firstrow {
+  margin-bottom: 20px; }
+
+.asideleft {
+  padding: 20px; }
+
+.asideright {
+  background: #fff;
+  padding: 20px 10px; }
+
+.toolbar {
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 10px; }
+
+.listcontainer {
+  padding: 40px 0;
+  min-height: 200px; }
+
+.list {
+  background-position: left top;
+  /* height: 280px; */
+  width: 184px;
+  background-repeat: no-repeat;
+  margin-right: 21px;
+  /* margin-bottom: 20px; */
+  padding: 20px; }
+
+.list a:hover {
+  color: #F30404;
+  text-align: center; }
+
+.list a {
+  padding-top: 20px;
+  display: block;
+  font-size: 18px;
+  text-align: center; }
+
+.copyright {
+  background-color: rgba(250, 250, 250, 0.98);
+  padding: 20px 0px; }
+
+.copyright li {
+  float: left;
+  list-style: none;
+  margin-bottom: 20px; }
+
+.copyright1 {
+  width: 420px;
+  float: left; }
+
+.copyright1 ul li {
+  float: left;
+  width: 40px !important;
+  /*  margin-right: 20px;
+    margin-top: 20px;*/ }
+
+.copyright2 {
+  float: left;
+  text-align: center; }
+
+.copyright3 {
+  text-align: right; }
+
+.copyright3 ul li {
+  float: left;
+  margin-left: 15px;
+  margin-top: 16px; }
+
+.nr_left ul li a {
+  float: left;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #CCC;
+  color: #CCC;
+  margin-right: 4px;
+  padding-right: 4px; }
+
+#tableContainer {
+  padding: 5px; }
+
+.titleBar {
+  background: #e3e3e3 url("../img/default_bg.jpg") repeat-x center top;
+  padding: 1px 5px 0 7px; }
+
+.titleBar .title {
+  height: 23px;
+  float: left; }
+
+.btnbg1 {
+  background: url(../img/btn_bg.png) no-repeat 0px 0px;
+  height: 20px;
+  padding: 0px; }
+
+.btn {
+  width: 150px;
+  height: 30px;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff !important;
+  line-height: 15px;
+  font-size: 15px;
+  border: 1px solid  #428bca;
+  margin-top: 5px; }
+
+.oddsTable th {
+  height: 15px;
+  background: #6C6D86 url(../img/nlth_bg.jpg) repeat-x;
+  border: solid 1px #B8B8B8;
+  color: #fff;
+  font: 500 11px Tahoma; }
+
+.subnav-link li a {
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer; }
+
+.slidercontent {
+  padding: 50px; }
+
+.main_goal {
+  background-color: rgba(250, 250, 250, 0.98);
+  text-align: center; }
+
+.detail {
+  text-align: right; }
+
+.detail button {
+  text-align: center;
+  color: #066ED6 !important; }
+
+.hotque ol {
+  padding-left: 15px; }
+
+.listrow {
+  padding: 10px 0px; }
+
+aside {
+  height: 600px; }
+
+/*# sourceMappingURL=style.css.map */

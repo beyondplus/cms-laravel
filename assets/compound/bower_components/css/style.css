@@ -1,0 +1,7 @@
+#top-banner img{
+  height: auto;
+  width: 100%;
+  -moz-box-shadow: 0px 12px 10px -10px rgb(16, 168, 255);
+  -webkit-box-shadow: 0px 12px 10px -10px rgb(16, 168, 255);
+  box-shadow: 0px 12px 10px -10px rgb(16, 168, 255);
+}
