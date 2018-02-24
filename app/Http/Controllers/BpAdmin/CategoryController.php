@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_category;
+use App\Models\Bp_category;
 
 
 class CategoryController extends Controller

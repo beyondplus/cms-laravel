@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_custom;
+use App\Models\Bp_custom;
 
 
 class CustomController extends Controller

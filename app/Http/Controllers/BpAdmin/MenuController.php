@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_post;
-use BeyondPlus\CmsLibrary\Models\Bp_menu;
-use BeyondPlus\CmsLibrary\Models\User;
+use App\Models\Bp_post;
+use App\Models\Bp_menu;
+use App\Models\User;
 use Auth;
 
 class MenuController extends Controller
@@ -36,7 +36,7 @@ class MenuController extends Controller
 
 
     public function create(){
-        $categories= Bp_category::lists('category_name','category_id');
+        $categories= Bp_category::get()->pluck('category_name','category_id');
         return view('bp-admin.media.add', array('categories' => $categories));
 
     }
@@ -92,7 +92,7 @@ class MenuController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Category Not Found';
         }
-        $menus= Bp_menu::lists('menu_name','menu_id');
+        $menus= Bp_menu::get()->pluck('menu_name','menu_id');
         return view('bp-admin.menu.edit', array('menu' => $menu, 'menus'=> $menus));
 
     }

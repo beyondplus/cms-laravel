@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_category;
-use BeyondPlus\CmsLibrary\Models\Bp_post;
-use BeyondPlus\CmsLibrary\Models\User;
+use App\Models\Bp_category;
+use App\Models\Bp_post;
+use App\Models\User;
 
 class PageController extends Controller
 {
@@ -68,7 +68,7 @@ class PageController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Category Not Found';
         }
-        $categories= Bp_category::lists('category_name','category_id');
+        $categories= Bp_category::get()->pluck('category_name','category_id');
         return view('bp-admin.page.edit', array('page' => $page, 'categories' => $categories));
 
     }

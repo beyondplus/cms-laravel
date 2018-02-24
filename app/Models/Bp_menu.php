@@ -14,16 +14,16 @@ class Bp_menu extends Model
     ];
 
     public function Parent(){
-    	return $this->belongsTo('BeyondPlus\CmsLibrary\Models\Bp_menu', 'parent_id','menu_id');
+    	return $this->belongsTo('App\Models\Bp_menu', 'parent_id','menu_id');
     }
 
     public function Children()
     {
-        return $this->hasMany('BeyondPlus\CmsLibrary\Models\Bp_menu','parent_id','menu_id');
+        return $this->hasMany('App\Models\Bp_menu','parent_id','menu_id');
     }
 
     public function Post()
     {
-        return $this->belongsTo('BeyondPlus\CmsLibrary\Models\Bp_post','post_id','id');
+        return $this->belongsTo('App\Models\Bp_post','post_id','id');
     }
 }

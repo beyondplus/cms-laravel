@@ -12,11 +12,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_category;
-use BeyondPlus\CmsLibrary\Models\Bp_term;
-use BeyondPlus\CmsLibrary\Models\Bp_post;
-use BeyondPlus\CmsLibrary\Models\Bp_relationship;
-use BeyondPlus\CmsLibrary\Models\User;
+use App\Models\Bp_category;
+use App\Models\Bp_term;
+use App\Models\Bp_post;
+use App\Bp_relationship;
+use App\Models\User;
 use Auth;
 
 class PostController extends Controller

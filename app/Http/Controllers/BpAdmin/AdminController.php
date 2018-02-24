@@ -10,7 +10,7 @@ namespace App\Http\Controllers\BpAdmin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_post;
+use App\Models\Bp_post;
 use App\Admin;
 use App\User;
 

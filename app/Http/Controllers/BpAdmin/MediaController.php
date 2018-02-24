@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use BeyondPlus\CmsLibrary\Models\Bp_media;
-use BeyondPlus\CmsLibrary\Models\User;
+use App\Models\Bp_media;
+use App\Models\User;
 use Auth;
 
 class MediaController extends Controller
