@@ -28,7 +28,7 @@ class CategoryController extends Controller
 	}
 
 	public function create(){
-        $categories= Bp_category::lists('category_name','category_id');
+        $categories= Bp_category::get()->pluck('category_name','category_id');
         return view('bp-admin.category.add', array('categories' => $categories));
 	}
 
@@ -63,7 +63,7 @@ class CategoryController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Category Not Found';
         }
-        $categories= Bp_category::lists('category_name','category_id');
+        $categories= Bp_category::get()->pluck('category_name','category_id');
         return view('bp-admin.category.edit', array('category' => $category, 'categories' => $categories));
     }
 

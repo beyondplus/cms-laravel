@@ -76,6 +76,7 @@
             <!-- /.box -->
         </div>
     </div>
+
 @stop
 
 @push('scripts')

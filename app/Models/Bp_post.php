@@ -18,12 +18,12 @@ class Bp_post extends Model
 
     public function category()
     {
-        return $this->belongsTo('BeyondPlus\CmsLibrary\Models\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 
     public function categories()
     {
-        return $this->belongsToMany('BeyondPlus\CmsLibrary\Models\Bp_category', 'bp_relationship' ,'post_id', 'post_id');
+        return $this->belongsToMany('App\Models\Bp_category', 'bp_relationship' ,'post_id', 'post_id');
     }
 
 

@@ -10,7 +10,7 @@
                 <ul class="nav nav-pills">
                   <!-- <li id="home"><a id="menu_index" href="javascript:" onclick="SwitchSport('in');"><img width="24" height="22" src="assets/img/home_icon.png"></a></li> -->
                    <li><a id="menu_sport" href="{{url('/') }}">HOME</a></li>
-                   @foreach ($menus as $menu)
+                   @foreach (menu() as $menu)
                        @if(sizeof($menu->children)>0) 
                              <li class = "dropdown">
                                     <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">

@@ -77,9 +77,11 @@
                         {{  Form::label('Categories')  }}<br />
                         <ul>
                             @foreach($categories as $category)
-                            <li>
-                            {{ Form::checkbox('categories[]' , $category->category_id, in_array($category->category_id, $term_cat) ) }}
-                            <label for="{{$category->category_name}}">{{$category->category_name}}</label>
+                            <li>   
+                                
+                                {{ Form::checkbox('categories[]' , $category->category_id, in_array($category->category_id,     $term_cat) ) }}
+
+                                <label for="{{$category->category_name}}">{{$category->category_name}}</label>
                             </li>
                             @endforeach
                         </ul>

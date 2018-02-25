@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Bp_category;
 use App\Models\Bp_term;
 use App\Models\Bp_post;
-use App\Bp_relationship;
+use App\Models\Bp_relationship;
 use App\Models\User;
 use Auth;
 
@@ -55,12 +55,8 @@ class PostController extends Controller
        // echo $update_id->id;
         //print_r($update_id->id);
         $categories  = $request->get('categories');
-        for( $i=0; $i<sizeof($categories); $i++){
-            $cat['term_id'] = $categories[$i];
-            $cat['post_id'] = $update_id->id;
-            $cat['type']    = 'cat';
-            Bp_relationship::create($cat);
-        }
+
+        $this->termInsert($categories,$update_id->id);
 
         return redirect()->to('bp-admin/post');
     }
@@ -69,7 +65,7 @@ class PostController extends Controller
     {
         try {
             $post = Bp_post::findOrFail($id);
-            $term_cat = Bp_relationship::where('post_id',$id)->where('type','cat')->lists('term_id')->toArray();
+            $term_cat = Bp_relationship::where('post_id',$id)->where('type','cat')->pluck('term_id')->toArray();
             //$term_cat = Bp_relationship::where('post_id',$id)->where('type','cat')->get();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Post Not Found';
@@ -93,17 +89,10 @@ class PostController extends Controller
         Bp_post::findOrFail($id)->update($inputs);
 
         $categories  = $request->get('categories');
+
         //Deleteing Term
-        if(sizeof($categories)>0){
-            Bp_relationship::where('post_id',$id)->where('type','cat')->delete();
-        }
-        //Recreating New Term
-        for( $i=0; $i<sizeof($categories); $i++){
-            $cat['term_id'] = $categories[$i];
-            $cat['post_id'] = $id;
-            $cat['type']    = 'cat';
-            Bp_relationship::create($cat);
-        }
+        $this->termInsert($categories,$id);
+
         return redirect()->to('bp-admin/post');
     }
 
@@ -113,4 +102,23 @@ class PostController extends Controller
         return redirect()->back();
     }
 
+    public function termInsert($categories,$id) {
+        if($categories){
+            if(sizeof($categories)>0){
+                Bp_relationship::where('post_id',$id)->where('type','cat')->delete();
+            }
+            //Recreating New Term
+            for( $i=0; $i<sizeof($categories); $i++){
+                $cat['term_id'] = $categories[$i];
+                $cat['post_id'] = $id;
+                $cat['type']    = 'cat';
+                Bp_relationship::create($cat);
+            }
+        } else {
+            $cat['term_id'] = 1;
+            $cat['post_id'] = $id;
+            $cat['type']    = 'cat';
+            Bp_relationship::create($cat);
+        }
+    }
 }

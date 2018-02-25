@@ -15,17 +15,17 @@ class Bp_category extends Model
 
     public function parent()
     {
-        return $this->belongsTo('BeyondPlus\CmsLibrary\Models\Category', 'parent_id');
+        return $this->belongsTo('App\Models\Category', 'parent_id');
     }
 
     public function children()
     {
-        return $this->hasMany('BeyondPlus\CmsLibrary\Models\Category', 'parent_id');
+        return $this->hasMany('App\Models\Category', 'parent_id');
     }
 
     public function posts()
     {
-        return $this->belongsToMany('BeyondPlus\CmsLibrary\Models\Bp_post');
+        return $this->belongsToMany('App\Models\Bp_post');
     }
 
 }
