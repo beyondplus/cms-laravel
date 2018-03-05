@@ -31,8 +31,8 @@ class PageController extends Controller
 
 
     public function create(){
-
-        $categories= Bp_category::lists('category_name','category_id');
+            $categories= Bp_category::all();
+        //$categories= Bp_category::lists('category_name','category_id');
         return view('bp-admin.page.add', array('categories' => $categories));
 
     }

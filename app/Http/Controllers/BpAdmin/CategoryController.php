@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
-use App\Models\Bp_category;
+use App\Models\Bp_tax;
 
 
 class CategoryController extends Controller
@@ -22,13 +22,13 @@ class CategoryController extends Controller
 
 	public function index(){
 
-		$category = Bp_category::orderBy('category_name')->paginate(13);
+		$category = Bp_tax::orderBy('tax_name')->paginate(13);
 		//return view('bp-admin.category.index')->with(compact('category'));
         return view('bp-admin.category.index', array('category' => $category));
 	}
 
 	public function create(){
-        $categories= Bp_category::get()->pluck('category_name','category_id');
+        $categories= Bp_tax::get()->pluck('tax_name','category_id');
         return view('bp-admin.category.add', array('categories' => $categories));
 	}
 
@@ -39,7 +39,7 @@ class CategoryController extends Controller
         // ]);
 
         $inputs = $request->all();
-        $inputs['category_link'] = str_replace(' ', '-', strtolower($request->input('category_name')));
+        $inputs['category_link'] = str_replace(' ', '-', strtolower($request->input('tax_name')));
         if ($request->file('category_icon') && $request->file('category_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('category_icon')->getClientOriginalExtension(); // getting image extension
@@ -52,18 +52,18 @@ class CategoryController extends Controller
         }
 
 
-		Bp_category::create($inputs);
+		Bp_tax::create($inputs);
         return redirect()->to('bp-admin/category');
 	}
 
 	public function edit($id)
     {
         try {
-            $category = Bp_category::findOrFail($id);
+            $category = Bp_tax::findOrFail($id);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Category Not Found';
         }
-        $categories= Bp_category::get()->pluck('category_name','category_id');
+        $categories= Bp_tax::get()->pluck('tax_name','category_id');
         return view('bp-admin.category.edit', array('category' => $category, 'categories' => $categories));
     }
 
@@ -72,7 +72,7 @@ class CategoryController extends Controller
     {
         $inputs = $request->all();
      //   $inputs = $request->except('_token', '_method');
-        $inputs['category_link'] = str_replace(' ', '-', strtolower($request->input('category_name')));
+        $inputs['category_link'] = str_replace(' ', '-', strtolower($request->input('tax_name')));
         if ($request->file('category_icon') && $request->file('category_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('category_icon')->getClientOriginalExtension(); // getting image extension
@@ -81,13 +81,13 @@ class CategoryController extends Controller
             $inputs['category_icon'] = $fileName;
         }
 
-        Bp_category::findOrFail($id)->update($inputs);
+        Bp_tax::findOrFail($id)->update($inputs);
         return redirect()->to('bp-admin/category');
     }
 
     public function destroy($id)
     {
-        Bp_category::find($id)->delete();
+        Bp_tax::find($id)->delete();
         return redirect()->back();
     }
 

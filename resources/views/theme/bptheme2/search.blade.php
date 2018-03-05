@@ -1,10 +1,11 @@
-@extends('theme.bptheme2.layouts.app')
+@extends('theme::bptheme2.layouts.app')
 @section('content')
 	<div class="col-md-12 main_bg">
 		<div class="col-md-1"></div>
 		<div class="col-md-10 asideleft">
 			<div class="col-md-2 ">
-						
+				
+				
 				<h4>CATEGORIES<hr></h4>
 				
 				<ul>
@@ -36,7 +37,7 @@
 						<div class="col-md-2">
 							<div class="row">
 								<div class="col-md-12">
-								<img src="{{ asset("/assets/front/img/phpimages.jpg") }}" name="profile" class="img-responsive" />
+								<img src="{{ asset("/assets/bptheme2/img/phpimages.jpg") }}" name="profile" class="img-responsive" />
 								</div>
 							</div>
 						</div>

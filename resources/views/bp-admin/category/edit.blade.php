@@ -33,7 +33,7 @@
                             {{--  --}}
                             <div class="form-group">
                                 <label class="control-label">Name</label>
-                                {{Form::text('category_name', null,['class'=>'form-control'])}}
+                                {{Form::text('tax_name', null,['class'=>'form-control'])}}
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Image</label>

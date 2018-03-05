@@ -21,6 +21,7 @@ Route::group(['middleware' => 'web'], function () {
           return view('auth/adminlogin');
       });
 
+      
       Route::group(['prefix' => 'bp-admin','namespace'  =>  'BpAdmin', 'middleware' => 'admins'], function () {
 
       Route::get('/', 'AdminController@index');
@@ -86,4 +87,16 @@ Route::group(['prefix' => 'bp-admin','namespace'  =>  'BpAdmin', 'middleware' =>
 // });
 Route::group(['middleware' => 'web'], function () {
 	Route::get('/service', 'BpAdmin\TemplateController@service');
+});
+
+Route::get('lang/{locale}', function ($locale) {
+      if($locale == "mm"){
+            Session::put('applocale', 'mm');
+            App::setLocale($locale);
+      } else {
+            Session::put('applocale', 'en');
+            App::setLocale("en");
+      }    
+      $locale = App::getLocale();
+      return redirect()->back();
 });

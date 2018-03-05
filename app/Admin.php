@@ -12,7 +12,7 @@ class Admin extends AdminAuthenticatable
      * @var array
      */
 	protected $primaryKey = 'id';
-    protected $table = 'bp_admins';
+    protected $table = 'users';
     
     protected $fillable = [
         'username', 'email','password'

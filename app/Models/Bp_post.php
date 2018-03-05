@@ -7,23 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 class Bp_post extends Model
 {
     protected $primaryKey = 'id';
-    protected $table = 'bp_post';
+    protected $table = 'bp_posts';
 
     protected $fillable = [
 
-    	 'title', 'body','post_link','post_type','post_weight','post_active','post_created','created_at'
+         'title', 'body','featured','featured_img','post_link','post_type', 'post_template','post_weight','post_active','staff_id','lang','created_at'
 
     ];
 
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'staff_id');
+    }
 
     public function category()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsTo('App\Models\Bp_tax');
     }
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Bp_category', 'bp_relationship' ,'post_id', 'post_id');
+        return $this->belongsToMany('App\Models\Bp_tax', 'bp_relationships' ,'post_id', 'post_id');
     }
 
 

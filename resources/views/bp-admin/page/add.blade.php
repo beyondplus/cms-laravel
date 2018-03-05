@@ -68,6 +68,14 @@
             <!-- /.box -->
         </div>
     </div>
+
+     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+     <script src="{{url('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+        <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
+        <script>
+            $('textarea').ckeditor();
+            // $('.textarea').ckeditor(); // if class is prefered.
+        </script>
 @stop
 
 @push('scripts')

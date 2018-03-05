@@ -207,6 +207,15 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
+
+        'bp_post' => App\Models\Bp_post::class,
+        'bp_tax' => App\Models\Bp_tax::class,
+        'bp_menu' => App\Models\Bp_menu::class,
+        'bp_relationship' => App\Models\Bp_relationship::class,
+        'bp_slider' => App\Models\Bp_slider::class,
+        'bp_module' => App\Models\Bp_module::class,
+        'bp_custom' => App\Models\Bp_custom::class,
+        'bp_messages' => App\Models\Bp_messages::class,
     ],
 
 ];
