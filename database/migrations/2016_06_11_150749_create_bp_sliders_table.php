@@ -12,18 +12,17 @@ class CreateBpSlidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('bp_slider', function (Blueprint $table) {
+        Schema::create('bp_sliders', function (Blueprint $table) {
             $table->increments('slider_id');
             $table->string('slider_name');
             $table->string('slider_link');
-            $table->integer('slider_type');
-            $table->string('slider_weight');
+            $table->string('slider_type');
+            $table->integer('slider_weight');
             $table->text('slider_description');
-            $table->integer('slider_created');
+            $table->integer('staff_id')->default(1);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,6 +30,6 @@ class CreateBpSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bp_slider');
+        Schema::drop('bp_sliders');
     }
 }

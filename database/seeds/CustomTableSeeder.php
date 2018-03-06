@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use BeyondPlus\CmsLibrary\Models\Bp_custom;
+use App\Models\Bp_custom;
 
 class CustomTableSeeder extends Seeder
 {

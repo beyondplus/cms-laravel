@@ -12,18 +12,17 @@ class CreateBpMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('bp_media', function (Blueprint $table) {
+        Schema::create('bp_medias', function (Blueprint $table) {
             $table->increments('media_id');
             $table->string('media_name');
             $table->string('media_link');
-            $table->integer('media_type');
-            $table->string('media_weight');
-            $table->text('media_description');
-            $table->integer('media_created');
+            $table->string('media_type');
+            $table->integer('media_weight')->default(0);
+            $table->text('media_description')->nullable();
+            $table->integer('staff_id')->default(1);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,6 +30,6 @@ class CreateBpMediaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bp_media');
+        Schema::drop('bp_medias');
     }
 }

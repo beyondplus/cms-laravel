@@ -85,7 +85,7 @@ class FrontController extends Controller
         if($cat_id === null){
             abort(404);
         } else {
-            $term=Bp_relationship::select('post_id')->where('term_id', $cat_id->category_id)->get();
+            $term=Bp_relationship::select('post_id')->where('tax_id', $cat_id->category_id)->get();
             return view($this->t().'term', ['title' => 'home','bp_cat' => $bp_cat,'post_link'=>$this->post_link , 'term' => $term]);
         }
 

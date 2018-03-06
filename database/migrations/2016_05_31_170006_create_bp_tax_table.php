@@ -12,21 +12,20 @@ class CreateBpTaxTable extends Migration
      */
     public function up()
     {
-        Schema::create('bp_tax', function (Blueprint $table) {
+        Schema::create('bp_taxes', function (Blueprint $table) {
             $table->increments('tax_id');
             $table->string('parent_id');
             $table->string('tax_name');
             $table->string('tax_link');
-            $table->string('tax_icon');
+            $table->string('tax_icon')->default('fa fa-list');
             $table->text('tax_desc');
-            $table->string('tax_lan');
-            $table->integer('tax_dash');
+            $table->integer('tax_lan')->default(1);
+            $table->string('tax_type');
             $table->string('tax_active', 3);
-            $table->integer('tax_created');
+            $table->integer('staff_id')->default(1);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -34,6 +33,6 @@ class CreateBpTaxTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bp_tax');
+        Schema::drop('bp_taxes');
     }
 }

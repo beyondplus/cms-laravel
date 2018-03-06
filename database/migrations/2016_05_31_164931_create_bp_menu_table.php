@@ -12,20 +12,20 @@ class CreateBpMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('bp_menu', function (Blueprint $table) {
+        Schema::create('bp_menus', function (Blueprint $table) {
             $table->increments('menu_id');
             $table->string('menu_name');
-			      $table->string('menu_link');
-            $table->integer('post_id');
-            $table->string('layouts');
-            $table->string('menu_weight');
-            $table->string('menu_icon');
+            $table->string('menu_link')->default('');
+            $table->integer('post_id')->default(0);
+            $table->integer('menu_weight')->default(0);
+            $table->string('menu_icon')->default('');
             $table->integer('parent_id')->default(1);
-            $table->integer('menu_created');
+            $table->string('menu_type')->default('default');
+            $table->integer('staff_id')->default(1);
+            $table->string('lang',3)->default('en');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -33,6 +33,6 @@ class CreateBpMenuTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bp_menu');
+        Schema::drop('bp_menus');
     }
 }

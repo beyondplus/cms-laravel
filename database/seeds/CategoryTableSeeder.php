@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use ILLuminate\Database\Eloquent\Model;
-use BeyondPlus\CmsLibrary\Models\Bp_category;
+use App\Models\Bp_category;
 
 class CategoryTableSeeder extends Seeder
 {

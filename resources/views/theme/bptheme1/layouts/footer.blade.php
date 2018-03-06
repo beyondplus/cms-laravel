@@ -3,10 +3,10 @@
       <div class="col-md-5 copyright1">
         <h1> Connect with us </h1>
          <ul>
-             <li><a href="https://www.facebook.com/beyondpluscentre/"><img src="{{ asset("/public/assets/bptheme1/img/facebook.png") }}"></a></li>
-             <li><a href="#"><img src="{{ asset("/public/assets/bptheme1/img/googleplus.png") }}"></a></li>
-             <li><a href="#"><img src="{{ asset("/public/assets/bptheme1/img/twitter1.png") }}"></a></li>
-             <li><a href="#"><img src="{{ asset("/public/assets/bptheme1/img/youtube.png") }}"></a></li>
+             <li><a href="https://www.facebook.com/beyondpluscentre/"><img src="{{ asset("/assets/bptheme1/img/facebook.png") }}"></a></li>
+             <li><a href="#"><img src="{{ asset("/assets/bptheme1/img/googleplus.png") }}"></a></li>
+             <li><a href="#"><img src="{{ asset("/assets/bptheme1/img/twitter1.png") }}"></a></li>
+             <li><a href="#"><img src="{{ asset("/assets/bptheme1/img/youtube.png") }}"></a></li>
          </ul>
       </div>
       <div class="col-md-2 copyright2">

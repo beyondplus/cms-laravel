@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <?php echo lang_dropdown(url('/')) ?>  
+                <?php echo lang_dropdown(url('/')); ?>  
             </div>
         </div>
         <!-- nav box end -->

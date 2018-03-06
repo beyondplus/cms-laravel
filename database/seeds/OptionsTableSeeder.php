@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use BeyondPlus\CmsLibrary\Models\Bp_options;
+use App\Models\Bp_options;
 
 class OptionsTableSeeder extends Seeder
 {
@@ -20,7 +20,7 @@ class OptionsTableSeeder extends Seeder
             $Bp_options = [
                 'option_name'       => $option_name[$i],
                 'option_value'      => $option_value[$i],
-                'autoload'     		=> 'yes',
+                'autoload'          => 'yes',
                 'created_at'        => '2016-06-3 00:36:29'
             ];
             Bp_options::insert($Bp_options);
