@@ -208,3 +208,7 @@ function custom_menu()
    }
    return $languages;
 }
+
+function formatUrl($path){
+    return strtolower(str_replace(" ","-",$path));
+}

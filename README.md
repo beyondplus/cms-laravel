@@ -66,5 +66,5 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 - [ ] Role and Permission
 - [x] Editor
 - [x] Slider Function
-- [ ] Google Analytics
+- [x] Sitemap and RSS
 - [ ] Statitics

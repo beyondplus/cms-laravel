@@ -61,6 +61,9 @@ Route::group(['middleware' => 'web'], function () {
       });
 
       Route::get('/', 'Front\FrontController@index');
+      Route::get('/sitemap', 'Front\FrontController@sitemap');
+      Route::get('/rss', 'Front\FrontController@rss');
+      
       Route::get('/{name}', 'Front\FrontController@menu');
       Route::get('/detail/{name}', 'Front\FrontController@post');
       Route::get('/cat/{name}', 'Front\FrontController@cat');
@@ -68,5 +71,7 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('/test', function(){
          return abort(404);
       });
+
+      
 
   });

@@ -91,6 +91,16 @@ class FrontController extends Controller
 
     }
 
+    public function sitemap() {
+        $posts = Bp_post::latest()->get();
+        return response()->view('sitemap', compact(['posts']))->header('Content-Type', 'text/xml');
+    }
+
+    public function rss() {
+        $posts = Bp_post::latest()->limit(20)->get();
+        return response()->view('rss', compact(['posts']))->header('Content-Type', 'application/rss+xml');
+    }
+
     // To Do Comment and Search
 
     // public function comment(Request $request){
