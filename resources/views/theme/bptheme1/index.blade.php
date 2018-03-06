@@ -24,7 +24,7 @@
 
 		<div class="col-md-5">
 			<div class="homeimage">
-				<img src="{{ asset("/public/assets/bptheme1/img/homeimage.png") }}" alt="Home Image" class="img-responsive" />
+				<img src="{{ asset("/assets/bptheme1/img/homeimage.png") }}" alt="Home Image" class="img-responsive" />
 				<p></p>
 			</div>
 		</div>

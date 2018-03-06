@@ -15,19 +15,31 @@ class Main extends Controller
 {
     public function login_admin_post(Request $request)
     {
-    	$admin = auth()->guard('admins');
-    	if($admin->attempt(['email'=>$request->input('email'),'password'=>$request->input('password')]))
-    	{
-    		return redirect()->intended('bp-admin');
-    	} else {
-    		return 'information access denied';
-    	}
+        $admin = auth()->guard('admins');
+
+        // $errors = ['email' => 'asdf', 'password' => 'asdf'];
+        $validate = Validator::make($request->all(),[
+            'email' => 'required', 
+            'password' => 'required',
+        ]);
+
+        if ($admin->attempt(['email'=>$request->input('email'),'password'=>$request->input('password')]))
+        {
+            return redirect()->intended('bp-admin');
+        } 
+        else {
+            // Todo 
+            // return redirect()->back()->with('msg', 'User created successfully.');
+            return redirect()->back()
+                    ->withErrors($validate)
+                    ->withInput($request->only($request->input('email'), 'remember'));
+        }
     }
 
     public function logout()
     {
-    auth()->guard('admins')->logout();
-    return redirect('/');
+        auth()->guard('admins')->logout();
+        return redirect('/');
     }
 
 }

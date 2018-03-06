@@ -47,21 +47,23 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 * font-awesome
 
 ## Frontend Screenshot
-![alt text](https://github.com/beyondplus/cms-laravel/raw/master/frontend.png "Front Screenshot")
+![alt text](https://github.com/beyondplus/cms-laravel/raw/master/public/img/frontend.png "Front Screenshot")
 
 ## Backend Screenshot
-![alt text](https://github.com/beyondplus/cms-laravel/raw/master/backend.png "Backend Screenshot")
+![alt text](https://github.com/beyondplus/cms-laravel/raw/master/public/img/backend.png "Backend Screenshot")
 
 ## Issues
 [https://github.com/beyondplus/cms-laravel/issues](https://github.com/beyondplus/cms-laravel/issues)
 
 ## For laravel and vue developer
-[https://github.com/beyondplus/cms-laravel](https://github.com/beyondplus/cms-laravel)
+[https://github.com/beyondplus/cms](https://github.com/beyondplus/cms)
 
 
 ### To Do Lists
 - [x] Frontend Main
 - [x] Backend Main
+- [x] Migration file and Seeder
 - [ ] Role and Permission
 - [x] Editor
 - [ ] Rating Function
+- [x] Slider Function
