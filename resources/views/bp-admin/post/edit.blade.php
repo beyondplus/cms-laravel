@@ -73,8 +73,8 @@
         <div class="col-md-3">
             <div class="box box-danger">
                 <div class="box-body">
+                    {{  Form::label('Categories')  }}<br />
                     <div class="col-md-12 form-group scrollbar">
-                        {{  Form::label('Categories')  }}<br />
                         <ul>
                             @foreach($taxes as $tax)
                             <li>   
@@ -88,6 +88,32 @@
                     </div>
                 </div>
             </div>
+
+            <div class="box box-danger">
+                <div class="box-body">
+                    {{ Form::label('Featured Image') }}<br />
+                    <div class="col-md-12 form-group">
+                        
+                        <div class="row">
+                                {{ Form::file('featured_img',array('class'=>'form-control')) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="box-body">
+                    <div class="col-md-12">
+                        @if($post->featured_img)
+                            <img src="{{url('uploads/'.$post->featured_img)}}" class="img-responsive">
+                        @else 
+                            <img src="{{url('uploads/default.jpg')}}" class="img-responsive">
+                            
+                        @endif
+                    </div>  
+                </div>
+            </div>
+            
         </div> 
         {{ Form::close() }}
     </div>

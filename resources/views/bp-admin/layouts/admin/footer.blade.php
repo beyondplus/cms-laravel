@@ -4,5 +4,5 @@
         Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright © 2016 <a href="#">Beyond Plus Developers</a>.</strong> All rights reserved.
+    <strong>2016 - {{ date('Y')}} . <a href="{{url('/') }}">Powered By Beyond Plus Developers</a>.</strong> Free to use.
 </footer>

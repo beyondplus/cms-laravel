@@ -51,8 +51,15 @@ class PostController extends Controller
         Bp_post::create($inputs);
 
         $update_id = Bp_post::orderBy('id', 'desc')->first();
-        //echo $update_id->id;
-        //print_r($update_id->id);
+        
+        if ($request->file('featured_img') && $request->file('featured_img')->isValid()) {
+            $destinationPath = uploadPath();
+            $extension = $request->file('featured_img')->getClientOriginalExtension(); // getting image extension
+            $fileName = 'featmk'.md5(microtime().rand()).'.'.$extension; // renameing image
+            $request->file('featured_img')->move($destinationPath, $fileName); // uploading file to given path
+            $inputs['featured_img'] = $fileName;
+        }
+
         $categories  = $request->get('taxes');
 
         $this->termInsert($categories,$update_id->id);
@@ -77,12 +84,12 @@ class PostController extends Controller
     {
         $inputs = $request->all();
         $inputs['post_link'] = formatUrl($request->input('title'));
-        if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
+        if ($request->file('featured_img') && $request->file('featured_img')->isValid()) {
             $destinationPath = uploadPath();
-            $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension
-            $fileName = 'catmk'.md5(microtime().rand()).'.'.$extension; // renameing image
-            $request->file('tax_icon')->move($destinationPath, $fileName); // uploading file to given path
-            $inputs['tax_icon'] = $fileName;
+            $extension = $request->file('featured_img')->getClientOriginalExtension(); // getting image extension
+            $fileName = 'featmk'.md5(microtime().rand()).'.'.$extension; // renameing image
+            $request->file('featured_img')->move($destinationPath, $fileName); // uploading file to given path
+            $inputs['featured_img'] = $fileName;
         }
 
         Bp_post::findOrFail($id)->update($inputs);

@@ -20,32 +20,32 @@
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
-<span class="input-group-btn">
-  <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-</span>
-            </div>
-        </form>
-        <!-- /.search form -->
+                <span class="input-group-btn">
+                  <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+          </div>
+      </form>
+      <!-- /.search form -->
 
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">
-            <li class="header">Information</li>
-            <!-- Optionally, you can add icons to the links -->
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">Information</li>
+        <!-- Optionally, you can add icons to the links -->
 
-            
-  <!--           <li><a href="{{ url("dashboard/product")}}"><span>Product</span></a></li> -->
-            <li><a href="{{ url("dashboard/profile")}}"><span>Profile</span></a></li>
-            <li><a href="{{ url("dashboard/bet")}}"><span>Betting</span></a></li>
-           <!--  <li><a href="{{ url("dashboard/category")}}"><span>Clients</span></a></li> -->
-            <li><a href="#"><span>Another Link</span></a></li>
-            <li class="treeview">
-                <a href="#"><span>Multilevel</span> <i class="fa fa-angle-right pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
-                </ul>
-            </li>
-        </ul><!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
+        
+        <!--           <li><a href="{{ url("dashboard/product")}}"><span>Product</span></a></li> -->
+        <li><a href="{{ url("dashboard/profile")}}"><span>Profile</span></a></li>
+        <li><a href="{{ url("dashboard/bet")}}"><span>Betting</span></a></li>
+        <!--  <li><a href="{{ url("dashboard/category")}}"><span>Clients</span></a></li> -->
+        <li><a href="#"><span>Another Link</span></a></li>
+        <li class="treeview">
+            <a href="#"><span>Multilevel</span> <i class="fa fa-angle-right pull-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a href="#">Link in level 2</a></li>
+                <li><a href="#">Link in level 2</a></li>
+            </ul>
+        </li>
+    </ul><!-- /.sidebar-menu -->
+</section>
+<!-- /.sidebar -->
 </aside>
