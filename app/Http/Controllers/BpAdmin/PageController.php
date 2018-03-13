@@ -45,6 +45,7 @@ class PageController extends Controller
 
         $inputs = $request->all();
         $inputs['post_type'] = 'page';
+        $inputs['post_link'] = formatUrl($request->input('title'));
         if ($request->file('category_icon') && $request->file('category_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('category_icon')->getClientOriginalExtension(); // getting image extension
@@ -78,6 +79,7 @@ class PageController extends Controller
         $inputs = $request->all();
      //   $inputs = $request->except('_token', '_method');
         $inputs['post_type'] = 'page';
+        $inputs['post_link'] = formatUrl($request->input('title'));
         if ($request->file('category_icon') && $request->file('category_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('category_icon')->getClientOriginalExtension(); // getting image extension

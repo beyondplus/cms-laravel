@@ -17,7 +17,6 @@ class CreateBpRelationshipTable extends Migration
             $table->text('tax_id');
             $table->string('post_id');
             $table->string('type');
-            $table->timestamps();
         });
     }
     /**

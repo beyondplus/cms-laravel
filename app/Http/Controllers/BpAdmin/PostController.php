@@ -45,7 +45,7 @@ class PostController extends Controller
         // ]);
 
         $inputs = $request->all();
-        $inputs['post_link'] = str_replace(' ', '-', strtolower($request->input('title')));
+        $inputs['post_link'] = formatUrl($request->input('title'));
         $inputs['post_type'] = 'post';
         $inputs['post_created'] = Auth::guard('admins')->user()->id;
         Bp_post::create($inputs);
@@ -76,7 +76,7 @@ class PostController extends Controller
     public function update($id, Request $request)
     {
         $inputs = $request->all();
-        $inputs['post_link'] = str_replace(' ', '-', strtolower($request->input('title')));
+        $inputs['post_link'] = formatUrl($request->input('title'));
         if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension

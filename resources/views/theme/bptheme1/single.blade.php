@@ -6,7 +6,7 @@
 			<div class="col-md-2 ">	
 				<h4>CATEGORIES<hr></h4>		
 				<ul>
-					@foreach(bp_cat() as $category)
+					@foreach(bp_tax() as $category)
 				 		<a href="{{url('/cat/'.$category->tax_link) }}"><li class="list-group-item">{{ $category->tax_name }} </li></a>
 				 	@endforeach
 				</ul>
@@ -15,7 +15,7 @@
 				<div class="col-md-12">
 					<div class="row firstrow">
 						<div class="col-md-10">
-							<a href="{{url('/detail/'.$post->post_link) }}" name="" ><h2>{{ $post->title }}</h2></a>
+							<a href="{{url('/'.$post->post_link) }}" name="" ><h2>{{ $post->title }}</h2></a>
 						</div>
 						<div class="col-md-2"></div>
 					</div>

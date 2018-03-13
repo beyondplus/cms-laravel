@@ -12,9 +12,9 @@ function custom()
     $query = bp_custom::get();
     return $query;
 }
-function bp_cat()
+function bp_tax()
 {
-    $query = bp_tax::where('tax_type','category')->get();
+    $query = bp_tax::where('tax_type','cat')->get();
     return $query;
 }
 function bp_post($limitId)
@@ -32,6 +32,7 @@ function bp_slider()
     $banner = bp_slider::orderBy('slider_id')->get();
     return $banner;
 }
+
 
 function lang_dropdown($url) {
     if(Session::get('applocale') == "mm") {
@@ -210,7 +211,8 @@ function custom_menu()
 }
 
 function formatUrl($path){
-    return strtolower(str_replace(" ","-",$path));
+    $string = strtolower(str_replace(" ","-",$path));
+    return preg_replace('/[^A-Za-z0-9\-]/', '', $string);
 }
 
 function uploadPath() {

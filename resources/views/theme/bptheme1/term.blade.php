@@ -6,13 +6,13 @@
 			<div class="col-md-2 ">						
 				<h4>CATEGORIES<hr></h4>
 				<ul class="list-group">
-					@foreach($bp_cat as $category)
-				 		<a href="{{url('/cat/'.$category->category_link) }}"><li class="list-group-item">{{ $category->category_name }} <span class="badge">12</span></li></a>
+					@foreach(bp_tax() as $tax)
+				 		<a href="{{url('/cat/'.$tax->tax_link) }}"><li class="list-group-item">{{ $tax->tax_name }}</li></a>
 				 	@endforeach
 				</ul>
 			</div>
 			<div class="col-md-10 asideright">
-				@foreach($term as $t)
+				@foreach($terms as $t)
 					<div class="col-md-12">
 						<div class="row firstrow">
 							<div class="col-md-10">

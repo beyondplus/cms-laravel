@@ -17,31 +17,33 @@ class TaxController extends Controller
 {
     public function __construct()
     {
-       $this->middleware('admins');
+        $this->tax_name = "cat" ;
+        $this->middleware('admins');
     }
 
-	public function index(){
+    public function index(){
 
-		$tax = Bp_tax::orderBy('tax_name')->paginate(13);
+      $tax = Bp_tax::orderBy('tax_name')->paginate(13);
 		//return view('bp-admin.tax.index')->with(compact('tax'));
-        return view('bp-admin.tax.index', array('tax' => $tax));
-	}
+      return view('bp-admin.tax.index', array('tax' => $tax));
+  }
 
-	public function create(){
-        $taxes= Bp_tax::lists('tax_name','tax_id');
-        return view('bp-admin.tax.add', array('taxes' => $taxes));
-	}
+  public function create(){
+    $taxes= Bp_tax::lists('tax_name','tax_id');
+    return view('bp-admin.tax.add', array('taxes' => $taxes));
+}
 
-	public function store(Request $request){
+public function store(Request $request){
         // $this->validate($request, [
         // 'title' => 'required',
         // 'description' => 'required'
         // ]);
 
-        $inputs = $request->all();
-        $inputs['tax_link'] = str_replace(' ', '-', strtolower($request->input('tax_name')));
-        if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
-            $destinationPath = uploadPath();
+    $inputs = $request->all();
+    $inputs['tax_link'] = formatUrl($request->input('tax_name'));
+    $inputs['tax_type'] = $this->tax_name ;
+    if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
+        $destinationPath = uploadPath();
             $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension
             // $fileName = 'catmk'.md5(microtime().rand()).'.'.$extension; // renameing image
             $fileName = $request->file('tax_icon')->getClientOriginalName();
@@ -52,11 +54,11 @@ class TaxController extends Controller
         }
 
 
-		Bp_tax::create($inputs);
+        Bp_tax::create($inputs);
         return redirect()->to('bp-admin/tax');
-	}
+    }
 
-	public function edit($id)
+    public function edit($id)
     {
         try {
             $tax = Bp_tax::findOrFail($id);
@@ -71,8 +73,9 @@ class TaxController extends Controller
     public function update($id, Request $request)
     {
         $inputs = $request->all();
+        $inputs['tax_type'] = $this->tax_name ;
      //   $inputs = $request->except('_token', '_method');
-        $inputs['tax_link'] = str_replace(' ', '-', strtolower($request->input('tax_name')));
+        $inputs['tax_link'] = formatUrl($request->input('tax_name'));
         if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension

@@ -20,7 +20,7 @@ class TaxTableSeeder extends Seeder
             'tax_desc'      =>	'Uncategorized',
             'tax_link'      => 'uncategorized',
      		'tax_active'    =>	'yes',
-            'tax_type'      => 'category',
+            'tax_type'      => 'cat',
      		'created_at'    => '2016-06-3 00:36:29'
      		]);
     }

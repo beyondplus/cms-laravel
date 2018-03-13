@@ -8,7 +8,7 @@ class Bp_relationship extends Model
 {
 	protected $table = 'bp_relationships';
     protected $primaryKey = 'id';
-   	
+   	public $timestamps = false;
 
     protected $fillable = [
     	 'tax_id','post_id','type'

@@ -23,4 +23,8 @@ class Bp_tax extends Model
         return $this->hasMany('App\Category', 'parent_id');
     }
 
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Bp_post','post_id','id');
+    }
 }

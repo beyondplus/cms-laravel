@@ -44,15 +44,13 @@ class FrontController extends Controller
             abort(404);
         } else {
             $view = ($query->post_template != "default") ? $query->post_template : $templateName; 
-                if(view()->exists($this->t().$view)) {
-                    $view = $this->t().$view;
-                } else {
-                    $view = $this->t().$templateName;
-                }
+            if(view()->exists($this->t().$view)) {
+                $view = $this->t().$view;
+            } else {
+                $view = $this->t().$templateName;
+            }
             return $view;
-        }
-
-        
+        } 
     }
 
     public function index(){
@@ -63,30 +61,29 @@ class FrontController extends Controller
         $query = Bp_menu::where('menu_link',$name)->get();
         if(count($query) > 0){
             $bp_post = Bp_post::where('id',$query[0]->post_id)->first();
-              
+
             $view = $this->template($bp_post, 'single');
             return view($view, ['title' => 'home', 'post' => $bp_post,'post_link'=>$this->post_link ]);
 
         } else {
-           return  $this->detail($name);
+         return  $this->detail($name);
         }
-    }
+     }
 
-    public function detail($name) {
+     public function detail($name) {
         $bp_post = Bp_post::where('post_link', $name)->first();
-        
+
         $view = $this->template($bp_post, 'single');
         return view($view, ['title' => 'home', 'post' => $bp_post,'post_link'=>$this->post_link ]);
     }
 
     public function cat($name){
-        $bp_cat=Bp_tax::where('tax_type','category')->get();
-        $cat_id=Bp_tax::select('tax_id')->where('tax_type','category')->where('tax_link',$name)->get()->first();
+        $cat_id=Bp_tax::select('tax_id')->where('tax_type','cat')->where('tax_link',$name)->get()->first();
         if($cat_id === null){
             abort(404);
         } else {
-            $term=Bp_relationship::select('post_id')->where('tax_id', $cat_id->category_id)->get();
-            return view($this->t().'term', ['title' => 'home','bp_cat' => $bp_cat,'post_link'=>$this->post_link , 'term' => $term]);
+            $terms=Bp_relationship::select('post_id')->where('tax_id', $cat_id->tax_id)->get();
+            return view($this->t().'term', ['title' => 'home','post_link'=>$this->post_link , 'terms' => $terms]);
         }
 
     }
