@@ -25,7 +25,7 @@ class MediaController extends Controller
 
     public function index(){
 
-        $media = Bp_media::where('media_type','=', 'media')->orderBy('updated_at','desc')->paginate(13);
+        $media = Bp_media::where('media_type','media')->orderBy('updated_at','desc')->paginate(13);
         return view('bp-admin.media.index', array('media' => $media));
     }
 
@@ -50,8 +50,6 @@ class MediaController extends Controller
             $request->file('media_link')->move($destinationPath, $fileName); // uploading file to given path
             $inputs['media_link'] = $fileName;
         }
-
-
 
         $inputs['media_type'] = 'media';
         $inputs['user_id'] = Auth::guard('admins')->user()->id;
@@ -83,6 +81,8 @@ class MediaController extends Controller
             $inputs['media_link'] = $fileName;
         }
 
+        $inputs['media_type'] = 'media';
+        $inputs['user_id'] = Auth::guard('admins')->user()->id;
         Bp_media::findOrFail($id)->update($inputs);
         return redirect()->to('bp-admin/media');
     }

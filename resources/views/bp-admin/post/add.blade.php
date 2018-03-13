@@ -77,10 +77,10 @@
                     <div class="col-md-12 form-group scrollbar">
                         {{ Form::label('Categories') }}<br />
                         <ul>
-                            @foreach($categories as $category)
+                            @foreach($taxes as $tax)
                             <li>
-                            {{ Form::checkbox('categories[]' , $category->category_id ) }}
-                            <label for="{{$category->category_name}}">{{$category->category_name}}</label>
+                            {{ Form::checkbox('taxes[]' , $tax->tax_id ) }}
+                            <label for="{{$tax->tax_name}}">{{$tax->tax_name}}</label>
                             </li>
                             @endforeach
                         </ul>
@@ -89,21 +89,14 @@
             </div>
         </div>  
         {{ Form::close() }}
-    </div>
-
-    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
-     <script src="{{url('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
-        <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
-        <script>
-            $('textarea').ckeditor();
-            // $('.textarea').ckeditor(); // if class is prefered.
-        </script>
-        
+    </div>        
 @stop
 
 @push('scripts')
+    <script src="{{url('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+    <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
     <script>
-        $(document).ready(function () {
-        });
+        $('textarea').ckeditor();
+        // $('.textarea').ckeditor(); // if class is prefered.
     </script>
 @endpush

@@ -25,7 +25,7 @@ class PostController extends Controller
     public function __construct()
     {
        $this->middleware('admins');
-       $this->categories=  Bp_tax::all();
+       $this->taxes=  Bp_tax::all();
     }
 
     public function index(){
@@ -34,8 +34,7 @@ class PostController extends Controller
     }
 
     public function create(){
-        $categories= Bp_tax::all();
-       return view('bp-admin.post.add', array('categories' => $this->categories));
+       return view('bp-admin.post.add', array('taxes' => $this->taxes));
 
     }
 
@@ -52,9 +51,9 @@ class PostController extends Controller
         Bp_post::create($inputs);
 
         $update_id = Bp_post::orderBy('id', 'desc')->first();
-       // echo $update_id->id;
+        //echo $update_id->id;
         //print_r($update_id->id);
-        $categories  = $request->get('categories');
+        $categories  = $request->get('taxes');
 
         $this->termInsert($categories,$update_id->id);
 
@@ -70,7 +69,7 @@ class PostController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Post Not Found';
         }
-        return view('bp-admin.post.edit', array('post' => $post, 'categories' => $this->categories , 'tax_type' => $tax_type));
+        return view('bp-admin.post.edit', array('post' => $post, 'taxes' => $this->taxes, 'tax_type' => $tax_type));
 
     }
 
@@ -88,7 +87,7 @@ class PostController extends Controller
 
         Bp_post::findOrFail($id)->update($inputs);
 
-        $categories  = $request->get('categories');
+        $categories  = $request->get('taxes');
 
         //Deleteing Term
         $this->termInsert($categories,$id);
@@ -109,13 +108,13 @@ class PostController extends Controller
             }
             //Recreating New Term
             for( $i=0; $i<sizeof($categories); $i++){
-                $cat['term_id'] = $categories[$i];
+                $cat['tax_id'] = $categories[$i];
                 $cat['post_id'] = $id;
                 $cat['type']    = 'cat';
                 Bp_relationship::create($cat);
             }
         } else {
-            $cat['term_id'] = 1;
+            $cat['tax_id'] = 1;
             $cat['post_id'] = $id;
             $cat['type']    = 'cat';
             Bp_relationship::create($cat);

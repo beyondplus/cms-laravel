@@ -25,7 +25,7 @@ class PageController extends Controller
 
     public function index(){
 
-        $page = Bp_post::where('post_type','=', 'page')->orderBy('updated_at','desc')->paginate(13);
+        $page = Bp_post::where('post_type','page')->orderBy('updated_at','desc')->paginate(13);
         return view('bp-admin.page.index', array('page' => $page));
     }
 

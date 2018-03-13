@@ -29,6 +29,8 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $maxLoginAttempts = 1; // Amount of bad attempts user can make
+    protected $lockoutTime = 300; // Time for which user is going to be blocked in seconds
 
 
    // protected $username = 'name';

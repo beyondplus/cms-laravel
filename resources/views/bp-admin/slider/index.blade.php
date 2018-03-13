@@ -32,7 +32,7 @@
                         <tbody>
                         @foreach ($slider as $c)
                         <tr>
-                            <td><img src="{{ url("public/uploads/".$c->slider_link)}}" alt="{{$c->slider_name}}"  height="100px"/></td>
+                            <td><img src="{{ url("uploads/".$c->slider_link)}}" alt="{{$c->slider_name}}"  height="100px"/></td>
                             <td>
                                 <a href="#" name="" />{{$c->slider_name}}</a> <br>
                                 <div class="col-sm-9"></div><div class="col-sm-3"> <a href="{{ url('bp-admin/slider/'. $c->slider_id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>

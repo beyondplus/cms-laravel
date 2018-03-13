@@ -25,7 +25,7 @@ class SliderController extends Controller
 
     public function index(){
 
-        $slider = Bp_slider::where('slider_type','=', 'slider')->orderBy('updated_at','desc')->paginate(13);
+        $slider = Bp_slider::where('slider_type','slider')->orderBy('updated_at','desc')->paginate(13);
         return view('bp-admin.slider.index', array('slider' => $slider));
     }
 
@@ -83,6 +83,8 @@ class SliderController extends Controller
             $inputs['slider_link'] = $fileName;
         }
 
+        $inputs['slider_type'] = 'slider';
+        $inputs['user_id'] = Auth::guard('admins')->user()->id;
         Bp_slider::findOrFail($id)->update($inputs);
         return redirect()->to('bp-admin/slider');
     }

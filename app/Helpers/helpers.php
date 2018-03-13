@@ -212,3 +212,7 @@ function custom_menu()
 function formatUrl($path){
     return strtolower(str_replace(" ","-",$path));
 }
+
+function uploadPath() {
+    return public_path().'/uploads/';
+}

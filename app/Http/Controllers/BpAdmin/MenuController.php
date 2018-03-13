@@ -45,10 +45,11 @@ class MenuController extends Controller
         $pages  = $request->get('pages');
         for( $i=0; $i<sizeof($pages); $i++){
             $page['post_id'] = $pages[$i];
-            $getpages = Bp_post::where('id' , '=', $pages[$i])->first();
+            $getpages = Bp_post::where('id' ,$pages[$i])->first();
             $page_name = $getpages->title;
             $page['menu_name'] = $page_name;
-            $inputs['menu_created'] = Auth::guard('admins')->user()->id;
+            $page['menu_link'] = formatUrl($page_name);
+            $page['menu_created'] = Auth::guard('admins')->user()->id;
             Bp_menu::create($page);
         }
 
@@ -61,7 +62,7 @@ class MenuController extends Controller
         //print_r($posts_name);
         for( $i=0; $i<sizeof($posts); $i++){
             $post['post_id'] = $posts[$i];
-            $getposts = Bp_post::where('id' , '=', $posts[$i])->first();
+            $getposts = Bp_post::where('id' , $posts[$i])->first();
             $post_name = $getposts->title;
             $post['menu_name'] = $post_name;
             $inputs['menu_created'] = Auth::guard('admins')->user()->id;

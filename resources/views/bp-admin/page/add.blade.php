@@ -5,19 +5,16 @@
 @section('content')
  <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="box box-danger">
                 <div class="box-header">
-                    <div class="row">
                         <div class="col-sm-7">
                             <h4>Title</h4>
                         </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <div class="row">
-                        <div class="col-sm-7">
+                        <div class="col-sm-10">
                             {{ Form::open([
                                 'url' => 'bp-admin/page',
                                 'method' => 'post',
@@ -61,26 +58,27 @@
                             </div>
                             {{--  --}}
                         </div>{{-- end of form wrapper div --}}
-                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
         </div>
+        <div class="col-md-3">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="col-md-12 form-group">
+                        {{ Form::label('Template Name') }}<br />
+                        {{ Form::text('post_template', 'default' ,['class'=>'form-control']) }}
+                    </div>
+                </div>
+            </div>
+        </div>  
     </div>
-
-     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
-     <script src="{{url('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
-        <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
-        <script>
-            $('textarea').ckeditor();
-            // $('.textarea').ckeditor(); // if class is prefered.
-        </script>
-@stop
-
+@endsection
 @push('scripts')
+    <script src="{{url('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+    <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
     <script>
-        $(document).ready(function () {
-        });
+        $('textarea').ckeditor();
     </script>
 @endpush

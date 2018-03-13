@@ -14,8 +14,6 @@ class Bp_relationship extends Model
     	 'tax_id','post_id','type'
     ];
 
-
-
     public function post()
     {
         return $this->belongsTo('App\Models\Bp_post');
