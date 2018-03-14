@@ -89,7 +89,7 @@
                   </div> -->
                   <div class="product-info1">
                     <a href="javascript::;" class="product-title">{{$p->title}}
-                      <span class="label label-warning pull-right">{{calculate_time_span($p->created_at)}}</span></a>
+                      <span class="label label-warning pull-right">{{ $p->created_at->diffForHumans() }} </span></a>
                       <span class="product-description">
                         {{$p->body}}
                       </span>
@@ -132,7 +132,7 @@
                   <li>
                     <img src="{{ url('/img/avatar2.png')}}" alt="User Image" style="height:50px">
                     <a class="users-list-name" href="#">  {{ $latestUsers->name }} </a>
-                    <span class="users-list-date">Today</span>
+                    <span class="users-list-date">{{ $p->created_at->diffForHumans() }}</span>
                   </li>
                   @endforeach
 

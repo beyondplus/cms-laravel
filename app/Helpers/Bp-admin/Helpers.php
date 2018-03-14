@@ -70,34 +70,7 @@ function lang_dropdown($url) {
     }
 }
 
-if(!function_exists('calculate_time_span')){
-    function calculate_time_span($date){
-        $seconds  = strtotime(date('Y-m-d H:i:s')) - strtotime($date);
-        //$seconds = date('Y-m-d H:i:s');
-         //  $years = floor($seconds / 3153600);
-        $years = date('Y') - date( "Y",strtotime($date));
-        $months = floor($seconds / (3600*24*30));
-        $day = floor($seconds / (3600*24));
-        $hours = floor($seconds / 3600);
-        $mins = floor(($seconds - ($hours*3600)) / 60);
-        $secs = floor($seconds % 60);
-        if($seconds > (24*(60*60))*(31*12)){
-            $time = $years." year ago";
-        }
-        elseif($seconds > ((24*(60*60))*31)){
-            $time = $months." month ago";
-        } elseif ($seconds > 24*60*60) {
-            $time = $day." day ago";
-        } elseif ($seconds > 60*60){
-            $time = $hours." hours ago";
-        } elseif ($seconds > 60){
-            $time = $mins." min ago";
-        } else{
-            $time = $secs." seconds ago";
-        }
-        return $time;
-    }
-}
+
 if(!function_exists('formatMoney')){
     function formatMoney($number, $fractional=false) {
         if ($fractional) {

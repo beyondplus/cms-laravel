@@ -9,18 +9,15 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/bp-admin/login') }}">
                         {!! csrf_field() !!}
-                       
-                       
-                        @if ($errors->any())
+
+                        @isset ($match)
                             <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                 <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
+                                   <li>{{$match}}</li>
                                 </ul>
                             </div>
                         @endif
-                        
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">E-Mail Address  @if(Session::has('msg'))
@@ -51,8 +48,6 @@
                                 @endif
                             </div>
                         </div>
-
-                      
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

@@ -6,12 +6,11 @@ Route::any('/password/reset','Front\FrontController@index');
 
 Route::group(['middleware' => 'web'], function () {
       Route::auth();
-
+      Route::any('/login','Front\FrontController@index');
       Route::any('/register','Front\FrontController@index');
-      Route::post('bp-admin/login','BpAdmin\Main@login_admin_post');
-      Route::get('bp-admin/login', function(){
-          return view('auth/adminlogin');
-      });
+      Route::any('/password/reset', 'Front\FrontController@index');
+      Route::post('bp-admin/login','BpAdmin\Main@loginAdmin');
+      Route::get('bp-admin/login', 'BpAdmin\Main@login');
 
       
       Route::group(['prefix' => 'bp-admin','namespace'  =>  'BpAdmin', 'middleware' => 'admins'], function () {

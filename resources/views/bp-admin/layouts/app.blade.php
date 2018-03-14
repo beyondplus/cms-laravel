@@ -19,7 +19,7 @@
 
 
 </head>
-<body id="app-layout" style="background-color:grey">
+<body id="app-layout" style="background-color:#f5f8fa">
     <nav class="navbar" style="padding-top:100px;margin:0">
         <div class="container">
             

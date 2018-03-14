@@ -4,6 +4,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+    'name' => 'BeyondPlus CMS',
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -12,9 +22,7 @@ return [
     | services your application utilizes. Set this in your ".env" file.
     |
     */
-
     'env' => env('APP_ENV', 'production'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -25,9 +33,7 @@ return [
     | application. If disabled, a simple generic error page is shown.
     |
     */
-
     'debug' => env('APP_DEBUG', false),
-
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -38,9 +44,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-
-    'url' => 'http://localhost',
-
+    'url' => env('APP_URL', 'http://localhost'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -51,9 +55,7 @@ return [
     | ahead and set this to a sensible default for you out of the box.
     |
     */
-
     'timezone' => 'Asia/Rangoon',
-
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
@@ -64,9 +66,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
     'locale' => 'en',
-
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -77,9 +77,7 @@ return [
     | the language folders that are provided through your application.
     |
     */
-
     'fallback_locale' => 'en',
-
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
@@ -90,11 +88,8 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
-
     'key' => env('APP_KEY'),
-
     'cipher' => 'AES-256-CBC',
-
     /*
     |--------------------------------------------------------------------------
     | Logging Configuration
@@ -107,9 +102,8 @@ return [
     | Available Settings: "single", "daily", "syslog", "errorlog"
     |
     */
-
     'log' => env('APP_LOG', 'single'),
-
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
