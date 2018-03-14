@@ -30,7 +30,7 @@ class PostTableSeeder extends Seeder
             $Bp_relationship = [
                 'tax_id'    => 1,
                 'post_id'   => $i,
-                'type'   => 'post',
+                'type'   => 'cat',
             ];
 
             Bp_relationship::insert($Bp_relationship);
@@ -50,7 +50,7 @@ class PostTableSeeder extends Seeder
             $Bp_relationship = [
                 'tax_id'    => 1,
                 'post_id'   => 10+$y,
-                'type'   => 'page',
+                'type'   => 'cat',
             ];
 
             Bp_relationship::insert($Bp_relationship);

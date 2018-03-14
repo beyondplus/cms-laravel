@@ -17,13 +17,13 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-       $this->middleware('admins');
+        $this->tax_name = "cat" ;
+        $this->middleware('admins');
     }
 
 	public function index(){
 
 		$category = Bp_tax::orderBy('tax_name')->paginate(13);
-		//return view('bp-admin.category.index')->with(compact('category'));
         return view('bp-admin.category.index', array('category' => $category));
 	}
 
@@ -39,18 +39,19 @@ class CategoryController extends Controller
         // ]);
 
         $inputs = $request->all();
-        $inputs['category_link'] = str_replace(' ', '-', strtolower($request->input('tax_name')));
-        if ($request->file('category_icon') && $request->file('category_icon')->isValid()) {
-            $destinationPath = uploadPath();
-            $extension = $request->file('category_icon')->getClientOriginalExtension(); // getting image extension
+        $inputs['tax_link'] = formatUrl($request->input('tax_name'));
+        $inputs['tax_type'] = $this->tax_name ;
+
+        if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
+        $destinationPath = uploadPath();
+            $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension
             // $fileName = 'catmk'.md5(microtime().rand()).'.'.$extension; // renameing image
-            $fileName = $request->file('category_icon')->getClientOriginalName();
-            $request->file('category_icon')->move($destinationPath, $fileName); // uploading file to given path
+            $fileName = $request->file('tax_icon')->getClientOriginalName();
+            $request->file('tax_icon')->move($destinationPath, $fileName); // uploading file to given path
             if($request->file('pictures') !=null){
-                $inputs['category_icon'] = $fileName;
+                $inputs['tax_icon'] = $fileName;
             }
         }
-
 
 		Bp_tax::create($inputs);
         return redirect()->to('bp-admin/category');
@@ -72,13 +73,15 @@ class CategoryController extends Controller
     {
         $inputs = $request->all();
      //   $inputs = $request->except('_token', '_method');
-        $inputs['category_link'] = str_replace(' ', '-', strtolower($request->input('tax_name')));
-        if ($request->file('category_icon') && $request->file('category_icon')->isValid()) {
+        $inputs['tax_link'] = formatUrl($request->input('tax_name'));
+        $inputs['tax_type'] = $this->tax_name ;
+
+        if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
             $destinationPath = uploadPath();
-            $extension = $request->file('category_icon')->getClientOriginalExtension(); // getting image extension
+            $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension
             $fileName = 'catmk'.md5(microtime().rand()).'.'.$extension; // renameing image
-            $request->file('category_icon')->move($destinationPath, $fileName); // uploading file to given path
-            $inputs['category_icon'] = $fileName;
+            $request->file('tax_icon')->move($destinationPath, $fileName); // uploading file to given path
+            $inputs['tax_icon'] = $fileName;
         }
 
         Bp_tax::findOrFail($id)->update($inputs);

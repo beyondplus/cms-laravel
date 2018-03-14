@@ -27,7 +27,7 @@ class Bp_post extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Bp_tax', 'bp_relationships' ,'post_id', 'post_id');
+        return $this->belongsToMany('App\Models\Bp_tax', 'bp_relationships' ,'post_id','tax_id');
     }
 
 

@@ -1,4 +1,4 @@
-@extends('theme::bptheme2.layouts.app')
+@extends('theme.bptheme2.layouts.app')
 @section('content')
 	<div class="col-md-12 main_bg">
 		<div class="col-md-1"></div>

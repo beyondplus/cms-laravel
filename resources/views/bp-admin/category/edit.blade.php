@@ -37,8 +37,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Image</label>
-                                {{ Form::file('category_icon',null,array('class'=>'form-control')) }}
-                                {{ Form::hidden('category_icon',null,array('class'=>'form-control')) }}
+                                {{ Form::file('tax_icon',null,array('class'=>'form-control')) }}
+                                {{ Form::hidden('tax_icon',null,array('class'=>'form-control')) }}
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>

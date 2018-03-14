@@ -32,7 +32,11 @@ function bp_slider()
     $banner = bp_slider::orderBy('slider_id')->get();
     return $banner;
 }
-
+function bp_cat($tax_id,$limit_id)
+{
+    $tax = bp_tax::with('posts')->where('tax_id',$tax_id)->where('tax_type','cat')->orderby('tax_id','desc')->paginate($limit_id);
+    return $tax;
+}
 
 function lang_dropdown($url) {
     if(Session::get('applocale') == "mm") {

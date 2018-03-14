@@ -2,8 +2,9 @@ h4 {
   color: #3097D1 !important;
 }
 a {
-  color: #282828 !important;
+  color:#3097D1 ;
   text-decoration: none !important; }
+
 
 .table-hover > tbody > tr > td {
   color: #000 !important;
@@ -91,7 +92,9 @@ h1 {
 
 .nav_box {
   border-bottom: 4px solid;
-  border-bottom-color: rgba(225, 225, 225, 0.98); }
+  border-bottom-color: rgba(225, 225, 225, 0.98); 
+  padding: 12px;
+}
 
 .navs {
   width: 100% auto; }

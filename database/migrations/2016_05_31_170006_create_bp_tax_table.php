@@ -14,14 +14,14 @@ class CreateBpTaxTable extends Migration
     {
         Schema::create('bp_taxes', function (Blueprint $table) {
             $table->increments('tax_id');
-            $table->string('parent_id');
+            $table->integer('parent_id')->default(0);
             $table->string('tax_name');
             $table->string('tax_link');
             $table->string('tax_icon')->default('fa fa-list');
             $table->text('tax_desc');
             $table->integer('tax_lan')->default(1);
             $table->string('tax_type');
-            $table->string('tax_active', 3);
+            $table->string('tax_active', 3)->default('yes');
             $table->integer('staff_id')->default(1);
             $table->timestamps();
         });

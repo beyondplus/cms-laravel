@@ -1,17 +1,14 @@
 <header>
     <nav>
     <!-- nav box -->
-        <div class="col-md-12 nav_box">
-            <div class="col-md-1"></div>
-            <div class="col-md-9 navs ">
-                <div class="col-md-12">
-                  <br>
-                  
+        <div class="row nav_box">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-9 navs ">
                 <ul class="nav nav-pills">
                    <li><a id="menu_home" href="{{url('/') }}">@lang('general.home')</a></li>
                    @foreach (bp_menu() as $menu)
                        @if(sizeof($menu->children)>0) 
-                             <li class = "dropdown">
+                             <li class = "nav-item dropdown">
                                     <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
                                        {{ $menu->menu_name }}
                                        <b class = "caret"></b>
@@ -41,9 +38,8 @@
                         @endif
                     @endforeach
                 </ul>
-                </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <?php echo lang_dropdown(url('/')); ?>  
             </div>
         </div>
