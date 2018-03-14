@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-sm-5">
                             {{Form::model($category, [
-                                'url' => ['bp-admin/category', $category->category_id],
+                                'url' => ['bp-admin/category', $category->tax_id],
                                 'method' => 'put',
                                 'files' => 'true'
                                 ])}}
@@ -42,10 +42,11 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
+
                                   @if($category->parent_id == 0)
                                     {{Form::select('parent_id',$categories,null, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
                                    @else
-                                     {{Form::select('parent_id',$categories,'null',['class'=>'form-control'])}}
+                                     {{Form::select('parent_id',$categories, $category->parent_id,['class'=>'form-control'])}}
                                    @endif
                             </div> 
                             

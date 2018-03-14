@@ -18,6 +18,7 @@ use App\Models\Bp_post;
 use App\Models\Bp_relationship;
 use App\Models\User;
 use Auth;
+use Validator;
 
 class PostController extends Controller
 {
@@ -39,10 +40,15 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
-        // $this->validate($request, [
-        // 'title' => 'required',
-        // 'description' => 'required'
-        // ]);
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required', 
+            'body' => 'required',
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $inputs = $request->all();
         $inputs['post_link'] = formatUrl($request->input('title'));
