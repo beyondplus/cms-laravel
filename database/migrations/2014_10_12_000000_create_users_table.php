@@ -17,12 +17,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('user_type')->default(0);
+            $table->integer('role')->default(0);
             $table->string('api_token', 60)->unique();
-            $table->string('phone_no',30);
+            $table->string('phone_no',30)->nullable();
             $table->string('activation_key',6)->default(0);
             $table->integer('status')->default(0);
-            $table->string('avatar',100);
+            $table->string('avatar',100)->default('http://lorempixel.com/150/150/people/?55009');
             $table->rememberToken();
             $table->timestamps();
         });

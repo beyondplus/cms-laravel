@@ -43,6 +43,10 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('slider/delete/{id}','SliderController@destroy');
 
       Route::resource('menu', 'MenuController');
+
+      Route::get('permission','PermissionController@index');
+      Route::post('permission', 'PermissionController@ajaxUpdate');
+
       Route::get('menu/delete/{id}','MenuController@destroy');
       Route::post('menu/pagestore', 'MenuController@pageStore');
       Route::post('menu/poststore', 'MenuController@postStore');

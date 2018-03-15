@@ -34,7 +34,7 @@
                     <table  class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th>AdminName</th>
+                            <th>Name</th>
                             <th>Email</th>
                             <th>Created Date</th>
                             <th>Actions</th>
@@ -45,7 +45,7 @@
                         
                         
                         <tr>
-                            <td>{{$adminaccount->username}}</a></td>
+                            <td>{{$adminaccount->name}}</a></td>
                             <td>{{$adminaccount->email}}</td>
                             <td>{{$adminaccount->created_at}}</td>
                             <td>

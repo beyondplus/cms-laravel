@@ -32,11 +32,7 @@ class UserController extends Controller
     }
 
     public function create(){
-      //  $user= User::lists('name','id');
-        //$brand= Brand::lists('brand_name','id');
-        //return view('dashboard.create')->with('category',$categories);
-        $user = User::orderBy('id', 'DESC')->get();
-        return view('bp-admin.user.add')->with(compact('user'));
+        return view('bp-admin.user.add');
     }
 
     public function store(Request $request){
@@ -68,16 +64,14 @@ class UserController extends Controller
     public function update($id, Request $request)
     {
         $inputs = $request->all();
-     //   $inputs = $request->except('_token', '_method');
         $inputs['password'] = bcrypt($request->input('password'));
         User::findOrFail($id)->update($inputs);
-        return redirect()->to('bp-admin/user');//return view
+        return redirect()->to('bp-admin/user');
     }
 
     public function destroy($id)
     {
         User::find($id)->delete();
-        //return 1;
         return redirect()->back();
     }
 

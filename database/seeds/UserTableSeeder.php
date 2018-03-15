@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'name'          => 'San Pwint Thu',
             'email'         => 'root@email.com',
             'password'      => Hash::make('root'),
-            'user_type'     => 2,
+            'role'     => 2,
             'api_token'     => 'r27bHi9jwClte3W8MypKXXqpMCvIRZErVOttKsz9SNf14xKwtK6J1rjWE9Zc',
             'avatar'        => 'http://lorempixel.com/150/150/people/?55009',
             'phone_no'      => '1-428-547-2288',

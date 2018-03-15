@@ -6,6 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> @if (trim($__env->yieldContent('title'))) @yield('title') -Beyond Plus Dashboard @endif Beyond Plus Dashboard </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
@@ -34,6 +35,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="{{ asset ("/bower_components/adminlte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 </head>
 <body class="skin-blue">
 <div class="wrapper">
@@ -84,5 +92,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Both of these plugins are recommended to enhance the
       user experience -->
 @stack('scripts')
+
 </body>
 </html>

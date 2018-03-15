@@ -18,7 +18,7 @@
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
+    <ul class="sidebar-menu">
         <li class="header">Admin</li>
         <li ><a href="{{url('/bp-admin')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <!-- Optionally, you can add icons to the links -->
@@ -42,6 +42,7 @@
             <ul class="treeview-menu">
                 <li><a href="{{ url("bp-admin/generals")}}">Generals</a></li>
                 <li><a href="{{ url('bp-admin/account') }}">Account</a></li>
+                <li><a href="{{ url('bp-admin/permission') }}">Permission</a></li>
             </ul>
         </li>
         <li class="treeview">
