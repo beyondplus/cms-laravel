@@ -14,17 +14,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- @if ($errors->has())
-                                <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                                </div>
-                            @endif -->
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col-sm-5">
+                            @component('bp-admin.inc.alert')
+                            @endcomponent
+                            
                             {{Form::model($custom, [
                                 'url' => ['bp-admin/new', $custom->custom_id],
                                 'method' => 'put',
@@ -39,6 +35,10 @@
                             <div class="form-group">
                                 <label class="control-label">Link</label>
                                 {{Form::text('custom_link', null,['class'=>'form-control'])}}
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Template</label>
+                                {{Form::text('custom_blade', null,['class'=>'form-control'])}}
                             </div>
                            <!--  <div class="form-group">
                                 <label class="control-label">Image</label>

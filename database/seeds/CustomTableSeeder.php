@@ -17,7 +17,9 @@ class CustomTableSeeder extends Seeder
      	Bp_custom::create([
      		'custom_name' => 'Test',
             'custom_link' => 'test',
+            'custom_blade' => 'test',
             'custom_weight' => '0',
+            'staff_id'      => 1,
      		'created_at'    => '2016-06-3 00:36:29'
      		]);
     }

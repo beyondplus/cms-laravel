@@ -25,14 +25,8 @@
                                 'files' => 'true',
                                 ])}}
                           
-                            @if ($errors->all())
-                                <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                                </div>
-                            @endif
-                            {{--  --}}
+                            @component('bp-admin.inc.alert')
+                            @endcomponent
 
                                                         
                             <div class="form-group">

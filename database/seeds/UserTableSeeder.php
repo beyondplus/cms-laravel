@@ -25,7 +25,7 @@ class UserTableSeeder extends Seeder
             'phone_no'      => '1-428-547-2288',
             'created_at'    => '2016-06-3 00:36:29'
         ]);
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 5; $i++) {
             $user = [
                 'name'          => $this->faker->firstName,
                 'email'         => $this->faker->unique()->email,

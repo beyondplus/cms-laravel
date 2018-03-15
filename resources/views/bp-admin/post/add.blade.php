@@ -22,14 +22,8 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-sm-10">
-                            @if($errors->any())
-                                <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                                </div>
-                            @endif
-                            {{--  --}}
+                            @component('bp-admin.inc.alert')
+                            @endcomponent
                             
                             <div class="form-group">
                                 <label class="control-label">Name</label>

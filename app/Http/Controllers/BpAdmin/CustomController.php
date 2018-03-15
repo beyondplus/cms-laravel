@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
 use App\Models\Bp_custom;
+use Validator;
 
 
 class CustomController extends Controller
@@ -23,23 +24,28 @@ class CustomController extends Controller
 	public function index(){
 
 		$custom = Bp_custom::orderBy('custom_name')->paginate(13);
-		//return view('bp-admin.custom.index')->with(compact('custom'));
         return view('bp-admin.custom.index', array('custom' => $custom));
 	}
 
-	public function create(){
-        $categories= Bp_custom::lists('custom_name','custom_id');
+	public function create(Request $request){
+
+        $categories= Bp_custom::get()->pluck('custom_name','custom_id');
+        
         return view('bp-admin.custom.add', array('categories' => $categories));
 	}
 
 	public function store(Request $request){
-        // $this->validate($request, [
-        // 'title' => 'required',
-        // 'description' => 'required'
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'custom_name' => 'required', 
+            'custom_link' => 'required',
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $inputs = $request->all();
-        // $inputs['custom_link'] = str_replace(' ', '-', strtolower($request->input('custom_name')));
+        
         if ($request->file('custom_icon') && $request->file('custom_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('custom_icon')->getClientOriginalExtension(); // getting image extension
@@ -53,7 +59,7 @@ class CustomController extends Controller
 
 
 		Bp_custom::create($inputs);
-        return redirect()->to('bp-admin/new');
+        return redirect()->back()->withSuccess(__('message.success'));
 	}
 
 	public function edit($id)
@@ -63,16 +69,24 @@ class CustomController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'custom Not Found';
         }
-        $categories= Bp_custom::lists('custom_name','custom_id');
+        $categories= Bp_custom::get()->pluck('custom_name','custom_id');
         return view('bp-admin.custom.edit', array('custom' => $custom, 'categories' => $categories));
     }
 
 
     public function update($id, Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'custom_name' => 'required', 
+            'custom_link' => 'required',
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $inputs = $request->all();
-     //   $inputs = $request->except('_token', '_method');
-        // $inputs['custom_link'] = str_replace(' ', '-', strtolower($request->input('custom_name')));
+
         if ($request->file('custom_icon') && $request->file('custom_icon')->isValid()) {
             $destinationPath = uploadPath();
             $extension = $request->file('custom_icon')->getClientOriginalExtension(); // getting image extension
@@ -82,7 +96,7 @@ class CustomController extends Controller
         }
 
         Bp_custom::findOrFail($id)->update($inputs);
-        return redirect()->to('bp-admin/new');
+        return redirect()->back()->withSuccess(__('message.success'));
     }
 
     public function destroy($id)

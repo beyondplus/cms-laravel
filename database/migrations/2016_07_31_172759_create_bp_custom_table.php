@@ -18,7 +18,7 @@ class CreateBpCustomTable extends Migration
             $table->string('custom_link');
             $table->string('custom_blade');
             $table->integer('custom_weight')->default(1);
-            $table->string('custom_icon');
+            $table->string('custom_icon')->default('fa fa-edit');
             $table->integer('parent_id')->default(0);
             $table->integer('staff_id')->default(1);;
             $table->timestamps();

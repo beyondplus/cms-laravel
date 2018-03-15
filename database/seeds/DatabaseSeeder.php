@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call('MenuTableSeeder');
         $this->call('ModuleTableSeeder');
         $this->call('LanguageTableSeeder');
+        $this->call('CustomTableSeeder');
 
     }
 }
