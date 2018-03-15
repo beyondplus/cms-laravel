@@ -34,9 +34,9 @@ class Main extends Controller
 
 
         if ($validator->fails()) {  
-            return view('auth/adminlogin',['errors'=> $validator->errors()]);    
+            return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        
         if ($admin->attempt(['email'=>$request->input('email'),'password'=>$request->input('password')])) {
 
             return redirect()->intended('bp-admin');

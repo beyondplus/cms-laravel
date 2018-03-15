@@ -27,7 +27,6 @@ class AdminController extends Controller
     	$allUser=Admin::get()->count();
 
         $latestUser= User::get();
-        // print_r($latestUser);
         return view('/bp-admin/home', array('post' => $post , 'allUser' => $allUser, 'latestUser' => $latestUser ));
     }
 
