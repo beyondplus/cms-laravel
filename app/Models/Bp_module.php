@@ -11,6 +11,10 @@ class Bp_module extends Model
     	 'module_name','module_link','module_weight', 'module_icon', 'parent_id','staff_id', 'section','created_at','updated_at'
     ];
 
+    public function accesss() {
+    	return $this->belongsTo('App\Models\Bp_access','module_id','module_id');
+    }
+
     public function child() {
     	return $this->hasMany('App\Models\Bp_module','parent_id');
     }

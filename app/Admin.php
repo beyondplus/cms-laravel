@@ -15,7 +15,12 @@ class Admin extends AdminAuthenticatable
     protected $table = 'users';
     
     protected $fillable = [
-        'username', 'email','password'
+        'name', 'email','role','password'
     ];
+
+
+    public function access() {
+        return $this->belongsTo('App\Models\Bp_access','access_id');
+    }
 
 }

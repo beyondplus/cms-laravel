@@ -24,7 +24,7 @@ class UserController extends Controller
        $this->middleware('admins');
     }
 
-     public function index(){
+     public function index(Request $request){
         $user = User::orderBy('id', 'DESC')
             ->groupBy('users.id')
             ->get();
