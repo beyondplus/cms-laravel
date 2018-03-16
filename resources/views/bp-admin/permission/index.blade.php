@@ -1,6 +1,6 @@
 @extends('bp-admin.layouts.admin.index')
 
-@section('title', 'Permission')
+@section('title', 'Permisson')
 
 @section('content')
 <div class="row">
@@ -45,7 +45,7 @@
                             <td>{{Form::checkbox('user',$m->module_id,$m->user, ['class' => 'user' , 'id' => 'user-'.$m->module_id])}}</td>
                             <td>{{Form::checkbox('staff', $m->module_id, $m->staff, ['class' => 'staff' , 'id' => 'staff-'.$m->module_id])}}</td>
                             <td>{{Form::checkbox('admin', $m->module_id, $m->admin, ['class' => 'admin' ,'id' => 'admin-'.$m->module_id])}}</td>
-                            <td>{{Form::checkbox('superadmin', $m->superadmin, $m->module_id, ['class' => 'superadmin' ,'id' => 'superadmin-'.$m->module_id])}}</td>
+                            <td>{{Form::checkbox('superadmin', $m->module_id, $m->superadmin, ['class' => 'superadmin' ,'id' => 'superadmin-'.$m->module_id])}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -79,7 +79,7 @@
                   } 
               } 
           };
-          xhttp.open("POST", "/bp-admin/permission", true);
+          xhttp.open("POST", "/bp-admin/permisson", true);
           // xhttp.open("GET", '/bp-admin/permission/update', true);
           xhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
           xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

@@ -15,7 +15,7 @@ class AccessTableSeeder extends Seeder
     {
     	Bp_access::truncate();
 
-        for ($i=1; $i <= 15; $i++) {
+        for ($i=1; $i <= 17; $i++) {
 
             $Bp_access = [
                 'module_id'		=> $i,

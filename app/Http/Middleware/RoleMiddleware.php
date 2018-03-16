@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Bp_access;
 
 class RoleMiddleware
 {
@@ -18,25 +17,22 @@ class RoleMiddleware
     public function handle($request, Closure $next)
     {
         if(auth()->guard('admins')->check()) {
-            $role = auth()->guard('admins')->user()->access();
-            dd(json_encode($role));
-
-            // if($role==1) {
-            //     echo "user";
-            //     return abort(404);
-            // } elseif($role=2) {
-            //     echo "staff";
-            // } elseif($role=3) {
-            //     echo "admin";
-            // } elseif($role=4) {
-            //     echo "superadmin";
-            // } else {
-            //     echo "other";
-            // }
-            // dd(auth()->guard('admins')->user()->role);
-            
-            // dd($request->path());
+            $data = explode("/", url()->current());
+            if(count($data)>4) {
+                $uri = array_slice($data, 4);
+                $uri = implode("/", $uri);
+                // return dd($uri);
+                $access_check = auth()->guard('admins')->user()->access($uri);
+                // return dd(json_encode($access_check));
+                if(count($access_check)) {
+                    return $next($request);  
+                } else {
+                    return abort("404");
+                }
+            } 
         } 
-        return $next($request);
+            
+        return $next($request);    
+
     }
 }

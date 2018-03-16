@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             {{ Form::open([
-                'url' => 'bp-admin/generals/add',
+                'url' => 'bp-admin/general/add',
                 'method' => 'post',
                 'files' => 'true',
                 ]) }}

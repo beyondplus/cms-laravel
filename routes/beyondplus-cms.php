@@ -44,8 +44,8 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::resource('menu', 'MenuController');
 
-      Route::get('permission','PermissionController@index');
-      Route::post('permission', 'PermissionController@ajaxUpdate');
+      Route::get('permisson','PermissonController@index');
+      Route::post('permisson', 'PermissonController@ajaxUpdate');
 
       Route::get('menu/delete/{id}','MenuController@destroy');
       Route::post('menu/pagestore', 'MenuController@pageStore');
@@ -61,9 +61,9 @@ Route::group(['middleware' => 'web'], function () {
       Route::put('tax/{id}','TaxController@update');
       Route::get('tax/delete/{id}','TaxController@destroy');
 
-      Route::get('generals','SettingsController@index');
-      Route::get('generals/add', 'SettingsController@generaledit');
-      Route::post('generals/add', 'SettingsController@generaledit');
+      Route::get('general','SettingsController@index');
+      Route::get('general/add', 'SettingsController@generaledit');
+      Route::post('general/add', 'SettingsController@generaledit');
 
 
       Route::resource('account', 'AccountController');

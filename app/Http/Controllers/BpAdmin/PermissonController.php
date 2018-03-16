@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Bp_module;
 use App\Models\Bp_access;
 
-class PermissionController extends Controller
+class PermissonController extends Controller
 {
     public function __construct()
     {

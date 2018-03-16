@@ -119,7 +119,7 @@
                         <li class="user-header">
                             <img src="{{ asset('/img/avatar.png') }}" class="img-circle" alt="User Image" />
                             <p>
-                                {{ Auth::guard('admins')->user()->username }}
+                                {{ Auth::guard('admins')->user()->name }}
                                 <small>{{-- Member since Nov. 2012 --}} {{ Auth::guard('admins')->user()->email }}</small>
                             </p>
                         </li>

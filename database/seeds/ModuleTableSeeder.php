@@ -13,9 +13,27 @@ class ModuleTableSeeder extends Seeder
     public function run()
     {
         Bp_module::truncate();
-        $module = array(array("Post","post",0,"fa fa-home",0,0), array("Page","page",0,"fa fa-edit",0,0),array("Menu","menu",0,"fa fa-table",0,0),array("Media","media",0,"fa fa-desktop",0,0),array("Slider","slider",0,"fa fa-clone",0,0),array("User Management","user",0,"fa fa-windows",0,1),array("Settings","settings",0,"fa fa-bug",0,1),array("Custom","custom",0,"fa fa-windows",0,1),array("Add Custom","addcustom",0,"fa fa-sitemap",0,1));
+        $module = array(
+                    array("Dashboard","/",0,"fa fa-dashboard",0,0),
+                    array("Post","post",0,"fa fa-home",0,0),
+                    array("Page","page",0,"fa fa-edit",0,0),
+                    array("Menu","menu",0,"fa fa-table",0,0),
+                    array("Media","media",0,"fa fa-desktop",0,0),
+                    array("Slider","slider",0,"fa fa-clone",0,0),
+                    array("User Management","user",0,"fa fa-windows",0,1),
+                    array("Settings","settings",0,"fa fa-bug",0,1),
+                    array("Custom","custom",0,"fa fa-windows",0,1),
+                    array("Add Custom","addcustom",0,"fa fa-sitemap",0,1));
         $this->createModule($module);
-        $child = array(array("Post","post",0,"fa fa-home",1,0), array("Category","category",0,"fa fa-edit",1,0),array("Taxonomy","taxonomy",0,"fa fa-table",1,0),array("Account","account",0,"fa fa-desktop",6,0),array("Permisson","user",0,"fa fa-windows",7,1),array("Generals","settings",0,"fa fa-bug",7,1));
+        $child = array(
+                    array("Add Post","post/create",0,"fa fa-home",1,0),
+                    array("Post","post",0,"fa fa-home",1,0), 
+                    array("Category","category",0,"fa fa-edit",1,0),
+                    array("Taxonomy","taxonomy",0,"fa fa-table",1,0),
+                    array("Account","account",0,"fa fa-desktop",6,0),
+                    array("Permisson","permisson",0,"fa fa-windows",6,0),
+                    array("Generals","general",0,"fa fa-bug",6,0)
+                );
         $this->createModule($child);
         
     }
