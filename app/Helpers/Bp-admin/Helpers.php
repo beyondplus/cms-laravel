@@ -195,3 +195,8 @@ function formatUrl($path){
 function uploadPath() {
     return public_path().'/uploads/';
 }
+
+function role_type() {
+    $role_type = [1=>'user',2=>'staff',3=>'admin',4=>'superadmin'];
+    return $role_type;
+}

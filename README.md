@@ -63,7 +63,7 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 - [x] Frontend Main
 - [x] Backend Main
 - [x] Migration file and Seeder
-- [ ] Role and Permission
+- [x] Role and Permission
 - [x] Editor
 - [x] Slider Function
 - [x] Sitemap and RSS

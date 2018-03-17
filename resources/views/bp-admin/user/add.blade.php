@@ -37,7 +37,12 @@
                                 <label class="control-label">Picture</label>
                                 {{ Form::file('pictures',null,array('class'=>'form-control')) }}
                             </div> -->
-
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Select Role
+                                </label>
+                                {{ Form::select('role',role_type(),1, ['class'=>'form-control'])}}
+                            </div>
                             <div class="form-group">
                                 <label class="control-label">Email</label>
                                 {{Form::text('email', null,['class'=>'form-control'])}}
@@ -48,6 +53,7 @@
                                {{ Form::password('password',['class'=>'form-control']) }}
                             </div>
 
+                            
                             <div class="">
                                 <button type="submit" class="pull-right btn btn-success">Create</button>
                             </div>

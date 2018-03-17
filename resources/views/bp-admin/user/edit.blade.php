@@ -31,6 +31,12 @@
                                 {{Form::text('name', null,['class'=>'form-control'])}}
                             </div>
                             <div class="form-group">
+                                <label class="control-label">
+                                    Select Role
+                                </label>
+                                {{ Form::select('role',role_type(),$user->role, ['class'=>'form-control'])}}
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label">Email</label>
                                 {{ Form::text('email',null,array('class'=>'form-control')) }}
                             </div>
