@@ -43,7 +43,7 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 * Laravel 5.6 Framework
 * Jquery
 * Bootstrap CSS Framework
-* Gentelella ( CSS Admin Panel )
+* Adminlte ( Admin Dashboard Desgin )
 * font-awesome
 
 ## Frontend Screenshot
@@ -68,3 +68,5 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 - [x] Slider Function
 - [x] Sitemap and RSS
 - [ ] Statitics
+- [ ] Documentation
+- [ ] Video Tutorials
