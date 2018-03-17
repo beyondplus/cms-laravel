@@ -18,7 +18,6 @@ class CreateBpTaxTable extends Migration
             $table->string('tax_name');
             $table->string('tax_link');
             $table->string('tax_icon')->default('fa fa-list');
-            $table->text('tax_desc');
             $table->integer('tax_lan')->default(1);
             $table->string('tax_type');
             $table->string('tax_active', 3)->default('yes');

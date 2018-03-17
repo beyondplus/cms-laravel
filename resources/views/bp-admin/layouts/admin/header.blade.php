@@ -119,8 +119,10 @@
                         <li class="user-header">
                             <img src="{{ asset('/img/avatar.png') }}" class="img-circle" alt="User Image" />
                             <p>
+                                @if(Auth::guard('admins')->check())
                                 {{ Auth::guard('admins')->user()->name }}
                                 <small>{{-- Member since Nov. 2012 --}} {{ Auth::guard('admins')->user()->email }}</small>
+                                @endif
                             </p>
                         </li>
                         <!-- Menu Body -->

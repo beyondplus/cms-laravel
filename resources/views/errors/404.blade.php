@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">404</div>
+                <div class="title">Be right back. |  <a href="{{ url('/') }}">Beyond Plus CMS</a></div>
             </div>
         </div>
     </body>

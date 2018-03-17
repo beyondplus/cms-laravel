@@ -76,7 +76,7 @@ class AccountController extends Controller
     public function destroy($id)
     {
         Admin::find($id)->delete();
-        //return 1;
+
         return redirect()->back();
     }
 

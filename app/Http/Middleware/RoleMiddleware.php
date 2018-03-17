@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class RoleMiddleware
 {
@@ -20,13 +19,16 @@ class RoleMiddleware
             $data = explode("/", url()->current());
             if(count($data)>4) {
                 $uri = array_slice($data, 4);
-                $uri = implode("/", $uri);
-                // return dd($uri);
+                //temp for general uri
+                //$uri = implode("/", $uri);
+                $uri = $uri[0];
                 $access_check = auth()->guard('admins')->user()->access($uri);
-                // return dd(json_encode($access_check));
                 if(count($access_check)) {
                     return $next($request);  
                 } else {
+                    if($uri == 'logout') {
+                        return $next($request);
+                    }
                     return abort("404");
                 }
             } 

@@ -17,7 +17,6 @@ class TaxTableSeeder extends Seeder
      	Bp_tax::create([
      		'tax_name'      => 'Uncategorized',
      		'parent_id'		=>	'0',
-            'tax_desc'      =>	'Uncategorized',
             'tax_link'      => 'uncategorized',
      		'tax_active'    =>	'yes',
             'tax_type'      => 'cat',

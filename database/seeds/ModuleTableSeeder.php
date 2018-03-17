@@ -15,7 +15,6 @@ class ModuleTableSeeder extends Seeder
         Bp_module::truncate();
         $module = array(
                     array("Dashboard","/",0,"fa fa-dashboard",0,0),
-                    array("Post","post",0,"fa fa-home",0,0),
                     array("Page","page",0,"fa fa-edit",0,0),
                     array("Menu","menu",0,"fa fa-table",0,0),
                     array("Media","media",0,"fa fa-desktop",0,0),
