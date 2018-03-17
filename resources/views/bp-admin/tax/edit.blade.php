@@ -38,30 +38,16 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
-                                  @if($tax->parent_id == 0)
-                                    {!!Form::select('parent_id',$taxes,null, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))!!}
-                                   @else
-                                     {!!Form::select('parent_id',$taxes,'null',['class'=>'form-control'])!!}
-                                   @endif
+                                    {!!Form::select('parent_id', $taxes,  $tax->parent_id , ['class'=> 'form-control'])!!}
+                                 
                             </div> 
                             
-                            <div class="form-group">
-                                <label class="control-label">Show Home</label>
-                                {!!Form::select('tax_dash', [
-                                    1 => 'Yes',
-                                    0 => 'No',
-                                ],  null, ['class'=> 'form-control'])!!}
-                                {{-- <select class="form-control" name="tax_dash">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select> --}}
-                            </div>
                             <div class="form-group">
                                 <label class="control-label">Active</label>
                                 {!!Form::select('tax_ative', [
                                     1 => 'Yes',
                                     0 => 'No',
-                                ],  null, ['class'=> 'form-control'])!!}
+                                ],  $tax->active , ['class'=> 'form-control'])!!}
                             </div>
                           
                             <div>

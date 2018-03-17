@@ -14,6 +14,14 @@ class TaxTableSeeder extends Seeder
     public function run()
     {
      	Bp_tax::truncate();
+        Bp_tax::create([
+            'tax_name'      => 'None',
+            'parent_id'     =>  '0',
+            'tax_link'      => 'none',
+            'tax_active'    =>  'yes',
+            'tax_type'      => 'cat',
+            'created_at'    => '2016-06-3 00:36:29'
+            ]);
      	Bp_tax::create([
      		'tax_name'      => 'Uncategorized',
      		'parent_id'		=>	'0',

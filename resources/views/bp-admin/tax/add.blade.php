@@ -35,21 +35,12 @@
                             <div class="form-group">
                                 <label class="control-label">Image</label>
                                 {!! Form::file('tax_icon',null,array('class'=>'form-control')) !!}
-                                {!! Form::hidden('tax_icon',null,array('class'=>'form-control')) !!}
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
-                               {!! Form::select('parent_id',$taxes,null, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))!!}
+                               {!! Form::select('parent_id',$taxes,1, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))!!}
                             </div> 
 
-
-                            <div class="form-group">
-                                <label class="control-label">Show Home</label>
-                                <select class="form-control" name="tax_dash">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </div>
                             <div class="form-group">
                                 <label class="control-label">Active</label>
                                 <select class="form-control" name="tax_active">
