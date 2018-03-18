@@ -26,7 +26,6 @@ class UserController extends Controller
 
      public function index(Request $request){
         $user = User::orderBy('id', 'DESC')
-            ->groupBy('users.id')
             ->get();
         return view('bp-admin.user.index',array('user' => $user ));
     }
