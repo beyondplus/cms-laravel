@@ -34,25 +34,23 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Image</label>
-                                {{ Form::file('category_icon',null,array('class'=>'form-control')) }}
-                                {{ Form::hidden('category_icon',null,array('class'=>'form-control')) }}
+                                {{ Form::file('tax_icon',null,array('class'=>'form-control')) }}
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
-                               {{ Form::select('parent_id',$categories,null, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
+                               {{ Form::select('parent_id',$categories,1, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
                             </div> 
 
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
+                                
+                                        {{ Form::select('translate_id',bp_select_taxes(),1,array('class'=>'form-control')) }}
+                                
+                            </div>
 
                             <div class="form-group">
-                                <label class="control-label">Show Home</label>
-                                <select class="form-control" name="category_dash">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label">Active</label>
-                                {{Form::select('category_active', [
+                                {{Form::select('tax_active', [
                                     'yes' => 'Yes',
                                     'no' => 'No',
                                 ],  null, ['class'=> 'form-control'])}}

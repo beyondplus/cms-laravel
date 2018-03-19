@@ -32,8 +32,12 @@
                         @foreach ($post as $c)
                         <tr>
                             <td>
-                                <a href="#" name="" />{{$c->title}}</a> <br>
-                                <div class="col-sm-9"></div><div class="col-sm-3"> <a href="{{ url('bp-admin/post/'.$c->id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>
+                                <a href="{{ url('bp-admin/post/'.$c->id.'/edit') }}" >{{$c->title}}</a> <br>
+                            </td>
+                            <td>
+                                <div class="col-sm-3"> <a href="{{ url('bp-admin/post/'.$c->id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>
+                                </div>
+                                <div class="col-sm-9">
                                     <a href="{{ url('bp-admin/page/delete', [$c->id]) }}" class="btn btn-delete btn-xs btn-danger">Delete</a>
                                 </div>
                             </td>

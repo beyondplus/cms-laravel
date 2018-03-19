@@ -85,6 +85,31 @@
 
             <div class="box box-danger">
                 <div class="box-body">
+                    {{ Form::label('Language') }}<br />
+                    <div class="col-md-12 form-group">
+                        
+                        <div class="row">
+                                {{ Form::select('lang',langauge(),1,array('class'=>'form-control')) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box box-danger">
+                <div class="box-body">
+                    {{ Form::label('Translate') }}<br />
+                    <div class="col-md-12 form-group">
+                        
+                        <div class="row">
+                                {{ Form::select('translate_id',bp_select_posts(),0,array('class'=>'form-control')) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box box-danger">
+                <div class="box-body">
                     {{ Form::label('Featured Image') }}<br />
                     <div class="col-md-12 form-group">
                         

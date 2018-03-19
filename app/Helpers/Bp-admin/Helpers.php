@@ -22,6 +22,27 @@ function bp_post($limitId)
     $post = bp_post::where('post_type','post')->orderby('id','desc')->paginate($limitId);
     return $post;
 }
+
+function bp_select_posts()
+{
+    $posts = bp_post::where('post_type','post')->where('translate_id',0)->pluck('title','id');
+    $posts[0] = 'master';
+    return $posts;
+}
+
+function bp_select_pages()
+{
+    $pages = bp_post::where('post_type','page')->where('translate_id',0)->pluck('title','id');
+    $pages[0] = 'master';
+    return $pages;
+}
+
+function bp_select_taxes()
+{
+    $taxes = bp_tax::where('tax_type','cat')->where('translate_id',0)->where('tax_id','>',1)->pluck('tax_name','tax_id');
+    return $taxes;
+}
+
 function bp_menu()
 {
     $menu = bp_menu::with('children')->where('parent_id',1)->orderBy('menu_weight')->get();
@@ -200,3 +221,9 @@ function role_type() {
     $role_type = [1=>'user',2=>'staff',3=>'admin',4=>'superadmin'];
     return $role_type;
 }
+
+function langauge() {
+    $langauge = [1=>'English', 2=>'Myanmar'];
+    return $langauge;
+}
+

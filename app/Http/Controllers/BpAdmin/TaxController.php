@@ -23,35 +23,34 @@ class TaxController extends Controller
 
     public function index(){
 
-      $tax = Bp_tax::orderBy('tax_name')->paginate(13);
-		//return view('bp-admin.tax.index')->with(compact('tax'));
+      $tax = Bp_tax::orderBy('tax_name')->where('tax_type','tax')->paginate(13);
       return view('bp-admin.tax.index', array('tax' => $tax));
-  }
+      
+    }
 
-  public function create(){
-    $taxes = Bp_tax::get()->pluck('tax_name','tax_id');
-    return view('bp-admin.tax.add', array('taxes' => $taxes));
-}
+    public function create(){
+        $taxes = Bp_tax::get()->pluck('tax_name','tax_id');
+        return view('bp-admin.tax.add', array('taxes' => $taxes));
+    }
 
-public function store(Request $request){
+    public function store(Request $request){
         // $this->validate($request, [
         // 'title' => 'required',
         // 'description' => 'required'
         // ]);
-
-    $inputs = $request->all();
-    $inputs['tax_link'] = formatUrl($request->input('tax_name'));
-    $inputs['tax_type'] = $this->tax_name ;
-    if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
-        $destinationPath = uploadPath();
-            $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension
-            // $fileName = 'catmk'.md5(microtime().rand()).'.'.$extension; // renameing image
-            $fileName = $request->file('tax_icon')->getClientOriginalName();
-            $request->file('tax_icon')->move($destinationPath, $fileName); // uploading file to given path
-            if($request->file('pictures') !=null){
-                $inputs['tax_icon'] = $fileName;
+        $inputs = $request->all();
+        $inputs['tax_link'] = formatUrl($request->input('tax_name'));
+        $inputs['tax_type'] = $this->tax_name ;
+        if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
+            $destinationPath = uploadPath();
+                $extension = $request->file('tax_icon')->getClientOriginalExtension(); // getting image extension
+                // $fileName = 'catmk'.md5(microtime().rand()).'.'.$extension; // renameing image
+                $fileName = $request->file('tax_icon')->getClientOriginalName();
+                $request->file('tax_icon')->move($destinationPath, $fileName); // uploading file to given path
+                if($request->file('pictures') !=null){
+                    $inputs['tax_icon'] = $fileName;
+                }
             }
-        }
 
 
         Bp_tax::create($inputs);

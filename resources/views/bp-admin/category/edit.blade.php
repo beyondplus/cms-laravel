@@ -37,28 +37,19 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
-
-                                  @if($category->parent_id == 0)
-                                    {{Form::select('parent_id',$categories,null, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
-                                   @else
-                                     {{Form::select('parent_id',$categories, $category->parent_id,['class'=>'form-control'])}}
-                                   @endif
+                               {{ Form::select('parent_id',$categories,$category->translate_id, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
                             </div> 
+                    
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
+                                
+                                        {{ Form::select('translate_id',bp_select_taxes(),$category->translate_id,array('class'=>'form-control')) }}
+                         
+                            </div>
                             
                             <div class="form-group">
-                                <label class="control-label">Show Home</label>
-                                {!!Form::select('category_dash', [
-                                    1 => 'Yes',
-                                    0 => 'No',
-                                ],  null, ['class'=> 'form-control'])!!}
-                                {{-- <select class="form-control" name="category_dash">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select> --}}
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label">Active</label>
-                                {{Form::select('category_active', [
+                                {{Form::select('tax_active', [
                                     'yes' => 'Yes',
                                     'no' => 'No',
                                 ],  null, ['class'=> 'form-control'])}}

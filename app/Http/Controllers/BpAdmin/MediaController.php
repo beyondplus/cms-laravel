@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Bp_media;
 use App\Models\User;
 use Auth;
+use Validator;
 
 class MediaController extends Controller
 {
@@ -37,10 +38,16 @@ class MediaController extends Controller
     }
 
     public function store(Request $request){
-        // $this->validate($request, [
-        // 'title' => 'required',
-        // 'description' => 'required'
-        // ]);
+
+        $validator = Validator::make($request->all(), [
+            'media_name' => 'required',
+            'media_link' => 'required'
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $inputs = $request->all();
 
         if ($request->file('media_link') && $request->file('media_link')->isValid()) {
@@ -70,6 +77,15 @@ class MediaController extends Controller
 
     public function update($id, Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'media_name' => 'required',
+            'media_link' => 'required'
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $inputs = $request->all();
      //   $inputs = $request->except('_token', '_method');
 

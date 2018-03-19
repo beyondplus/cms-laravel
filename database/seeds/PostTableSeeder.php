@@ -24,6 +24,7 @@ class PostTableSeeder extends Seeder
                 'post_type'     => 'post',
                 'featured_img'  => 'default.jpg',
                 'staff_id'      => 1,
+                'translate_id'  => 0,
                 'created_at'    => '2016-06-3 00:36:29'
             ];
 
@@ -44,6 +45,7 @@ class PostTableSeeder extends Seeder
                 'post_type'     => 'page',
                 'featured_img'  => 'default.jpg',
                 'staff_id'      => 1,
+                'translate_id'  => 0,
                 'created_at'    => '2016-06-3 00:36:29'
             ];
 

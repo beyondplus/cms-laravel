@@ -41,6 +41,12 @@
                                     {!!Form::select('parent_id', $taxes,  $tax->parent_id , ['class'=> 'form-control'])!!}
                                  
                             </div> 
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
+                                
+                                        {{ Form::select('translate_id',bp_select_taxes(),$tax->translate_id,array('class'=>'form-control')) }}
+                         
+                            </div>
                             
                             <div class="form-group">
                                 <label class="control-label">Active</label>
