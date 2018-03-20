@@ -22,6 +22,7 @@ class CreateBpTaxTable extends Migration
             $table->string('tax_type');
             $table->string('tax_active', 3)->default('yes');
             $table->integer('translate_id')->default(0);
+            $table->integer('lang')->default(1);
             $table->integer('staff_id')->default(1);
             $table->timestamps();
         });

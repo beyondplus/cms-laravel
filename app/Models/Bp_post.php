@@ -30,5 +30,8 @@ class Bp_post extends Model
         return $this->belongsToMany('App\Models\Bp_tax', 'bp_relationships' ,'post_id','tax_id');
     }
 
-
+    public function translate()
+    {
+        return $this->belongsTo('App\Models\Bp_post','id','translate_id');
+    }
 }

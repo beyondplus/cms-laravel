@@ -62,8 +62,10 @@
             <div class="box box-danger">
                 <div class="box-body">
                     <div class="col-md-12 form-group">
-                        {{ Form::label('Template Name') }}<br />
-                        {{ Form::text('post_template', 'default' ,['class'=>'form-control']) }}
+                        <div class="row">
+                            {{ Form::label('Template Name') }}<br />
+                            {{ Form::text('post_template', 'default' ,['class'=>'form-control']) }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,7 +73,6 @@
                 <div class="box-body">
                     {{ Form::label('Translate') }}<br />
                     <div class="col-md-12 form-group">
-                        
                         <div class="row">
                                 {{ Form::select('translate_id',bp_select_pages(),0,array('class'=>'form-control')) }}
                         </div>

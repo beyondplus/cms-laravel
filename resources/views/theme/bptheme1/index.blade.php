@@ -16,7 +16,7 @@
 						<li><i class="fa fa-rocket"></i> Java SE Development</li>
 						<li><i class="fa fa-android"></i> Android Development</li>
 					</ul>
-					{{-- <h4>* Trust our service</h4> --}}
+
 					<div class="button fadeInUp delayp2">
 						<a href="http://www.beyondplus.net/service" class="btn btn-lg btn-primary"><i class="fa fa-desktop"></i> Our Service </a>
 						<a href="http://www.beyondplus.net/about-us" class="btn btn-lg btn-success"><i class="fa fa-desktop"></i> About Us </a>
@@ -38,13 +38,24 @@
 	<div class="row">
 		<div class="col-sm-8 posts">
 			<div class="row">
-			@foreach (bp_post(9) as $post)
+
+				@foreach (bp_post(9) as $post)
 				<div class="col-sm-4">
-					<b><a href="{{url('/'.$post->post_link) }}" name="" >{{ $post->title }}</a></b><br>
+
+					@if(App::getLocale() == 'mm')
+						@if(isset($post->translate))
+							@if($post->translate->lang == 2)
+								@php $post = $post->translate; @endphp
+							@endif
+						@endif
+					@endif
+					<b>
+						<a href="{{url('/'.$post->post_link) }}" name="" >{{ $post->title }}</a>
+					</b><br>
 					<span><i>Posted by {{ $post->creator->name}} | {{ $post->created_at->diffForHumans() }} </i> </span><br>
 					<img src="{{ url('/uploads/'.$post->featured_img)}}" class="img-thumbnail">
 				</div>
-			@endforeach
+				@endforeach
 			</div>
 		</div>
 		<div class="col-sm-4" >

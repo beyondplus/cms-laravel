@@ -78,7 +78,6 @@ class PostController extends Controller
         try {
             $post = Bp_post::findOrFail($id);
             $tax_type = Bp_relationship::where('post_id',$id)->where('type','cat')->pluck('tax_id')->toArray();
-            //$term_cat = Bp_relationship::where('post_id',$id)->where('type','cat')->get();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Post Not Found';
         }

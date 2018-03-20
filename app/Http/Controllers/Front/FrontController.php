@@ -71,19 +71,29 @@ class FrontController extends Controller
      }
 
      public function detail($name) {
-        $bp_post = Bp_post::where('post_link', $name)->first();
+        $bp_post = Bp_post::with('translate')->where('post_link', $name)->first();
 
         $view = $this->template($bp_post, 'single');
         return view($view, ['title' => 'home', 'post' => $bp_post,'post_link'=>$this->post_link ]);
     }
 
     public function cat($name){
-        $cat_id=Bp_tax::select('tax_id')->where('tax_type','cat')->where('tax_link',$name)->get()->first();
-        if($cat_id === null){
-            abort(404);
+        $cat = Bp_tax::select('tax_id','translate_id')->where('tax_type','cat')->where('tax_link',$name)->first();
+
+        if(isset($cat)){
+
+            if($cat->translate_id == 0) {
+                $cat->translate_id = $cat->tax_id;
+            }
+
+            $posts = Bp_post::where('translate_id',0)->whereHas('categories', function($query) use ($cat) {
+                $query->where('bp_relationships.tax_id', $cat->translate_id);
+            })->with('translate')->paginate(10);
+
+            return view($this->t().'term', ['title' => 'home', 'posts' => $posts]);
+
         } else {
-            $terms=Bp_relationship::select('post_id')->where('tax_id', $cat_id->tax_id)->get();
-            return view($this->t().'term', ['title' => 'home','post_link'=>$this->post_link , 'terms' => $terms]);
+            abort(404);
         }
 
     }

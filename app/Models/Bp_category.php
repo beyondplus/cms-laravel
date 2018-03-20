@@ -28,4 +28,9 @@ class Bp_category extends Model
         return $this->belongsToMany('App\Models\Bp_post');
     }
 
+    public function translate()
+    {
+        return $this->belongsTo('App\Models\Bp_tax','tax_id','translate_id');
+    }
+
 }

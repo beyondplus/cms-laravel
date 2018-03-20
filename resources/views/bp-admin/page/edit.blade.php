@@ -63,8 +63,10 @@
         <div class="box box-danger">
             <div class="box-body">
                 <div class="col-md-12 form-group">
+                    <div class="row">
                     {{ Form::label('Template Name') }}<br />
                     {{ Form::text('post_template', null,['class'=>'form-control']) }}
+                    </div>
                 </div>
             </div>
         </div>

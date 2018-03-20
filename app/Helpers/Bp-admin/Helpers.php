@@ -14,32 +14,39 @@ function custom()
 }
 function bp_tax()
 {
-    $query = bp_tax::where('tax_type','cat')->get();
+    $query = bp_tax::where('tax_type','cat')->with('translate')->where('translate_id',0)->get();
     return $query;
 }
 function bp_post($limitId)
 {
-    $post = bp_post::where('post_type','post')->orderby('id','desc')->paginate($limitId);
+    $post = bp_post::where('post_type','post')->with('translate')->orderby('id','desc')->paginate($limitId);
+    return $post;
+}
+
+function bp_post_detail($postId)
+{
+    $post = bp_post::where('post_type','post')->with('translate')->orderby('id','desc')->first();
     return $post;
 }
 
 function bp_select_posts()
 {
     $posts = bp_post::where('post_type','post')->where('translate_id',0)->pluck('title','id');
-    $posts[0] = 'master';
+    $posts[0] = 'Master';
     return $posts;
 }
 
 function bp_select_pages()
 {
     $pages = bp_post::where('post_type','page')->where('translate_id',0)->pluck('title','id');
-    $pages[0] = 'master';
+    $pages[0] = 'Master';
     return $pages;
 }
 
 function bp_select_taxes()
 {
-    $taxes = bp_tax::where('tax_type','cat')->where('translate_id',0)->where('tax_id','>',1)->pluck('tax_name','tax_id');
+    $taxes = bp_tax::where('tax_type','cat')->where('translate_id',0)->pluck('tax_name','tax_id');
+    $taxes[0] = 'None';
     return $taxes;
 }
 
@@ -58,6 +65,13 @@ function bp_cat($tax_id,$limit_id)
     $tax = bp_tax::with('posts')->where('tax_id',$tax_id)->where('tax_type','cat')->orderby('tax_id','desc')->paginate($limit_id);
     return $tax;
 }
+
+function tax_parent() {
+    $parent = bp_tax::get()->pluck('tax_name','tax_id');   
+    $parent[0] = 'None';
+    return $parent;
+}
+
 
 function lang_dropdown($url) {
     if(Session::get('applocale') == "mm") {
@@ -210,7 +224,11 @@ function custom_menu()
 
 function formatUrl($path){
     $string = strtolower(str_replace(" ","-",$path));
-    return preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+    $string = str_replace("'", '', $string);
+    $string = str_replace('"', '', $string);
+    $string = str_replace(';', '', $string);
+    //preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+    return preg_replace( '/[~!@#$%^&*()_+={}[]|:;&lt;&gt;.?]/',  '', $string );
 }
 
 function uploadPath() {

@@ -49,6 +49,13 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="control-label">{{ Form::label('Language') }}</label>
+                                    {{ Form::select('lang',langauge(),1,array('class'=>'form-control')) }}
+                            </div>
+
+                            
+
+                            <div class="form-group">
                                 <label class="control-label">Active</label>
                                 <select class="form-control" name="tax_active">
                                     <option value="1">Yes</option>
