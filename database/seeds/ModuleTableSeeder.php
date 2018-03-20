@@ -30,7 +30,7 @@ class ModuleTableSeeder extends Seeder
                     array("Category","category",0,"fa fa-edit",1,0),
                     array("Taxonomy","taxonomy",0,"fa fa-table",1,0),
                     array("Account","account",0,"fa fa-desktop",6,0),
-                    array("Permisson","permisson",0,"fa fa-windows",6,0),
+                    array("Permission","permission",0,"fa fa-windows",6,0),
                     array("Generals","general",0,"fa fa-bug",6,0)
                 );
         $this->createModule($child);

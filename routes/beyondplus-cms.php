@@ -44,8 +44,8 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::resource('menu', 'MenuController');
 
-      Route::get('permisson','PermissonController@index');
-      Route::post('permisson', 'PermissonController@ajaxUpdate');
+      Route::get('permission','PermissionController@index');
+      Route::post('permission', 'PermissionController@ajaxUpdate');
 
       Route::get('menu/delete/{id}','MenuController@destroy');
       Route::post('menu/pagestore', 'MenuController@pageStore');
