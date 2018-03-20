@@ -25,6 +25,13 @@ class AccessTableSeeder extends Seeder
                 'superadmin'   	=> 1
             ];
 
+            if($i>1) {
+                $Bp_access['user'] = 0;
+            }
+
+            if($i==15) {
+                $Bp_access['staff'] = 0;               
+            }
             Bp_access::insert($Bp_access);
         }
 

@@ -42,7 +42,7 @@
             <ul class="treeview-menu">
                 <li><a href="{{ url("bp-admin/general")}}">Generals</a></li>
                 <li><a href="{{ url('bp-admin/account') }}">Account</a></li>
-                <li><a href="{{ url('bp-admin/permisson') }}">Permission</a></li>
+                <li><a href="{{ url('bp-admin/permission') }}">Permission</a></li>
             </ul>
         </li>
         <li class="treeview">
