@@ -28,6 +28,8 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
+                    @component('bp-admin.inc.alert')
+                    @endcomponent
                     <table  class="table table-bordered table-hover">
                         <thead>
                         <tr>

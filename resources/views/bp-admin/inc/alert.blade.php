@@ -1,6 +1,6 @@
 @if(session('success'))
     <div class="alert alert-success">
-        <li>{{session('success')}}</li>
+        {{session('success')}}
     </div>
 @endif
 @if ($errors->any())
