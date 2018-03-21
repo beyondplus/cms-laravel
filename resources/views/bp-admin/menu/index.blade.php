@@ -97,6 +97,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Languague</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -104,6 +105,7 @@
                             @foreach($menu as $m)
                             <tr>
                                 <td>{{$m->menu_name}}</td>
+                                <td>{{langauge($m->lang)}}</td>
                                 <td>
                                     <a href="{{ url('bp-admin/menu/'.$m->menu_id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>
                                     <a href="{{ url('bp-admin/menu/delete',$m->menu_id) }}" class="btn btn-delete btn-xs btn-danger">Delete</a>

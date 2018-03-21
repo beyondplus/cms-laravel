@@ -50,9 +50,16 @@ function bp_select_taxes()
     return $taxes;
 }
 
+function bp_select_menus()
+{
+    $menu = bp_menu::where('translate_id',0)->pluck('menu_name','menu_id');
+    $menu[0] = 'None';
+    return $menu;
+}
+
 function bp_menu()
 {
-    $menu = bp_menu::with('children')->where('parent_id',1)->orderBy('menu_weight')->get();
+    $menu = bp_menu::with('children','translate')->where('parent_id',0)->where('lang',1)->orderBy('menu_weight')->get();
     return $menu;
 }
 function bp_slider()
@@ -76,9 +83,9 @@ function tax_parent() {
 function lang_dropdown($url) {
     if(Session::get('applocale') == "mm") {
         return '
-        <ul class="lang nav navbar-nav">
+        <ul class="lang nav navbar-nav col-sm-9">
         <li>
-        <a href="javascript:void(0)" class="dropdown-anchor"><img src="'.$url.'/img/flag/mm.jpg" alt="English"> | ျမန္မာ <img src="'.$url.'/img/down-arrow-white.png" alt="Drop down" height="15px"></a>
+        <a href="javascript:void(0)" class="dropdown-anchor"><img src="'.$url.'/img/flag/mm.jpg" alt=Nulla quae molestias voluptas veritatis ut."English"> | ျမန္မာ <img src="'.$url.'/img/down-arrow-white.png" alt="Drop down" height="15px"></a>
         <div class="lang-box">
         <ul>
         <a href="'.$url.'/lang/en"><li>
@@ -92,7 +99,7 @@ function lang_dropdown($url) {
         ';   
     } else {
         return '
-        <ul class="lang nav navbar-nav">
+        <ul class="lang nav navbar-nav col-sm-9">
         <li>
         <a href="javascript:void(0)" class="dropdown-anchor"><img src="'.$url.'/img/flag/en.png" alt="English"> | English <img src="'.$url.'/img/down-arrow-white.png" alt="Drop down" height="15px"></a> 
         <div class="lang-box">
@@ -240,8 +247,13 @@ function role_type() {
     return $role_type;
 }
 
-function langauge() {
+function langauge($chose_id = null) {
     $langauge = [1=>'English', 2=>'Myanmar'];
+
+    if($chose_id){
+        $langauge = $langauge[$chose_id];
+    }
+    
     return $langauge;
 }
 

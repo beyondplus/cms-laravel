@@ -51,6 +51,19 @@
                                     <option value="0">No</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
+                                
+                                        {{ Form::select('translate_id',bp_select_menus(),1,array('class'=>'form-control')) }}
+                                
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Language') }}</label>
+                                    {{ Form::select('lang',langauge(),1,array('class'=>'form-control')) }}
+                            </div>
+
                             <div class="form-group">
                                 <label class="control-label">Active</label>
                                 {{ Form::select('category_active', [

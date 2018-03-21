@@ -22,7 +22,7 @@
 						</div>
 						<div class="col-sm-2"></div>
 					</div>
-					<div class="col-sm-12 toolbar">
+					<div class="row">
 						<div class="col-sm-12">
 							<img src="{{url('/uploads/'.$post->featured_img)}}" class="img-thumbnail">
 						</div>
@@ -33,8 +33,7 @@
 							
 						</div>
 					</div>
-				</div>
-				<hr>		
+				</div>	
 			</div>
 		</div>
 	</div>

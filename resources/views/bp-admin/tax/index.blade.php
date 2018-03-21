@@ -25,17 +25,15 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Languague</th>
                             <th>Action</th>
-                           <!--  <th>Active</th>
-                            <th>Icon</th>
-                            <th>Marker Image</th>
-                            <th>Actions</th> -->
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($tax as $c)
                         <tr>
                             <td>{{$c->tax_name}}</td>
+                            <td>{{langauge($c->lang)}}</td>
                             <td>
                                 <a href="{{ url('bp-admin/tax', [$c->tax_id]) }}" class="btn btn-xs btn-info">Edit</a>
                                 <a href="{{ url('bp-admin/tax/delete', [$c->tax_id]) }}" class="btn btn-delete btn-xs btn-danger">Delete</a>

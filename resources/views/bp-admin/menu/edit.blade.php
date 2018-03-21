@@ -40,9 +40,21 @@
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
                                  
-                                     {{ Form::select('parent_id',$menus,null,['class'=>'form-control']) }}
+                                     {{ Form::select('parent_id',bp_select_menus(),$menu->parent_id,['class'=>'form-control']) }}
                                    
                             </div> 
+
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
+                                
+                                        {{ Form::select('translate_id',bp_select_menus(),$menu->translate_id,array('class'=>'form-control')) }}
+                                
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">{{ Form::label('Language') }}</label>
+                                    {{ Form::select('lang',langauge(),$menu->lang,array('class'=>'form-control')) }}
+                            </div>
                             
                             <div class="form-group">
                                 <label class="control-label">Active</label>

@@ -23,9 +23,9 @@ class MenuController extends Controller
     public function __construct()
     {
        $this->middleware('admins');
-       $this->menu = Bp_menu::where('parent_id','>',0)->orderBy('menu_id', 'desc')->get();
-       $this->pages=  Bp_post::where('post_type', '=' ,'page')->orderBy('id', 'desc')->get();
-       $this->posts=  Bp_post::where('post_type', '=' ,'post')->orderBy('id', 'desc')->get();
+       $this->menu = Bp_menu::orderBy('menu_id', 'desc')->get();
+       $this->pages=  Bp_post::where('post_type', 'page')->orderBy('id', 'desc')->get();
+       $this->posts=  Bp_post::where('post_type', 'post')->orderBy('id', 'desc')->get();
     }
 
 
@@ -93,8 +93,7 @@ class MenuController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Category Not Found';
         }
-        $menus= Bp_menu::get()->pluck('menu_name','menu_id');
-        return view('bp-admin.menu.edit', array('menu' => $menu, 'menus'=> $menus));
+        return view('bp-admin.menu.edit', array('menu' => $menu));
 
     }
 

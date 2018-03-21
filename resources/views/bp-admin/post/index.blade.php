@@ -25,6 +25,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Language</th>
                             <th>Active</th>
                         </tr>
                         </thead>
@@ -34,6 +35,7 @@
                             <td>
                                 <a href="{{ url('bp-admin/post/'.$c->id.'/edit') }}" >{{$c->title}}</a> <br>
                             </td>
+                            <td>{{langauge($c->lang)}}</td>
                             <td>
                                 <div class="col-sm-3"> <a href="{{ url('bp-admin/post/'.$c->id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>
                                 </div>

@@ -15,8 +15,9 @@ class MenuTableSeeder extends Seeder
     {
         Bp_menu::truncate();
         Bp_menu::create([
-            'menu_name' => '',
+            'menu_name'     => '',
             'parent_id'     =>  '0',
+            'translate_id'  =>  0,
             'created_at'    => '2016-06-3 00:36:29'
             ]);
     }

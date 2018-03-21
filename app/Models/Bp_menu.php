@@ -10,7 +10,7 @@ class Bp_menu extends Model
     protected $table = 'bp_menus';
 
     protected $fillable = [
-         'menu_name','menu_link','post_id','menu_weight','menu_icon','parent_id' ,'menu_type','lang','staff_id','created_at','updated_at'
+         'menu_name','menu_link','post_id','menu_weight','menu_icon','parent_id' ,'menu_type','lang', 'translate_id','staff_id','created_at','updated_at'
     ];
 
     public function setMenulinkAttribute($value){
@@ -29,5 +29,10 @@ class Bp_menu extends Model
     public function Post()
     {
         return $this->belongsTo('App\Models\Bp_post','post_id','id');
+    }
+
+    public function translate()
+    {
+        return $this->belongsTo('App\Models\Bp_menu','menu_id','translate_id');
     }
 }
