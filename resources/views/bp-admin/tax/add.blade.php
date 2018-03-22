@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label class="control-label">{{ Form::label('Translate') }}</label>
                                 
-                                        {{ Form::select('translate_id',bp_select_taxes('tax'),1,array('class'=>'form-control')) }}
+                                        {{ Form::select('translate_id',bp_select_taxes('tax'),0,array('class'=>'form-control')) }}
                                 
                             </div>
 
