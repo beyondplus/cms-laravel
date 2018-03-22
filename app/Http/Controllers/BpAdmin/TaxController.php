@@ -29,7 +29,7 @@ class TaxController extends Controller
     }
 
     public function create(){
-        $taxes = Bp_tax::get()->pluck('tax_name','tax_id');
+        $taxes = Bp_tax::where('tax_type','tax')->get()->pluck('tax_name','tax_id');
         return view('bp-admin.tax.add', array('taxes' => $taxes));
     }
 
@@ -64,7 +64,7 @@ class TaxController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return 'Category Not Found';
         }
-        $taxes= Bp_tax::get()->pluck('tax_name','tax_id');
+        $taxes= Bp_tax::where('tax_type','tax')->get()->pluck('tax_name','tax_id');
         return view('bp-admin.tax.edit', array('tax' => $tax, 'taxes' => $taxes));
     }
 

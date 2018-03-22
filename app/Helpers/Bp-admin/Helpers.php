@@ -43,9 +43,9 @@ function bp_select_pages()
     return $pages;
 }
 
-function bp_select_taxes()
+function bp_select_taxes($type)
 {
-    $taxes = bp_tax::where('tax_type','cat')->where('translate_id',0)->pluck('tax_name','tax_id');
+    $taxes = bp_tax::where('tax_type',$type )->where('translate_id',0)->pluck('tax_name','tax_id');
     $taxes[0] = 'None';
     return $taxes;
 }
@@ -73,11 +73,7 @@ function bp_cat($tax_id,$limit_id)
     return $tax;
 }
 
-function tax_parent() {
-    $parent = bp_tax::get()->pluck('tax_name','tax_id');   
-    $parent[0] = 'None';
-    return $parent;
-}
+
 
 
 function lang_dropdown($url) {

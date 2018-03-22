@@ -26,7 +26,7 @@ class PostController extends Controller
     public function __construct()
     {
        $this->middleware('admins');
-       $this->taxes=  Bp_tax::all();
+       $this->taxes=  Bp_tax::where('tax_type','cat')->get();
     }
 
     public function index(){
