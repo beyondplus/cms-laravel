@@ -37,13 +37,13 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
-                               {{ Form::select('parent_id',tax_parent(),$category->translate_id, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
+                               {{ Form::select('parent_id',bp_select_taxes('cat'),$category->translate_id, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
                             </div> 
                     
                             <div class="form-group">
                                 <label class="control-label">{{ Form::label('Translate') }}</label>
                                 
-                                        {{ Form::select('translate_id',bp_select_taxes(),$category->translate_id,array('class'=>'form-control')) }}
+                                        {{ Form::select('translate_id',bp_select_taxes('cat'),$category->translate_id,array('class'=>'form-control')) }}
                          
                             </div>
 

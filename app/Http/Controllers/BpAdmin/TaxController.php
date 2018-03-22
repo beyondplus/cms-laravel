@@ -17,7 +17,7 @@ class TaxController extends Controller
 {
     public function __construct()
     {
-        $this->tax_name = "cat" ;
+        $this->tax_name = "tax" ;
         $this->middleware('admins');
     }
 

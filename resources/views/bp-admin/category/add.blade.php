@@ -38,13 +38,13 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
-                               {{ Form::select('parent_id',tax_parent(),0, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
+                               {{ Form::select('parent_id',bp_select_taxes('cat'),0, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
                             </div> 
 
                             <div class="form-group">
                                 <label class="control-label">{{ Form::label('Translate') }}</label>
                                 
-                                        {{ Form::select('translate_id',bp_select_taxes(),0,array('class'=>'form-control')) }}
+                                        {{ Form::select('translate_id',bp_select_taxes('cat'),0,array('class'=>'form-control')) }}
                                 
                             </div>
 

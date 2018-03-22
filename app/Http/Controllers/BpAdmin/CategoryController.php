@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
 	public function index(){
 
-		$category = Bp_tax::orderBy('tax_name')->paginate(13);
+		$category = Bp_tax::where('tax_type','cat')->orderBy('tax_name')->paginate(13);
         return view('bp-admin.category.index', array('category' => $category));
 	}
 

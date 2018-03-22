@@ -22,10 +22,13 @@ class PermissionController extends Controller
 
 
     public function ajaxUpdate(Request $request){
+        if($request->type) {
+            $type = explode(" ", $request->type);
+        }
     	#validation require
-    	$access = Bp_access::where('module_id',$request->module_id)->update([$request->type => $request->option]);
+    	$access = Bp_access::where('module_id',$request->module_id)->update([$type[0] => $request->option]);
 
-        return $request->type.'-'.$request->module_id;
+        return $type[0].'-'.$request->module_id;
     }
 
 
