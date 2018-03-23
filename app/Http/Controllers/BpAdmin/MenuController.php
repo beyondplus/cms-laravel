@@ -23,7 +23,7 @@ class MenuController extends Controller
     public function __construct()
     {
        $this->middleware('admins');
-       $this->menu = Bp_menu::orderBy('menu_id', 'desc')->get();
+       $this->menu = Bp_menu::orderBy('menu_weight', 'asc')->get();
        $this->pages=  Bp_post::where('post_type', 'page')->orderBy('id', 'desc')->get();
        $this->posts=  Bp_post::where('post_type', 'post')->orderBy('id', 'desc')->get();
     }

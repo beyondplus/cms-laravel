@@ -38,6 +38,11 @@
                             </div>
                         -->
                             <div class="form-group">
+                                <label class="control-label">Weight</label>
+                                {{ Form::text('menu_weight', 0,['class'=>'form-control']) }}
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label">Parent Name</label>
                                  
                                      {{ Form::select('parent_id',bp_select_menus(),$menu->parent_id,['class'=>'form-control']) }}
