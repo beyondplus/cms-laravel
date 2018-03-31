@@ -19,9 +19,9 @@
                     <div class="row">
                         <div class="col-sm-5">
                             {!!Form::model($tax, [
-                                'url' => ['bp-admin/tax', $tax->tax_id],
-                                'method' => 'put',
-                                'files' => 'true'
+                                'url' => 'bp-admin/tax/add',
+                                'method' => 'post',
+                                'files' => 'true',
                                 ])!!}
                             
                             @component('bp-admin.inc.alert')
@@ -42,9 +42,13 @@
                                  
                             </div> 
                             <div class="form-group">
-                                <label class="control-label">{{ Form::label('Translate') }}<a href="{{url('/bp-admin/tax/'.$tax->tax_id.'/translate')}}"> Taxonomy</a></label>
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
                                 
-                                        {{ Form::select('translate_id',bp_select_taxes('tax'),$tax->translate_id,array('class'=>'form-control')) }}
+                                @if(isset($translate_id)) 
+                                    @php $tax->translate_id = $translate_id;  @endphp
+                                @endif
+                            
+                                {{ Form::select('translate_id',bp_select_taxes('tax'),$tax->translate_id,array('class'=>'form-control')) }}
                          
                             </div>
                             

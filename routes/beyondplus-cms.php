@@ -30,6 +30,7 @@ Route::group(['middleware' => 'web'], function () {
       Route::resource('post', 'PostController');
       Route::get('post/delete/{id}','PostController@destroy');
 
+
       Route::resource('page', 'PageController');
       Route::get('page/delete/{id}','PageController@destroy');
 
@@ -50,6 +51,7 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('menu/delete/{id}','MenuController@destroy');
       Route::post('menu/pagestore', 'MenuController@pageStore');
       Route::post('menu/poststore', 'MenuController@postStore');
+      Route::get('menu/{id}/translate', 'MenuController@translate');
 
       Route::resource('category', 'CategoryController');
       Route::get('category/delete/{id}','CategoryController@destroy');
@@ -60,6 +62,7 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('tax/{id}', 'TaxController@edit');
       Route::put('tax/{id}','TaxController@update');
       Route::get('tax/delete/{id}','TaxController@destroy');
+      Route::get('tax/{id}/translate', 'TaxController@translate');
 
       Route::get('general','SettingsController@index');
       Route::get('general/add', 'SettingsController@generaledit');

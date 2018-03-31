@@ -19,9 +19,9 @@
                     <div class="row">
                         <div class="col-sm-5">
                             {{ Form::model($menu, [
-                                'url' => ['bp-admin/menu', $menu->menu_id],
-                                'method' => 'put',
-                                'files' => 'true'
+                                'url' => 'bp-admin/menu',
+                                'method' => 'post',
+                                'files' => 'true',
                                 ]) }}
                                 
                             @component('bp-admin.inc.alert')
@@ -37,10 +37,13 @@
                                 {!! Form::hidden('menu_icon',null,array('class'=>'form-control')) !!}
                             </div>
                         -->
+
                             <div class="form-group">
                                 <label class="control-label">Weight</label>
+                                {{ Form::hidden('post_id', $menu->post_id,['class'=>'form-control']) }}
                                 {{ Form::text('menu_weight', $menu->menu_weight,['class'=>'form-control']) }}
                             </div>
+
 
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>
@@ -50,9 +53,13 @@
                             </div> 
 
                             <div class="form-group">
-                                <label class="control-label">{{ Form::label('Translate') }} <a href="{{url('/bp-admin/menu/'.$menu->menu_id.'/translate')}}">Menu</a></label>
-                                
-                                        {{ Form::select('translate_id',bp_select_menus(),$menu->translate_id,array('class'=>'form-control')) }}
+                                <label class="control-label">{{ Form::label('Translate') }}</label>
+
+                                    @if(isset($translate_id)) 
+                                        @php $menu->translate_id = $translate_id;  @endphp
+                                    @endif
+                                    
+                                    {{ Form::select('translate_id',bp_select_menus(),$menu->translate_id,array('class'=>'form-control')) }}
                                 
                             </div>
                             

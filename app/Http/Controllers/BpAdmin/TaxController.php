@@ -23,7 +23,7 @@ class TaxController extends Controller
 
     public function index(){
 
-      $tax = Bp_tax::orderBy('tax_name')->where('tax_type','tax')->paginate(13);
+      $tax = Bp_tax::with('translate')->orderBy('tax_name')->where('tax_type','tax')->where('lang',1)->paginate(13);
       return view('bp-admin.tax.index', array('tax' => $tax));
       
     }
@@ -91,6 +91,16 @@ class TaxController extends Controller
     {
         Bp_tax::find($id)->delete();
         return redirect()->back();
+    }
+
+    public function translate($id) {
+        try {
+            $tax = Bp_tax::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return 'Tax Not Found';
+        }
+
+        return view('bp-admin.tax.translate', array('tax' => $tax,'translate_id' => $id));
     }
 
 }

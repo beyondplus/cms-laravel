@@ -33,7 +33,12 @@
                         @foreach ($tax as $c)
                         <tr>
                             <td>{{$c->tax_name}}</td>
-                            <td>{{langauge($c->lang)}}</td>
+                            <td>@isset($c->translate)
+                                    <a href="{{ url('bp-admin/tax/'.$c->tax_id) }}" >{{langauge($c->lang)}}</a> | <a href="{{ url('bp-admin/tax/'.$c->translate->tax_id) }}" >{{ langauge($c->translate->lang) }}</a>
+                                @else
+                                     <a href="{{ url('bp-admin/tax/'.$c->tax_id) }}" >{{langauge($c->lang)}}</a> 
+                                @endisset
+                            </td>
                             <td>
                                 <a href="{{ url('bp-admin/tax', [$c->tax_id]) }}" class="btn btn-xs btn-info">Edit</a>
                                 <a href="{{ url('bp-admin/tax/delete', [$c->tax_id]) }}" class="btn btn-delete btn-xs btn-danger">Delete</a>

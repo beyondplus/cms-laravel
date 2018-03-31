@@ -23,7 +23,7 @@ class MenuController extends Controller
     public function __construct()
     {
        $this->middleware('admins');
-       $this->menu = Bp_menu::orderBy('menu_weight', 'asc')->get();
+       $this->menu = Bp_menu::where('lang',1)->orderBy('menu_weight', 'asc')->get();
        $this->pages=  Bp_post::where('post_type', 'page')->orderBy('id', 'desc')->get();
        $this->posts=  Bp_post::where('post_type', 'post')->orderBy('id', 'desc')->get();
     }
@@ -79,11 +79,11 @@ class MenuController extends Controller
         // 'description' => 'required'
         // ]);
         $inputs = $request->all();
-        $inputs['media_name'] = $request->input('title');
-        $inputs['media_type'] = 'media';
-        $inputs['user_id'] = Auth::guard('admins')->user()->id;
-        Bp_media::create($inputs);
-        return redirect()->back();
+        $inputs['menu_link'] = formatUrl($request->input('menu_name'));
+
+        Bp_menu::create($inputs);
+
+        return redirect()->to('bp-admin/menu');
     }
 
     public function edit($id)
@@ -104,7 +104,6 @@ class MenuController extends Controller
     //    print_r($inputs);
         $inputs = $request->all();
         $inputs['menu_link'] = str_replace(' ', '-', strtolower($request->input('menu_name')));
-     //   $inputs = $request->except('_token', '_method');
 
         // if ($request->file('menu_icon') && $request->file('category_icon')->isValid()) {
         //     $destinationPath = uploadPath();
@@ -122,6 +121,17 @@ class MenuController extends Controller
     {
         Bp_menu::find($id)->delete();
         return redirect()->back();
+    }
+
+
+    public function translate($id) {
+        try {
+            $menu = Bp_menu::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return 'Menu Not Found';
+        }
+
+        return view('bp-admin.menu.translate', array('menu' => $menu,'translate_id' => $id));
     }
 
 }
