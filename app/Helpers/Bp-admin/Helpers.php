@@ -253,3 +253,6 @@ function langauge($chose_id = null) {
     return $langauge;
 }
 
+function slidebar() {
+    return bp_module::orderBy('module_weight')->where('parent_id',0)->where('section',1)->with('child')->get();
+}

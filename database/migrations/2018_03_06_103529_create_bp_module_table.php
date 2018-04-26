@@ -16,6 +16,7 @@ class CreateBpModuleTable extends Migration
         Schema::create('bp_modules', function (Blueprint $table) {
             $table->increments('module_id');
             $table->string('module_name');
+            $table->string('module_name_mm');
             $table->string('module_link');
             $table->integer('module_weight')->default(1);
             $table->string('module_icon');

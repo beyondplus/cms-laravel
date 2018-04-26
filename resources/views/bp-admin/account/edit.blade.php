@@ -28,7 +28,13 @@
                             
                             <div class="form-group">
                                 <label class="control-label">Name</label>
-                                {{ Form::text('username', null,['class'=>'form-control'])}}
+                                {{ Form::text('name', null,['class'=>'form-control'])}}
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Select Role
+                                </label>
+                                {{ Form::select('role',role_type(),$adminaccounts->role, ['class'=>'form-control'])}}
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Email</label>

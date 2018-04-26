@@ -9,7 +9,6 @@
                 <div class="box-header">
                     <div class="row">
                         <div class="col-sm-5">
-                            
                             <div class="form-group">
                              {{ Form::open([
                                 'method' => 'get'

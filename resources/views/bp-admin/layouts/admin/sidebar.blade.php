@@ -3,9 +3,6 @@
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-
-
         <!-- search form (Optional) -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -20,31 +17,33 @@
       <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
         <li class="header">Admin</li>
-        <li ><a href="{{url('/bp-admin')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <!-- Optionally, you can add icons to the links -->
+        @foreach(slidebar() as $s)
 
-        <li class="treeview">
-            <a href="#"><i class="fa fa-edit"></i> <span>Post</span> <i class="fa fa-angle-right pull-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a href="{{ url("bp-admin/post/create")}}">Add Post</a></li>
-                <li><a href="{{ url("bp-admin/post")}}">Post</a></li>
-                <li><a href="{{ url("bp-admin/category")}}"><span>Category</span></a></li>
-                <li><a href="{{ url("bp-admin/tax")}}"><span>Taxonomy</span></a></li>
-            </ul>
-        </li>
-        <li><a href="{{ url("bp-admin/page")}}"><i class="fa fa-edit"></i> <span>Page</span></a></li>
-        <li><a href="{{ url("bp-admin/media")}}"><i class="fa fa-th"></i> <span>Media</span></a></li>
-        <li><a href="{{ url("bp-admin/menu")}}"><i class="fa fa-edit"></i> <span>Menu</span></a></li>
-        <li><a href="{{ url("bp-admin/user")}}"><i class="fa fa-user"></i> <span>User</span></a></li>
-        <li><a href="{{ url("bp-admin/slider")}}"><i class="fa fa-image"></i>  <span>Slider</span></a></li>
-        <li class="treeview">
-            <a href="#"><i class="fa fa-cog"></i> <span>Settings</span> <i class="fa fa-angle-right pull-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a href="{{ url("bp-admin/general")}}">Generals</a></li>
-                <li><a href="{{ url('bp-admin/account') }}">Account</a></li>
-                <li><a href="{{ url('bp-admin/permission') }}">Permission</a></li>
-            </ul>
-        </li>
+            @if(Session::get('applocale') == "mm") 
+                @php $s->module_name = $s->module_name_mm; @endphp
+            @endif
+
+            @if(count($s->child)>0)
+                <li class="treeview">
+                    <a href="{{ url("bp-admin/".$s->module_link)}}"><i class="{{$s->module_icon}}"></i> <span>{{$s->module_name}}</span> <i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="treeview-menu">
+
+                        @if($s->module_link == 'post')
+                            <li><a href="{{ url("bp-admin/".$s->module_link)}}">{{ $s->module_name }}</a></li>
+                        @endif
+                        @foreach($s->child as $c)
+                            @if(Session::get('applocale') == "mm") 
+                            @php $c->module_name = $c->module_name_mm; @endphp
+                            @endif
+                            <li><a href="{{ url("bp-admin/".$c->module_link)}}">{{ $c->module_name }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+            @else
+                <li><a href="{{ url("bp-admin/".$s->module_link)}}"><i class="{{$s->module_icon}}"></i>  <span>{{$s->module_name}}</span></a></li>
+            @endif
+            
+        @endforeach
         <li class="treeview">
             <a href="#"><i class="fa fa-files-o"></i> <span>Custom</span> <i class="fa fa-angle-right pull-right"></i></a>
             <ul class="treeview-menu">
@@ -56,7 +55,6 @@
             </ul>
         </li>
         <li><a href="{{ url("bp-admin/new")}}"><i class="fa fa-files-o"></i> <span>Add Custom</span></a></li>
-
 
     </ul><!-- /.sidebar-menu -->
 </section>
