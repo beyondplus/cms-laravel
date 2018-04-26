@@ -29,14 +29,17 @@
         "psr-4": {
             "App\\": "app/"
         },
-        "autoload-dev": {
-            "psr-4": {
-                "Tests\\": "tests/"
-            }
-        },
         "files" : [
             "app/Helpers/Bp-admin/Helpers.php",
             "app/Helpers/Developer.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+                "Tests\\": "tests/"
+            },
+        "classmap": [
+            "tests/TestCase.php"
         ]
     },
     "extra": {
