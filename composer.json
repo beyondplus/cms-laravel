@@ -39,11 +39,6 @@
             "app/Helpers/Developer.php"
         ]
     },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
-    },
     "extra": {
         "laravel": {
             "dont-discover": [
