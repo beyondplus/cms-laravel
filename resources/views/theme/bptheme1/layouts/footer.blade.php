@@ -16,7 +16,7 @@
     <h1> Contact Us </h1>
     78, 6(B) Theingyi Street, Kyeemyindine, Yangon<br />
     bplusmyanmar@hotmail.com<br />
-    09 3133 0633, 09 2522 32135
+    09 799 755 149, 09 2522 32135
   </div>
   <div class="col-sm-1"> </div>
 </div>
