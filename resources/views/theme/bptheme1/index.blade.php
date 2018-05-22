@@ -19,7 +19,7 @@
 
 					<div class="button fadeInUp delayp2">
 						<a href="http://www.beyondplus.net/service" class="btn btn-lg btn-primary"><i class="fa fa-desktop"></i> Our Service </a>
-						<a href="http://www.beyondplus.net/about-us" class="btn btn-lg btn-success"><i class="fa fa-desktop"></i> About Us </a>
+						<a href="{{url('/bp-admin')}}" class="btn btn-lg btn-success"><i class="fa fa-desktop"></i> Login </a>
 					</div>
 				</div>
 			</div>
@@ -36,12 +36,11 @@
 </section>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8 posts">
+		<div class="col-sm-12 posts">
 			<div class="row">
 
-				@foreach (bp_post(9) as $post)
-				<div class="col-sm-4">
-
+				@foreach (bp_post(8) as $post)
+				<div class="col-lg-3 col-sm-6 portfolio-item mb-4">
 					@if(App::getLocale() == 'mm')
 						@if(isset($post->translate))
 							@if($post->translate->lang == 2)
@@ -49,58 +48,48 @@
 							@endif
 						@endif
 					@endif
-					<b>
-						<a href="{{url('/'.$post->post_link) }}" name="" >{{ $post->title }}</a>
-					</b><br>
-					<span><i>Posted by {{ $post->creator->name}} | {{ $post->created_at->diffForHumans() }} </i> </span><br>
-					<img src="{{ url('/uploads/'.$post->featured_img)}}" class="img-thumbnail">
-				</div>
+		          <div class="card h-100">
+		            <a href="{{url('/'.$post->post_link) }}"><img src="{{ url('/uploads/'.$post->featured_img)}}" class="img-thumbnail">
+		            </a>
+		            <div class="card-body">
+		              <h4 class="card-title">
+		                <a href="{{url('/'.$post->post_link) }}" name="" >{{ $post->title }}</a>
+		              </h4>
+		              <p class="card-text">{{ $post->body }}</p>
+		            </div>
+		            <div class="card-footer text-right">
+						<span><i>Posted by {{ $post->creator->name}} | {{ $post->created_at->diffForHumans() }} </i> </span>
+					</div>
+		          </div>
+		        </div>
 				@endforeach
 			</div>
 		</div>
-		<div class="col-sm-4" >
-			<div class="row">
-				<div class="col-sm-12" style="border:1px solid #e2e2e2; padding:30px;">
-					<form>
-						<h3>Login Form</h3>
-						<hr>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox"> Check me out
-							</label>
-						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
-				</div>
-			</div>
-			<div class="row">
-
-				<div class="col-sm-12">
-					<br>
-					<img src="{{ url('/uploads/'.$post->featured_img)}}" class="img-thumbnail">
-				</div>
-			</div>
-		</div>
+		
 	</div>
 </div>
-<div class="row main_goal">
-	<div class="col-sm-1"></div>
-	<div class="col-sm-10 listcontainer">
-		<h2>Our Goal</h2>
-		<hr>
-		Today is Globalization so Marketing Strategies are changing to Digital World.
-		Market places are also moving forward to Digital World.
-	</div>
-	<div class="col-sm-1"></div>
-</div>
+<section class="call-to-action text-white text-center main_goal">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+      </div>
+      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <form>
+          <div class="form-row">
+            <div class="col-12 col-md-9 mb-2 mb-md-0">
+              <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+            </div>
+            <div class="col-12 col-md-3">
+              <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
 @stop
 
