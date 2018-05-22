@@ -24,7 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link href="{{ asset("/bower_components/adminlte/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset("/bower_components/adminlte/dist/css/skins/skin-blue-dark.min.css")}}" rel="stylesheet" type="text/css" />
 
     <link rel="icon" href="{{ asset('/img/avatar.png') }}" type="image/jpg">
 
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         });
     </script>
 </head>
-<body class="skin-blue">
+<body class="skin-blue-dark">
 <div class="wrapper">
 
     <!-- Header -->
