@@ -91,9 +91,10 @@ h1 {
   margin-right: 3px; }
 
 .nav_box {
-  border-bottom: 4px solid;
-  border-bottom-color: rgba(225, 225, 225, 0.98); 
-  padding: 12px;
+    border-bottom: 2px solid;
+    border-bottom-color: rgba(225, 225, 225, 0.98);
+    padding: 12px;
+    background: #f9fafc;
 }
 
 .navs {
