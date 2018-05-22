@@ -87,5 +87,6 @@
     <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
     <script>
         $('textarea').ckeditor();
+        
     </script>
 @endpush

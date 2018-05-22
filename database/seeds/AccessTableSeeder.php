@@ -29,7 +29,7 @@ class AccessTableSeeder extends Seeder
                 $Bp_access['user'] = 0;
             }
 
-            if($i==15) {
+            if($i==7 || $i == 8 || $i == 9 || $i == 10 || $i==15 || $i==16 ) {
                 $Bp_access['staff'] = 0;               
             }
             Bp_access::insert($Bp_access);

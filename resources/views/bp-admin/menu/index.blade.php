@@ -23,7 +23,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-12 form-group scrollbar">
+                    <div class="col-md-12 form-group scrollbar" id="scrollbar1">
                         <div class="row">
                             @foreach($pages as $page)
 
@@ -56,7 +56,7 @@
 
                         </div>
 
-                        <div class="col-md-12 form-group scrollbar">
+                        <div class="col-md-12 form-group scrollbar" id="scrollbar2">
 
                             <div class="row">
                                 @foreach($posts as $post)
@@ -136,7 +136,20 @@
     @push('scripts')
     <script>
         $(document).ready(function () {
-           /// alert("aa");
+            var height1 = $('#scrollbar1').height();
+            var height2 = $('#scrollbar2').height();
+            
+            if (height1 > 158) {
+                $('#scrollbar1').addClass('overflow-y');
+            } else {
+                $('#scrollbar1').removeClass('overflow-y');
+            }
+
+            if (height2 > 158) {
+                $('#scrollbar2').addClass('overflow-y');
+            } else {
+                $('#scrollbar2').removeClass('overflow-y');
+            }
        });
    </script>
    @endpush

@@ -16,8 +16,20 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
+                <li>
+                    @if(Session::get('applocale') == "en") 
+                        <a href="{{ url('/lang/mm') }}">
+                            <img src="{{ url('/img/flag/mm.jpg') }}" alt="ဗမာ">
+                        </a>
+                    @else
+                        <a href="{{ url('/lang/en') }}">
+                            <img src="{{ url('/img/flag/en.png') }}" alt="English">
+                        </a>
+                    @endif
+                </li>
                 <li class="dropdown messages-menu">
                     <!-- Menu toggle button -->
+
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
                         <span class="label label-success">4</span>

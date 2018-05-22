@@ -137,7 +137,17 @@
     <script src="{{url('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
     <script src="{{url('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
     <script>
+
         $('textarea').ckeditor();
-        // $('.textarea').ckeditor(); // if class is prefered.
+
+        $(document).ready(function () {
+            var height = $('.scrollbar').height();
+            if (height > 158) {
+                $('.scrollbar').addClass('overflow-y');
+            } else {
+                $('.scrollbar').removeClass('overflow-y');
+            }
+        });
+        
     </script>
 @endpush

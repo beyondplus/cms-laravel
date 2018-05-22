@@ -18,7 +18,6 @@
     <ul class="sidebar-menu">
         <li class="header">Admin</li>
         @foreach(slidebar() as $s)
-
             @if(Session::get('applocale') == "mm") 
                 @php $s->module_name = $s->module_name_mm; @endphp
             @endif
@@ -44,6 +43,7 @@
             @endif
             
         @endforeach
+        
         <li class="treeview">
             <a href="#"><i class="fa fa-files-o"></i> <span>Custom</span> <i class="fa fa-angle-right pull-right"></i></a>
             <ul class="treeview-menu">

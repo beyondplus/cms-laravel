@@ -88,7 +88,7 @@
                     <img src="{{ url('/img/dota.png')  }}" alt="Product Image">
                   </div> -->
                   <div class="product-info1">
-                    <a href="javascript::;" class="product-title">{{$p->title}}
+                    <a href="{{ url('bp-admin/post/'.$p->id.'/edit') }}" class="product-title">{{$p->title}}
                       <span class="label label-warning pull-right">{{ $p->created_at->diffForHumans() }} </span></a>
                       <span class="product-description">
                         {{$p->body}}
@@ -131,7 +131,7 @@
                   @foreach($latestUser as $latestUsers )
                   <li>
                     <img src="{{ url('/img/avatar2.png')}}" alt="User Image" style="height:50px">
-                    <a class="users-list-name" href="#">  {{ $latestUsers->name }} </a>
+                    <a class="users-list-name" href="{{ url('bp-admin/user/'.$latestUsers->id.'/edit') }}">  {{ $latestUsers->name }} </a>
                     <span class="users-list-date">{{ $p->created_at->diffForHumans() }}</span>
                   </li>
                   @endforeach

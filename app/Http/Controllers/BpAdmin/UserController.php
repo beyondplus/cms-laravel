@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-
+use Validator;
 // use Illuminate\Foundation\Auth\ThrottlesLogins;
 // use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -35,10 +35,16 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
-        // $this->validate($request, [
-        // 'title' => 'required',
-        // 'description' => 'required'
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required', 
+            'role' => 'required',
+            'email'=> 'required',
+            'password'=> 'required'
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $inputs = $request->all();
         $inputs['api_token'] = str_random(60);

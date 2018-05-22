@@ -1,8 +1,8 @@
 .scrollbar {
 	padding: 20px;
     float: left;
-    height: 200px;
-    overflow-y: scroll;
+    min-height: 150px;
+    /*overflow-y: scroll;*/
     margin-bottom: 25px;
     border: 1px solid #d2d6de;
 }

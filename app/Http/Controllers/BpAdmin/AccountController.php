@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Admin;
+use Validator;
 
 class AccountController extends Controller
 {
@@ -39,12 +40,19 @@ class AccountController extends Controller
     }
 
     public function store(Request $request){
-        // $this->validate($request, [
-        // 'title' => 'required',
-        // 'description' => 'required'
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required', 
+            'role' => 'required',
+            'email'=> 'required',
+            'password'=> 'required'
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $inputs = $request->all();
+        $inputs['api_token'] = bcrypt(time());
 
         $inputs['password'] = bcrypt($request->input('password'));
         Admin::create($inputs);
@@ -66,6 +74,16 @@ class AccountController extends Controller
 
     public function update($id, Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required', 
+            'role' => 'required',
+            'email'=> 'required'
+        ]);
+
+        if ($validator->fails()) {  
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $inputs = $request->all();
      //   $inputs = $request->except('_token', '_method');
         if($request->input('password') != "") {
