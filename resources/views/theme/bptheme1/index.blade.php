@@ -2,7 +2,7 @@
 
 @section('content')
 <section class=" slider has-pattern main_bg">
-
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-7 slidercontent">

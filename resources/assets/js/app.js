@@ -8,6 +8,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Framework7Vue from 'framework7-vue'
+import Framework7 from 'framework7'
+
+Vue.use(Framework7Vue, Framework7)
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
