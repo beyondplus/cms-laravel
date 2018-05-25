@@ -1,6 +1,7 @@
 @extends('theme.bptheme1.layouts.app')
 
 @section('content')
+
 <section class=" slider has-pattern main_bg">
 	
 	<div class="container">
@@ -34,6 +35,14 @@
 	</div>
 
 </section>
+<div class="container">
+	<div class="row text-center">	
+		<div class="col-md-12">
+				<h2>Featured Posts</h2>
+			<hr>
+		</div>
+	</div>
+</div>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12 posts">
