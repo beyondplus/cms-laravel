@@ -15,7 +15,7 @@ class OptionsTableSeeder extends Seeder
     {
         Bp_options::truncate();
         $option_name = array('siteurl', 'home', 'blogname', 'blogdescription', 'theme', 'admin_email', 'version');
-        $option_value = array('http://localhost/beyondplus', 'http://localhost/beyondplus', 'CMS', 'Beyond Plus CMS', 'bptheme1', 'superadmin@email.com' , '1.0.0');
+        $option_value = array('http://beyondpluscms.com', 'http://beyondpluscms.com', 'CMS', 'Beyond Plus CMS', 'bptheme1', 'superadmin@email.com' , '2.1.0');
         for ($i=0; $i < 7; $i++) {
             $Bp_options = [
                 'option_name'       => $option_name[$i],
