@@ -14,6 +14,8 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 
 * git clone https://github.com/beyondplus/cms-laravel.git
 * create database and configuration in .env (or) vi .env
+* composer install
+* php artisan key:generate
 * php artisan migrate:refresh --seed
 * npm install
 
@@ -68,6 +70,6 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 - [x] Slider Function
 - [x] Two Language Support
 - [x] Sitemap and RSS
-- [ ] Statitics
+- [x] Statitics
 - [ ] Documentation
 - [ ] Video Tutorials
