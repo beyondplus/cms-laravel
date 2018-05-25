@@ -71,7 +71,7 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::resource('account', 'AccountController');
       Route::get('account/delete/{id}', 'AccountController@destroy');
-      Route::resource('new', 'CustomController');
+      Route::resource('custom', 'CustomController');
 
       });
 

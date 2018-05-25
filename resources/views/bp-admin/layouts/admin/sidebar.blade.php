@@ -45,7 +45,7 @@
         @endforeach
         
         <li class="treeview">
-            <a href="#"><i class="fa fa-files-o"></i> <span>Custom</span> <i class="fa fa-angle-right pull-right"></i></a>
+            <a href="#"><i class="fa fa-files-o"></i> <span>@lang('backend.custom')</span> <i class="fa fa-angle-right pull-right"></i></a>
             <ul class="treeview-menu">
 
                 @php $menus = custom_menu() @endphp
@@ -54,7 +54,7 @@
                 @endforeach
             </ul>
         </li>
-        <li><a href="{{ url("bp-admin/new")}}"><i class="fa fa-files-o"></i> <span>Add Custom</span></a></li>
+        <li><a href="{{ url("bp-admin/custom")}}"><i class="fa fa-files-o"></i> <span>@lang('backend.add-custom')</span></a></li>
 
     </ul><!-- /.sidebar-menu -->
 </section>
