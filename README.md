@@ -3,7 +3,7 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 
 ## Requirement
 
-* PHP >= 7.1 
+* PHP >= 7.2
 * Database
 * [Composer](https://getcomposer.org)
 * [Nodejs](https://nodejs.org)
