@@ -58,13 +58,13 @@ class MenuController extends Controller
 
     public function postStore(Request $request){
         $posts  = $request->get('posts');
-        $posts_name  = $request->get('posts_name');
         //print_r($posts_name);
         for( $i=0; $i<sizeof($posts); $i++){
             $post['post_id'] = $posts[$i];
             $getposts = Bp_post::where('id' , $posts[$i])->first();
             $post_name = $getposts->title;
             $post['menu_name'] = $post_name;
+            $post['menu_link'] = formatUrl($post_name);
             $inputs['menu_created'] = Auth::guard('admins')->user()->id;
             Bp_menu::create($post);
         }
