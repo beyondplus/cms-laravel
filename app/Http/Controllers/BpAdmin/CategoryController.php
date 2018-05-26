@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
 	public function index(){
 
-		$category = Bp_tax::where('tax_type','cat')->orderBy('tax_name')->paginate(13);
+		$category = Bp_tax::with('translate')->orderBy('tax_name')->where('tax_type','cat')->where('lang',1)->paginate(13);
         return view('bp-admin.category.index', array('category' => $category));
 	}
 
@@ -51,7 +51,10 @@ class CategoryController extends Controller
             if($request->file('pictures') !=null){
                 $inputs['tax_icon'] = $fileName;
             }
+        } else {
+            $inputs['tax_icon'] = 'fa fa-list';
         }
+
 
 		Bp_tax::create($inputs);
         return redirect()->to('bp-admin/category');
@@ -94,4 +97,13 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
+    public function translate($id) {
+        try {
+            $tax = Bp_tax::findOrFail($id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return 'Tax Not Found';
+        }
+
+        return view('bp-admin.category.translate', array('tax' => $tax,'translate_id' => $id));
+    }
 }

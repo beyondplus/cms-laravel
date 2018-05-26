@@ -28,10 +28,12 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('logout','Main@logout');
 
       Route::resource('post', 'PostController');
+      Route::get('post/{id}/translate', 'PostController@translate');
       Route::get('post/delete/{id}','PostController@destroy');
 
 
       Route::resource('page', 'PageController');
+      Route::get('page/{id}/translate', 'PageController@translate');
       Route::get('page/delete/{id}','PageController@destroy');
 
       Route::resource('user', 'UserController');
@@ -55,6 +57,7 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::resource('category', 'CategoryController');
       Route::get('category/delete/{id}','CategoryController@destroy');
+      Route::get('category/{id}/translate', 'CategoryController@translate');
 
       Route::get('tax', 'TaxController@index');
       Route::get('tax/add', 'TaxController@create');

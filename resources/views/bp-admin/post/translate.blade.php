@@ -5,11 +5,11 @@
 
 @section('content')
   <div class="row">
-    {{ Form::model($post, [
-                    'url' => ['bp-admin/post', $post->id],
-                    'method' => 'put',
-                    'files' => 'true'
-                    ]) }}
+    {{Form::model($post,[
+            'url' => 'bp-admin/post',
+            'method' => 'post',
+            'files' => 'true',
+            ])}}
         <div class="col-md-9">
             <div class="box box-danger">
                 <div class="box-header">
@@ -103,7 +103,10 @@
                 <div class="box-body">
                     {{ Form::label('Translate') }} <a href="{{url('/bp-admin/post/'.$post->id.'/translate')}}"> Translate</a><br />
                     <div class="col-md-12 form-group">
-                        
+                        @if(isset($translate_id)) 
+                            @php $post->translate_id = $translate_id;  @endphp
+                        @endif
+
                         <div class="row">
                                 {{ Form::select('translate_id',bp_select_posts(),$post->translate_id,array('class'=>'form-control')) }}
                         </div>

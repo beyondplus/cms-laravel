@@ -6,11 +6,12 @@
 @section('content')
 
 <div class="row">
-  {{ Form::model($page, [
-    'url' => ['bp-admin/page', $page->id],
-    'method' => 'put',
-    'files' => 'true'
-    ]) }}
+    {{Form::model($page,[
+            'url' => 'bp-admin/page',
+            'method' => 'post',
+            'files' => 'true',
+            ])}}
+            
     <div class="col-md-9">
         <div class="box box-danger">
             <div class="box-header">
@@ -76,27 +77,20 @@
             </div>
         </div>
         <div class="box box-danger">
-                <div class="box-body">
-                    {{ Form::label('Language') }}<br />
-                    <div class="col-md-12 form-group">
-                        
-                        <div class="row">
-                                {{ Form::select('lang',langauge(),$page->lang,array('class'=>'form-control')) }}
-                        </div>
+            <div class="box-body">
+                {{ Form::label('Translate') }}<a href="{{url('/bp-admin/page/'.$page->id.'/translate')}}"> Translate</a><br />
+                <div class="col-md-12 form-group">
+                    @if(isset($translate_id)) 
+                        @php $page->translate_id = $translate_id;  @endphp
+                    @endif
+
+                    <div class="row">
+                            {{ Form::select('translate_id',bp_select_pages(),$page->translate_id,array('class'=>'form-control')) }}
                     </div>
                 </div>
             </div>
-        <div class="box box-danger">
-                <div class="box-body">
-                    {{ Form::label('Translate') }}<a href="{{url('/bp-admin/page/'.$page->id.'/translate')}}"> Translate</a><br />
-                    <div class="col-md-12 form-group">
-                        
-                        <div class="row">
-                                {{ Form::select('translate_id',bp_select_pages(),$page->translate_id,array('class'=>'form-control')) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+
     </div>  
     {{ Form::close() }}
 </div>

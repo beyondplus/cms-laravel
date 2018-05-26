@@ -35,7 +35,12 @@
                             <td>
                                 <a href="{{ url('bp-admin/post/'.$c->id.'/edit') }}" >{{$c->title}}</a>
                             </td>
-                            <td>{{langauge($c->lang)}}</td>
+                            <td>@isset($c->translate)
+                                    <a href="{{ url('bp-admin/page/'.$c->id.'/edit') }}" >{{langauge($c->lang)}}</a> | <a href="{{ url('bp-admin/page/'.$c->translate->id.'/edit') }}" >{{ langauge($c->translate->lang) }}</a>
+                                @else
+                                     <a href="{{ url('bp-admin/page/'.$c->id.'/edit') }}" >{{langauge($c->lang)}}</a> 
+                                @endisset
+                            </td>
                             <td>
                                 <div class="col-sm-3"><a href="{{ url('bp-admin/page/'.$c->id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>
                                 </div>

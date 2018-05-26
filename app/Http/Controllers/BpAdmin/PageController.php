@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Bp_category;
 use App\Models\Bp_post;
 use App\Models\User;
+use App\Models\Bp_relationship;
 
 class PageController extends Controller
 {
@@ -25,7 +26,7 @@ class PageController extends Controller
 
     public function index(){
 
-        $page = Bp_post::where('post_type','page')->orderBy('updated_at','desc')->paginate(13);
+        $page = Bp_post::where('post_type','page')->orderBy('updated_at','desc')->where('translate_id',0)->paginate(13);
         return view('bp-admin.page.index', array('page' => $page));
     }
 
@@ -96,6 +97,17 @@ class PageController extends Controller
     {
         Bp_post::find($id)->delete();
         return redirect()->back();
+    }
+
+    
+    public function translate($id) {
+        try {
+            $page = Bp_post::findOrFail($id);
+            $tax_type = Bp_relationship::where('post_id',$id)->where('type','page')->pluck('tax_id')->toArray();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return 'Post Not Found';
+        }
+        return view('bp-admin.page.translate', array('page' => $page,  'tax_type' => $tax_type,'translate_id' => $id));
     }
 
 }

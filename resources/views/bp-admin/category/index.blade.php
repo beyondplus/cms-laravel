@@ -25,17 +25,20 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Languague</th>
                             <th>Action</th>
-                           <!--  <th>Active</th>
-                            <th>Icon</th>
-                            <th>Marker Image</th>
-                            <th>Actions</th> -->
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($category as $c)
                         <tr>
                             <td>{{$c->tax_name}}</td>
+                            <td>@isset($c->translate)
+                                    <a href="{{ url('bp-admin/tax/'.$c->tax_id) }}" >{{langauge($c->lang)}}</a> | <a href="{{ url('bp-admin/tax/'.$c->translate->tax_id) }}" >{{ langauge($c->translate->lang) }}</a>
+                                @else
+                                     <a href="{{ url('bp-admin/tax/'.$c->tax_id) }}" >{{langauge($c->lang)}}</a> 
+                                @endisset
+                            </td>
                             <td>
                                 <a href="{{ url('bp-admin/category/'.$c->tax_id.'/edit') }}" class="btn btn-xs btn-info">Edit</a>
                                 <a href="{{ url('bp-admin/category/delete', [$c->tax_id]) }}" class="btn btn-delete btn-xs btn-danger">Delete</a>

@@ -50,6 +50,8 @@ class TaxController extends Controller
                 if($request->file('pictures') !=null){
                     $inputs['tax_icon'] = $fileName;
                 }
+            } else {
+                $inputs['tax_icon'] = 'fa fa-list';
             }
 
 

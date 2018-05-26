@@ -26,11 +26,11 @@ class PostController extends Controller
     public function __construct()
     {
        $this->middleware('admins');
-       $this->taxes=  Bp_tax::where('tax_type','cat')->get();
+       $this->taxes =  Bp_tax::where('tax_type','cat')->get();
     }
 
     public function index(){
-        $post = Bp_post::where('post_type','post')->orderBy('updated_at','desc')->paginate(13);
+        $post = Bp_post::where('post_type','post')->orderBy('updated_at','desc')->where('translate_id',0)->paginate(13);
         return view('bp-admin.post.index', array('post' => $post));
     }
 
@@ -131,5 +131,16 @@ class PostController extends Controller
             $cat['type']    = 'cat';
             Bp_relationship::create($cat);
         }
+    }
+
+
+    public function translate($id) {
+        try {
+            $post = Bp_post::findOrFail($id);
+            $tax_type = Bp_relationship::where('post_id',$id)->where('type','post')->pluck('tax_id')->toArray();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return 'Post Not Found';
+        }
+        return view('bp-admin.post.translate', array('post' => $post, 'taxes' => $this->taxes, 'tax_type' => $tax_type,'translate_id' => $id));
     }
 }

@@ -58,7 +58,7 @@ Beyond Plus Laravel CMS based on Laravel only. It support to create websites and
 [https://github.com/beyondplus/cms-laravel/issues](https://github.com/beyondplus/cms-laravel/issues)
 
 ## For laravel and vue developer
-[https://github.com/beyondplus/cms](https://github.com/beyondplus/cms)
+[https://github.com/beyondplus/cms-laravel-vue](https://github.com/beyondplus/cms-laravel-vue)
 
 
 ### To Do Lists

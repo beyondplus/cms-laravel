@@ -24,6 +24,7 @@
                     <table  class="table table-bordered table-hover">
                         <thead>
                         <tr>
+                            <th>Tax id</th>
                             <th>Name</th>
                             <th>Languague</th>
                             <th>Action</th>
@@ -32,6 +33,7 @@
                         <tbody>
                         @foreach ($tax as $c)
                         <tr>
+                            <td>{{$c->tax_id}}</td>
                             <td>{{$c->tax_name}}</td>
                             <td>@isset($c->translate)
                                     <a href="{{ url('bp-admin/tax/'.$c->tax_id) }}" >{{langauge($c->lang)}}</a> | <a href="{{ url('bp-admin/tax/'.$c->translate->tax_id) }}" >{{ langauge($c->translate->lang) }}</a>
