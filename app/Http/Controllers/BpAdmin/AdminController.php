@@ -27,8 +27,8 @@ class AdminController extends Controller
         $totalPost= Bp_post::where('post_type','post')->get()->count();
     	$allUser=Admin::get()->count();
 
-        $latestUser= User::get();
-        return view('/bp-admin/home', array('post' => $post , 'allUser' => $allUser, 'latestUser' => $latestUser ,'totalPost' => $totalPost));
+        $latestUser= User::orderBy('created_at','DESC')->get();
+        return view('bp-admin.home', array('post' => $post , 'allUser' => $allUser, 'latestUser' => $latestUser ,'totalPost' => $totalPost));
     }
 
 

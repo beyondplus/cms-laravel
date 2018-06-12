@@ -132,7 +132,7 @@
                   <li>
                     <img src="{{ url('/img/avatar2.png')}}" alt="User Image" style="height:50px">
                     <a class="users-list-name" href="{{ url('bp-admin/user/'.$latestUsers->id.'/edit') }}">  {{ $latestUsers->name }} </a>
-                    <span class="users-list-date">{{ $p->created_at->diffForHumans() }}</span>
+                    <span class="users-list-date">{{ $latestUser->created_at->diffForHumans() }}</span>
                   </li>
                   @endforeach
 
