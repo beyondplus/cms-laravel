@@ -16,19 +16,19 @@ use App\User;
 
 class AdminController extends Controller
 {
-	public function __construct()
+    public function __construct()
     {
        $this->middleware('admins');
     }
 
     public function index()
     {
-    	$post = Bp_post::where('post_type','post')->orderBy('created_at','DESC')->paginate(5);
+        $post = Bp_post::where('post_type','post')->orderBy('created_at','DESC')->paginate(5);
         $totalPost= Bp_post::where('post_type','post')->get()->count();
-    	$allUser=Admin::get()->count();
+        $allUser=Admin::get()->count();
 
-        $latestUser= User::orderBy('created_at','DESC')->get();
-        return view('bp-admin.home', array('post' => $post , 'allUser' => $allUser, 'latestUser' => $latestUser ,'totalPost' => $totalPost));
+        $latestUsers= User::orderBy('created_at','DESC')->get();
+        return view('bp-admin.home', array('post' => $post , 'allUser' => $allUser, 'latestUsers' => $latestUsers ,'totalPost' => $totalPost));
     }
 
 

@@ -128,10 +128,10 @@
               <div class="box-body no-padding">
                 <ul class="users-list clearfix">
 
-                  @foreach($latestUser as $latestUsers )
+                  @foreach($latestUsers as $latestUser )
                   <li>
                     <img src="{{ url('/img/avatar2.png')}}" alt="User Image" style="height:50px">
-                    <a class="users-list-name" href="{{ url('bp-admin/user/'.$latestUsers->id.'/edit') }}">  {{ $latestUsers->name }} </a>
+                    <a class="users-list-name" href="{{ url('bp-admin/user/'.$latestUser->id.'/edit') }}">  {{ $latestUser->name }} </a>
                     <span class="users-list-date">{{ $latestUser->created_at->diffForHumans() }}</span>
                   </li>
                   @endforeach
