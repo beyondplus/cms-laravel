@@ -20,7 +20,13 @@
 						<div class="col-sm-10">
 							<a href="{{url('/'.$post->post_link) }}" name="" ><h2>{{ $post->title }}</h2></a>
 						</div>
-						<div class="col-sm-2"></div>
+						<div class="col-sm-2">
+							@if(Auth::guard('admins')->check())
+								@if($post->post_type == "post")
+									<a href="{{url('/bp-admin/post/'.$post->id.'/edit') }}" name="" >Edit</a>
+								@endif
+							@endif
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">

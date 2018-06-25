@@ -15,13 +15,14 @@ Route::any('/password/reset','Front\FrontController@index');
 
 Route::group(['middleware' => 'web'], function () {
       Route::auth();
-      Route::any('/login','Front\FrontController@index');
-      Route::any('/register','Front\FrontController@index');
+      // Route::any('/login','Front\FrontController@index');
+      // Route::any('/register','Front\FrontController@index');
       Route::any('/password/reset', 'Front\FrontController@index');
       Route::post('bp-admin/login','BpAdmin\Main@loginAdmin');
       Route::get('bp-admin/login', 'BpAdmin\Main@login');
 
-      
+      Route::get('logout','Auth\MainController@logout');
+
       Route::group(['prefix' => 'bp-admin','namespace'  =>  'BpAdmin', 'middleware' => 'admins'], function () {
 
       Route::get('/', 'AdminController@index');
