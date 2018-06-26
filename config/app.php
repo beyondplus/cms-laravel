@@ -152,6 +152,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         // BeyondPlus\CmsLibrary\CMSServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
     ],
 
     /*
@@ -210,6 +211,8 @@ return [
         'bp_module' => App\Models\Bp_module::class,
         'bp_custom' => App\Models\Bp_custom::class,
         'bp_messages' => App\Models\Bp_messages::class,
+
+        'Notification' => Illuminate\Support\Facades\Notification::class,
     ],
 
 ];

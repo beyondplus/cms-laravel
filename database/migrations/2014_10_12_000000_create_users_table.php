@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('activation_key',6)->default(0);
             $table->integer('status')->default(0);
             $table->string('avatar',100)->default('http://lorempixel.com/150/150/people/?55009');
+            $table->boolean('verified')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

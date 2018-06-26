@@ -5,6 +5,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            @if (session('warning'))
+                <div class="alert alert-warning">
+                    {!! session('warning') !!}
+                </div>
+            @endif
+        </div>
+        <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
                 <div class="panel-heading"><b>Beyond Plus CMS</b></div>
                 <div class="panel-body">
@@ -56,7 +68,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-sign-in"></i>Login
                                 </button>
-                                <a href="redirect">FB Login</a>
+                                <a href="{{url('/register')}}">Register</a>
                             </div>
                         </div>
                     </form>

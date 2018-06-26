@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +35,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function authenticated()
+    {
+        if (!auth()->user()->verified) {
+            $url = url('/user/verify/'.auth()->user()->verifyUser->token);
+            auth()->logout();
+            return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email. <a href="'.$url .'" >Resend it.</a>');
+        }
+        return redirect()->intended($this->redirectPath());
     }
 }

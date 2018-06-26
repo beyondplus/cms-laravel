@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('bp-admin.layouts.app')
 
 <!-- Main Content -->
 @section('content')

@@ -77,6 +77,8 @@
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
+                @else
+                    <a href="{{url('/login')}}">Login</a>
                 @endif
             </div>
         </div>
