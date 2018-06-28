@@ -10,7 +10,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{url('/')}}">@lang('general.home') <span class="sr-only">(current)</span></a>
                       </li>
                       @foreach (bp_menu() as $menu)
 
@@ -85,4 +85,3 @@
         <!-- nav box end -->
 </nav>
     
-</header>

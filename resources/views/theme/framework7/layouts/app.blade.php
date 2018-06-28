@@ -10,6 +10,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset("/assets/framework7/css/main.css") }}"> --}}
       <link rel="stylesheet" href="https://cdn.bootcss.com/framework7/2.2.5/css/framework7.css">
       <link rel="stylesheet" type="text/css" href="https://framework7io.github.io/framework7-template-vue-simple/css/icons.css">
+    <script>
+    @if(site_information()->option_value != 'none')
+        if(screen.availWidth > 800 ) {
+            document.cookie = "screen=desktop";
+            window.location.href = "{{ url('/') }}";
+        }
+    @endif
+    </script>
 
 </head>
 <body>

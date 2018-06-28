@@ -13,17 +13,7 @@ Route::group(['prefix' => 'bp-admin','namespace'  =>  'BpAdmin', 'middleware' =>
 
 
 
-Route::get('lang/{locale}', function ($locale) {
-      if($locale == "mm"){
-            Session::put('applocale', 'mm');
-            App::setLocale($locale);
-      } else {
-            Session::put('applocale', 'en');
-            App::setLocale("en");
-      }    
-      $locale = App::getLocale();
-      return redirect()->back();
-});
+
 
 
 // Route::group(['prefix' => 'api/v1','namespace'  => 'Api\Ver1', 'middleware' => 'auth:api'], function () {

@@ -16,6 +16,15 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset("/assets/bptheme1/css/main.css") }}">
     
+    <script>
+    @if(site_information()->option_value != 'none')
+        if(screen.availWidth < 800 ) {
+            document.cookie = "screen=mobile";
+            window.location.href = "{{ url('/mobile') }}";
+        }
+    @endif
+    </script>
+
 </head>
 <body>
     <div class="container-fluid">

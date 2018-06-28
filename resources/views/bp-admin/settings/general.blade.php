@@ -41,7 +41,13 @@
                         @foreach ($options as $c)
                         <tr>
                             <td>{{$c->option_name}}</td>
-                            <td>{{Form::text($c->option_name, $c->option_value,['class'=>'form-control'])}}</td>
+                            <td>
+                                @if($c->option_name == 'mobile_theme')
+                                    {{Form::text($c->option_name, $c->option_value,['class'=>'form-control','placeholder' => 'none'])}}
+                                @else 
+                                    {{Form::text($c->option_name, $c->option_value,['class'=>'form-control'])}}
+                                @endif
+                            </td>
                            
                         </tr>
                         @endforeach

@@ -30,13 +30,22 @@ class FrontController extends Controller
      */
 
     public function __construct(){
-        $this->themes = Bp_options::where('option_name','theme')->first();
+        $this->theme = Bp_options::where('option_name','theme')->first();
+        $this->mobile_theme = Bp_options::where('option_name','mobile_theme')->first();
         $this->categories = Bp_tax::where('tax_type','category')->get()->all($arrayName = array('tax_name'));
         $this->post_link = Bp_post::select('post_link','id')->get();
     }
 
     public function t(){
-        return $t = "theme.".$this->themes->option_value.".";
+
+        if(isset($_COOKIE['screen']) && $this->mobile_theme->option_value != "none") {
+            if($_COOKIE['screen'] == 'mobile' ) {
+                return $t = "theme.".$this->mobile_theme->option_value.".";
+            } 
+        }
+
+        return $t = "theme.".$this->theme->option_value.".";
+        
     }
 
     public function template($query, $templateName) {
@@ -54,6 +63,10 @@ class FrontController extends Controller
     }
 
     public function index(){
+        return view($this->t().'index', ['title' => 'home' ,  'categories' => $this->categories,'post_link'=>$this->post_link ]);
+    }
+
+    public function mobile(){
         return view($this->t().'index', ['title' => 'home' ,  'categories' => $this->categories,'post_link'=>$this->post_link ]);
     }
 

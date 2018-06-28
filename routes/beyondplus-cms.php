@@ -82,6 +82,8 @@ Route::group(['middleware' => 'web'], function () {
 
       });
 
+      Route::get('/mobile', 'Front\FrontController@index');
+      
       Route::get('/', 'Front\FrontController@index');
       Route::get('/sitemap', 'Front\FrontController@sitemap');
       Route::get('/rss', 'Front\FrontController@rss');
@@ -90,10 +92,22 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('/detail/{name}', 'Front\FrontController@post');
       Route::get('/cat/{name}', 'Front\FrontController@cat');
 
+
       Route::get('/test', function(){
          return abort(404);
       });
 
       
+      Route::get('lang/{locale}', function ($locale) {
+            if($locale == "mm"){
+                  Session::put('applocale', 'mm');
+                  App::setLocale($locale);
+            } else {
+                  Session::put('applocale', 'en');
+                  App::setLocale("en");
+            }    
+            $locale = App::getLocale();
+            return redirect()->back();
+      });
 
   });

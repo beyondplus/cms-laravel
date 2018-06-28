@@ -211,6 +211,7 @@ return [
         'bp_module' => App\Models\Bp_module::class,
         'bp_custom' => App\Models\Bp_custom::class,
         'bp_messages' => App\Models\Bp_messages::class,
+        'bp_options' => App\Models\Bp_options::class,
 
         'Notification' => Illuminate\Support\Facades\Notification::class,
     ],

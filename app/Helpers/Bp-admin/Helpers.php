@@ -256,3 +256,7 @@ function langauge($chose_id = null) {
 function slidebar() {
     return bp_module::orderBy('module_weight')->where('parent_id',0)->where('section',1)->with('child')->get();
 }
+
+function site_information() {
+    return bp_options::where('option_name','mobile_theme')->first();
+}
