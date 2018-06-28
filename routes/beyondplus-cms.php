@@ -81,8 +81,6 @@ Route::group(['middleware' => 'web'], function () {
       Route::resource('custom', 'CustomController');
 
       });
-
-      Route::get('/mobile', 'Front\FrontController@index');
       
       Route::get('/', 'Front\FrontController@index');
       Route::get('/sitemap', 'Front\FrontController@sitemap');

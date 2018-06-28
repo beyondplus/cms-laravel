@@ -66,10 +66,6 @@ class FrontController extends Controller
         return view($this->t().'index', ['title' => 'home' ,  'categories' => $this->categories,'post_link'=>$this->post_link ]);
     }
 
-    public function mobile(){
-        return view($this->t().'index', ['title' => 'home' ,  'categories' => $this->categories,'post_link'=>$this->post_link ]);
-    }
-
     public function menu($name) {
         $query = Bp_menu::where('menu_link',$name)->get();
         if(count($query) > 0){
