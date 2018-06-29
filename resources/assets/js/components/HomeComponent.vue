@@ -31,15 +31,24 @@
       <f7-page>
         <f7-navbar>
           
-          <f7-nav-title>My App</f7-nav-title>
+          <f7-nav-title>Beyond Plus CMS</f7-nav-title>
           <f7-nav-right>
             <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="right"></f7-link>
           </f7-nav-right>
         </f7-navbar>
         <f7-block strong>
-          <p>Here is your blank Framework7 app. Let's see what we have here.</p>
+          <p>Innovation Means Never Stop Learning.</p>
         </f7-block>
         <f7-block-title>Navigation</f7-block-title>
+        <template v-for="post in posts">
+          <f7-card :padding="true" >
+            <f7-card-header>{{post.title}}</f7-card-header>
+            <f7-card-content :padding="true">
+              <p>{{post.body}}</p>
+              <img v-bind:src="'/uploads/'+post.featured_img" class="lazy lazy-fade-in img-responsive">
+            </f7-card-content>
+          </f7-card>
+        </template>
         <f7-list>
           <f7-list-item link="/about/" title="About"></f7-list-item>
           <f7-list-item link="/form/" title="Form"></f7-list-item>
@@ -113,26 +122,33 @@
 </template>
 
 <script>
+import axios from 'axios';
 Vue.component('page-about',require('./PageAboutComponent.vue'));
   Vue.component('page-form', require('./PageFormComponent.vue'));
   Vue.component('page-dynamic-routing',require('./PageDynamicRoutingComponent.vue'));
   Vue.component('page-not-found', require('./PageNotFoundComponent.vue'));
 
-  import {f7List, f7ListItem, f7Panel,f7View,f7Page,f7Navbar,f7Statusbar,f7BlockTitle,f7Block,f7NavLeft,f7Link,f7NavTitle,f7NavRight,f7Toolbar,f7Row,f7Col,f7Button,f7Popup,f7LoginScreen,f7LoginScreenTitle,f7Label,f7Input,f7ListButton,f7BlockFooter} from 'framework7-vue'
+  import {f7List, f7ListItem, f7Panel,f7View,f7Page,f7Navbar,f7Statusbar,f7BlockTitle,f7Block,f7NavLeft,f7Link,f7NavTitle,f7NavRight,f7Toolbar,f7Row,f7Col,f7Button,f7Popup,f7LoginScreen,f7LoginScreenTitle,f7Label,f7Input,f7ListButton,f7BlockFooter,f7Card, f7CardHeader, f7CardContent, f7CardFooter} from 'framework7-vue'
   export default {
+    data() {
+      return {
+        posts: [{title : "" , body : "", featured_img : "default.jpg"}],
+        errors: []
+      }
+    },
     components: {
       f7List, f7ListItem, 
       f7Panel,
       f7View,
       f7Page,
       f7Navbar,
-      f7Statusbar,f7BlockTitle,f7Block,f7NavLeft,f7Link,f7NavTitle,f7NavRight,f7Toolbar,f7Row,f7Col,f7Button,f7Popup,f7LoginScreen,f7LoginScreenTitle,f7Label,f7Input,f7ListButton,f7BlockFooter
+      f7Statusbar,f7BlockTitle,f7Block,f7NavLeft,f7Link,f7NavTitle,f7NavRight,f7Toolbar,f7Row,f7Col,f7Button,f7Popup,f7LoginScreen,f7LoginScreenTitle,f7Label,f7Input,f7ListButton,f7BlockFooter,f7Card, f7CardHeader, f7CardContent, f7CardFooter
     },
       // Init Framework7 by passing parameters here
   
     framework7: {
       root: '#app', // App root element
-      id: 'io.framework7.testapp', // App bundle ID
+      id: 'net.beyondplus.cms', // App bundle ID
       name: 'Framework7', // App name
       theme: 'auto', // Automatic theme detection
       // App routes
@@ -159,8 +175,19 @@ Vue.component('page-about',require('./PageAboutComponent.vue'));
         },
       ],
     },
+    methods : {
+      postPost() {
+        axios.post('/api/10')
+          .then(response =>  {
+            this.posts = response.data.data
+          })
+          .catch(e => {
+            this.errors.push(e)
+        })
+      }
+    },
     mounted() {
-      console.log('Component mounted.')
+      this.postPost()
     }
   }
 </script>

@@ -47,7 +47,6 @@
 	<div class="row">
 		<div class="col-sm-12 posts">
 			<div class="row">
-
 				@foreach (bp_post(8) as $post)
 				<div class="col-lg-3 col-sm-6 portfolio-item mb-4">
 					@if(App::getLocale() == 'mm')

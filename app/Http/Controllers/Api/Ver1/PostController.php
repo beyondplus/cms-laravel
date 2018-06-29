@@ -8,17 +8,23 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use Session;
 use App\User;
 
-class Posts extends Controller
+class PostController extends Controller
 {
-    //http://localhost/beyondplus/api/v1/note/1?api_token=r27bHi9jwClte3W8MypKXXqpMCvIRZErVOttKsz9SNf14xKwtK6J1rjWE9Zc
-    public function index(){
-        return response()->json(
-            User::where('id', Auth::guard('api')->id())
-            ->get()
-        );
+    public function index($limit){
+        // $this->tokenValidate($token);
+        return bp_post($limit);
     }
+
+    //http://localhost/beyondplus/api/v1/note/1?api_token=r27bHi9jwClte3W8MypKXXqpMCvIRZErVOttKsz9SNf14xKwtK6J1rjWE9Zc
+    // public function index(){
+    //     return response()->json(
+    //         User::where('id', Auth::guard('api')->id())
+    //         ->get()
+    //     );
+    // }
 
     public function create(){
 
@@ -46,4 +52,10 @@ class Posts extends Controller
         
     }
 
+    private function tokenValidate($token) {
+        if (Session::token() != $token)
+        {
+            abort(404);
+        }
+    }
 }
