@@ -23,6 +23,7 @@ class UserTableSeeder extends Seeder
             'api_token'     => str_random(60),
             'avatar'        => 'http://lorempixel.com/150/150/people/?55009',
             'phone_no'      => '1-428-547-2288',
+            'verified'      => '1',
             'created_at'    => '2016-06-3 00:36:29'
         ]);
         for ($i=0; $i < 5; $i++) {
@@ -34,6 +35,7 @@ class UserTableSeeder extends Seeder
                 'api_token'     => str_random(60),
                 'avatar'        => 'http://lorempixel.com/150/150/people/?55009',
                 'phone_no'      => '1-428-547-2288',
+                'verified'      => '0',
                 'created_at'    => '2016-06-3 00:36:29'     
             ];
             User::insert($user);
