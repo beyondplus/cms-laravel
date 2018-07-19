@@ -17,6 +17,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset("/assets/bptheme1/css/main.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("/assets/bptheme1/css/menu.css") }}">
     
     <script>
         // Theme switching 

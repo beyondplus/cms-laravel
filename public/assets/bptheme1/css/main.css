@@ -533,3 +533,8 @@ Main Components
 .container {
   padding: 20px;
 }
+
+.reset-margin {
+  margin-right:-15px;
+  margin-left:-15px;
+}
