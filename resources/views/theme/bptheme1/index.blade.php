@@ -91,7 +91,7 @@
 		                <a href="{{url('/'.$post->post_link) }}" name="" >{{ $post->title }}</a>
 		              </h4>
 		              <p class="card-text">
-		              {{ str_replace("&nbsp;","",mb_strimwidth(strip_tags($post->body), 0, 150, "...")) }}
+		              {{ str_replace("&nbsp;","",substr(strip_tags($post->body), 0, 100)) }}...
 		              </p>
 		            </div>
 		            <div class="card-footer text-right">
