@@ -33,7 +33,7 @@
 							<img src="{{url('/uploads/'.$post->featured_img)}}" class="img-thumbnail">
 						</div>
 						<div class="col-sm-10 html">
-							{!! $post->body !!}
+							{!! bbParse($post->body) !!}
 						</div>
 						<div class="col-sm-2">
 							

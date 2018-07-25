@@ -260,3 +260,32 @@ function slidebar() {
 function site_information($filter = 'mobile_theme') {
     return bp_options::where('option_name',$filter)->first();
 }
+
+
+function showBlock($id) {
+
+    try {
+        $block = bp_block::find($id);        
+    } finally {}
+
+    if(isset($block->body)) {
+        $para = "<h2 classs='block-title-$block->id'>$block->title</h2>";
+        $para .= "<p>$block->body</p>";
+        return $para;
+    } else {
+        return "";
+    }
+    
+}
+
+function bbParse($string) { 
+    $tags = 'block'; 
+    while (preg_match_all('`\[('.$tags.')=?(.*?)\](.+?)\[/\1\]`', $string, $matches)) foreach ($matches[0] as $key => $match) { 
+        list($tag, $param, $innertext) = array($matches[1][$key], $matches[2][$key], $matches[3][$key]); 
+        switch ($tag) { 
+            case 'block': $replacement = showBlock($innertext); break; 
+        } 
+        $string = str_replace($match, $replacement, $string); 
+    } 
+    return $string; 
+} 
