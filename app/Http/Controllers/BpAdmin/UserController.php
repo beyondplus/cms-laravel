@@ -36,7 +36,6 @@ class UserController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required', 
-            'role' => 'required',
             'email'=> 'required',
             'password'=> 'required'
         ]);
@@ -46,6 +45,7 @@ class UserController extends Controller
         }
 
         $inputs = $request->all();
+        $inputs['role'] = 1;
         $inputs['api_token'] = str_random(60);
         $inputs['password'] = bcrypt($request->input('password'));
         User::create($inputs);
@@ -68,6 +68,7 @@ class UserController extends Controller
     public function update($id, Request $request)
     {
         $inputs = $request->all();
+        $inputs['role'] = 1;
         $inputs['password'] = bcrypt($request->input('password'));
         User::findOrFail($id)->update($inputs);
         return redirect()->to('bp-admin/user');
