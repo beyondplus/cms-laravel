@@ -34,6 +34,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Type</th>
                             <th>Email</th>
                             <th>Created Date</th>
                             <th>Actions</th>
@@ -44,7 +45,8 @@
                         
                         
                         <tr>
-                            <td>{{$adminaccount->name}}</a></td>
+                            <td>{{$adminaccount->name}}</td>
+                            <td>{{role_type($adminaccount->role)}}</td>
                             <td>{{$adminaccount->email}}</td>
                             <td>{{$adminaccount->created_at}}</td>
                             <td>

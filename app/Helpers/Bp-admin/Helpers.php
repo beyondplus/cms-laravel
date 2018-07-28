@@ -238,8 +238,13 @@ function uploadPath() {
     return public_path().'/uploads/';
 }
 
-function role_type() {
+function role_type($type = null) {
     $role_type = [1=>'user',2=>'staff',3=>'admin',4=>'superadmin'];
+
+    if($type) {
+        $role_type = $role_type[$type];
+    }
+
     return $role_type;
 }
 

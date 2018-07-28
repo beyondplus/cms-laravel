@@ -25,8 +25,7 @@ class UserController extends Controller
     }
 
      public function index(Request $request){
-        $user = User::orderBy('id', 'DESC')
-            ->get();
+        $user = User::orderBy('id', 'DESC')->where('role',1)->get();
         return view('bp-admin.user.index',array('user' => $user ));
     }
 

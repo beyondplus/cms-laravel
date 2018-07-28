@@ -22,10 +22,7 @@ class AccountController extends Controller
     }
 
      public function index(){
-        $adminaccounts = Admin:: get();
-
-
-
+        $adminaccounts = Admin::where('role','!=','1')->get();
         return view('bp-admin.account.index')->with(compact('adminaccounts'));
     }
 
