@@ -29,6 +29,7 @@ class ModuleTableSeeder extends Seeder
                     array("Add Post","ပုိစ့္ထည့္ျခင္း","post/create",2,"fa fa-home",2,0),
                     array("Category","က႑တ","category",2,"fa fa-edit",2,0),
                     array("Taxonomy","က႑တခြဲ","tax",2,"fa fa-table",2,0),
+                    array("Block","ေဘာက္ေလာက္တုန္း","block",2,"fa fa-table",2,0),
                     array("Account","အေကာင့္","account",0,"fa fa-desktop",8,0),
                     array("Permission","ခြင့္ျပဳခ်က္","permission",0,"fa fa-windows",8,0),
                     array("Generals","အေျခခံ","general",0,"fa fa-bug",8,1)

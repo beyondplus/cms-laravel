@@ -12,12 +12,12 @@ class CreateBpCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bp_comments', function (Blueprint $table) {
-            $table->increments('comment_id');
-            $table->integer('customer_id');
-            $table->text('comment_value');
-            $table->string('comment_active', 3);
-            $table->integer('comment_created');
+        Schema::create('bp_comment', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('post_id');
+            $table->integer('user_id');
+            $table->text('body');
+            $table->string('active', 3);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateBpCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bp_comments');
+        Schema::drop('bp_comment');
     }
 }

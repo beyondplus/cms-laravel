@@ -11,7 +11,7 @@ class Bp_block extends Model
 
     protected $fillable = [
 
-         'title', 'body','block_active','translate_id','staff_id','lang','created_at'
+         'title', 'body','block_url','block_active','translate_id','staff_id','lang','created_at'
 
     ];
 

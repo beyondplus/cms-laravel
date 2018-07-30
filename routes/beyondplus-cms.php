@@ -36,6 +36,10 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('post/delete/{id}','PostController@destroy');
 
 
+      Route::resource('block', 'BlockController');
+      Route::get('block/{id}/translate', 'BlockController@translate');
+      Route::get('block/delete/{id}','BlockController@destroy');
+
       Route::resource('page', 'PageController');
       Route::get('page/{id}/translate', 'PageController@translate');
       Route::get('page/delete/{id}','PageController@destroy');

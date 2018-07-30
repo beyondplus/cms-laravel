@@ -12,7 +12,7 @@ class CreateBpMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('bp_medias', function (Blueprint $table) {
+        Schema::create('bp_media', function (Blueprint $table) {
             $table->increments('media_id');
             $table->string('media_name');
             $table->string('media_link');
