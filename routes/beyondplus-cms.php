@@ -89,6 +89,7 @@ Route::group(['middleware' => 'web'], function () {
       Route::get('/', 'Front\FrontController@index');
       Route::get('/sitemap', 'Front\FrontController@sitemap');
       Route::get('/rss', 'Front\FrontController@rss');
+      Route::post('/comment', 'Front\FrontController@comment');
       
       Route::get('/{name}', 'Front\FrontController@menu');
       Route::get('/detail/{name}', 'Front\FrontController@post');

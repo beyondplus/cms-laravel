@@ -17,7 +17,7 @@ class CreateBpCommentsTable extends Migration
             $table->integer('post_id');
             $table->integer('user_id');
             $table->text('body');
-            $table->string('active', 3);
+            $table->string('active', 3)->default('no');
             $table->timestamps();
         });
     }

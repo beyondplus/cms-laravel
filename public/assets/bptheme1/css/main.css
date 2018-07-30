@@ -116,6 +116,7 @@ h1 {
 
 .main_bg {
 //  background: #ededed;
+  padding-top: 50px;
   min-height: 400px; }
 
 .main_adv {
@@ -537,4 +538,8 @@ Main Components
 .reset-margin {
   margin-right:-15px;
   margin-left:-15px;
+}
+
+.img-responsive {
+  width: 100%;
 }

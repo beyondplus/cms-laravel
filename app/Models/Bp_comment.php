@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bp_comment extends Model
 {
     protected $primaryKey = 'id';
-    protected $table = 'Bp_comment';
+    protected $table = 'bp_comment';
 
     protected $fillable = [
     	 'id', 'post_id','user_id','body','active','created_at','updated_at'
@@ -15,6 +15,6 @@ class Bp_comment extends Model
 
   	public function users()
     {
-        return $this->hasMany('App\Models\User','id', 'user_id');
+        return $this->hasMany('App\User','id', 'user_id');
     }
 }

@@ -17,7 +17,7 @@ use App\Models\Bp_menu;
 use App\Models\Bp_relationship;
 use App\Models\Bp_options;
 use App\Models\User;
-use App\Models\Comments;
+use App\Models\Bp_comment;
 use App\Http\Requests\PriorityRequest;
 use DB;
 
@@ -38,11 +38,11 @@ class FrontController extends Controller
 
     public function t(){
 
-        if(isset($_COOKIE['screen']) && $this->mobile_theme->option_value != "none") {
-            if($_COOKIE['screen'] == 'mobile' ) {
-                return $t = "theme.".$this->mobile_theme->option_value.".";
-            } 
-        }
+        // if(isset($_COOKIE['screen']) && $this->mobile_theme->option_value != "none") {
+        //     if($_COOKIE['screen'] == 'mobile' ) {
+        //         return $t = "theme.".$this->mobile_theme->option_value.".";
+        //     } 
+        // }
 
         return $t = "theme.".$this->theme->option_value.".";
         
@@ -80,7 +80,7 @@ class FrontController extends Controller
      }
 
      public function detail($name) {
-        $bp_post = Bp_post::with('translate')->where('post_link', $name)->first();
+        $bp_post = Bp_post::with('comment')->with('translate')->where('post_link', $name)->first();
 
         $view = $this->template($bp_post, 'single');
         return view($view, ['title' => 'home', 'post' => $bp_post,'post_link'=>$this->post_link ]);
@@ -119,14 +119,14 @@ class FrontController extends Controller
 
     // To Do Comment and Search
 
-    // public function comment(Request $request){
-    //    $this->middleware('auth');
-    //    Qanda::where('que_id','=', $request->input('que_id'))->increment('comment_count', 1);
-    //    $inputs = $request->all();
-    //    $inputs['customer_id'] = Auth::user()->id;
-    //    Comments::create($inputs);
-    //     return 1;
-    // }
+    public function comment(Request $request){
+        $this->middleware('auth');
+        // Qanda::where('que_id','=', $request->input('que_id'))->increment('comment_count', 1);
+        $inputs = $request->all();
+        $inputs['user_id'] = Auth::user()->id;
+        Bp_comment::create($inputs);
+        return 1;
+    }
 
     // public function search($q){
     //     $product= Product::where('name','=',$q)->paginate(10);

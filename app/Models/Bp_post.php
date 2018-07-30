@@ -34,4 +34,9 @@ class Bp_post extends Model
     {
         return $this->belongsTo('App\Models\Bp_post','id','translate_id');
     }
+
+    public function comment()
+    {
+        return $this->hasMany('App\Models\Bp_comment','post_id','id');
+    }
 }
