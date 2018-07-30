@@ -30,6 +30,6 @@ class CreateBpMediaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bp_medias');
+        Schema::drop('bp_media');
     }
 }

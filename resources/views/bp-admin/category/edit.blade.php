@@ -12,7 +12,7 @@
                             <h4>Form </h4>
                         </div>
                         <div class="col-sm-5 text-right">
-                            <b><i>{{ langauge($post->lang) }}</i></b>
+                            <b><i>{{ langauge($category->lang) }}</i></b>
                         </div>
                     </div>
                 <!-- /.box-header -->
@@ -35,6 +35,14 @@
                                 <label class="control-label">Image</label>
                                 {{ Form::file('tax_icon',null,array('class'=>'form-control')) }}
                                 {{ Form::hidden('tax_icon',null,array('class'=>'form-control')) }}
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Type</label>
+                                {{Form::select('tax_type', [
+                                    'cat' => 'Category',
+                                    'tax' => 'Taxanomy',
+                                    'other' => 'Other',
+                                ],  null, ['class'=> 'form-control'])}}
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Parent Name</label>

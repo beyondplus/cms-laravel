@@ -21,18 +21,18 @@ class CategoryController extends Controller
         $this->middleware('admins');
     }
 
-	public function index(){
+    public function index(){
 
-		$category = Bp_tax::with('translate')->orderBy('tax_name')->where('tax_type','cat')->where('lang',1)->paginate(13);
+        $category = Bp_tax::with('translate')->orderBy('tax_id','desc')->where('lang',1)->paginate(13);
         return view('bp-admin.category.index', array('category' => $category));
-	}
+    }
 
-	public function create(){
+    public function create(){
         $categories= Bp_tax::get()->pluck('tax_name','tax_id');
         return view('bp-admin.category.add', array('categories' => $categories));
-	}
+    }
 
-	public function store(Request $request){
+    public function store(Request $request){
         // $this->validate($request, [
         // 'title' => 'required',
         // 'description' => 'required'
@@ -40,7 +40,6 @@ class CategoryController extends Controller
 
         $inputs = $request->all();
         $inputs['tax_link'] = formatUrl($request->input('tax_name'));
-        $inputs['tax_type'] = $this->tax_name ;
 
         if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
         $destinationPath = uploadPath();
@@ -56,11 +55,11 @@ class CategoryController extends Controller
         }
 
 
-		Bp_tax::create($inputs);
+        Bp_tax::create($inputs);
         return redirect()->to('bp-admin/category');
-	}
+    }
 
-	public function edit($id)
+    public function edit($id)
     {
         try {
             $category = Bp_tax::findOrFail($id);
@@ -77,7 +76,6 @@ class CategoryController extends Controller
         $inputs = $request->all();
      //   $inputs = $request->except('_token', '_method');
         $inputs['tax_link'] = formatUrl($request->input('tax_name'));
-        $inputs['tax_type'] = $this->tax_name ;
 
         if ($request->file('tax_icon') && $request->file('tax_icon')->isValid()) {
             $destinationPath = uploadPath();

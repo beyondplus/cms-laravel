@@ -37,6 +37,15 @@
                                 {{ Form::file('tax_icon',null,array('class'=>'form-control')) }}
                             </div>
                             <div class="form-group">
+                                <label class="control-label">Type</label>
+                                {{Form::select('tax_type', [
+                                    'cat' => 'Category',
+                                    'tax' => 'Taxanomy',
+                                    'other' => 'Other',
+                                ],  null, ['class'=> 'form-control'])}}
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label">Parent Name</label>
                                {{ Form::select('parent_id',bp_select_taxes('cat'),0, array('class' => 'form-control', 'placeholder' => 'Choose Parent ...'))}}
                             </div> 
